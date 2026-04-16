@@ -32,7 +32,6 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li><Link href="/games" className="text-gray-500 hover:text-accent transition-colors">All Games</Link></li>
               <li><Link href="/featured" className="text-gray-500 hover:text-accent transition-colors">Our Games</Link></li>
-              <li><Link href="/trending" className="text-gray-500 hover:text-accent transition-colors">Trending</Link></li>
               <li><Link href="/new" className="text-gray-500 hover:text-accent transition-colors">New Games</Link></li>
             </ul>
           </div>

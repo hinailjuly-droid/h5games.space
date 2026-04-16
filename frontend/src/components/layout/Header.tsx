@@ -20,7 +20,6 @@ export default function Header() {
 
   const navLinks = [
     { name: "Explore", href: "/games" },
-    { name: "Trending", href: "/trending" },
     { name: "Categories", href: "/#categories" },
     { name: "Blog", href: "/blog" },
     { name: "About", href: "/about" },
