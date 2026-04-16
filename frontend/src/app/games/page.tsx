@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import { gamesApi } from "@/lib/api";
@@ -9,7 +10,7 @@ import { ChevronLeft, ChevronRight, LayoutGrid } from "lucide-react";
 import Button from "@/components/ui/Button";
 import AdSlot from "@/components/ads/AdSlot";
 
-export default function GamesPage() {
+function GamesPageContent() {
   const searchParams = useSearchParams();
   
   const page = parseInt(searchParams.get('page') || '1');
@@ -151,3 +152,5 @@ function Pagination({ currentPage, totalPages, searchParams }: any) {
     </div>
   );
 }
+
+export default function GamesPage() { return ( <Suspense fallback={<div className='min-h-screen bg-black flex items-center justify-center text-white/20 italic font-black uppercase tracking-tighter'>Loading Games...</div>}><GamesPageContent /></Suspense> ); }

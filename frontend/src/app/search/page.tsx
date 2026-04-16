@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import { gamesApi } from "@/lib/api";
@@ -8,7 +9,7 @@ import { Search as SearchIcon, XCircle, Lightbulb } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { useState, useEffect } from "react";
 
-export default function SearchPage() {
+function SearchPageContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
   const [searchInput, setSearchInput] = useState(query);
@@ -96,3 +97,5 @@ export default function SearchPage() {
     </div>
   );
 }
+
+export default function SearchPage() { return ( <Suspense fallback={<div className='min-h-screen bg-black flex items-center justify-center text-white/20 italic font-black uppercase tracking-tighter'>Loading Search...</div>}><SearchPageContent /></Suspense> ); }

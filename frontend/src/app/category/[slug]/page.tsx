@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useSearchParams } from "next/navigation";
 import { gamesApi } from "@/lib/api";
@@ -8,7 +9,7 @@ import { ChevronRight, Gamepad2, LayoutGrid, Star, TrendingUp } from "lucide-rea
 import Link from "next/link";
 import Badge from "@/components/ui/Badge";
 
-export default function CategoryPage() {
+function CategoryPageContent() {
   const { slug } = useParams();
   const searchParams = useSearchParams();
   const page = parseInt(searchParams.get('page') || '1');
@@ -96,5 +97,13 @@ export default function CategoryPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function CategoryPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center text-white/20 italic font-black uppercase tracking-tighter">Loading Category...</div>}>
+      <CategoryPageContent />
+    </Suspense>
   );
 }

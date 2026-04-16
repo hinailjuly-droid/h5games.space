@@ -5,6 +5,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { adminApi } from "@/lib/api";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import Button from "@/components/ui/Button";
+import Badge from "@/components/ui/Badge";
 import { 
   Settings, 
   ShieldCheck, 

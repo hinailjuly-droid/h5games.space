@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+import Badge from "@/components/ui/Badge";
 import { DashboardData } from "@/types";
 
 export default function AdminDashboardPage() {
