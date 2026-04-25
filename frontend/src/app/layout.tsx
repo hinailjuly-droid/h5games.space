@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Browse and play premium HTML5 games for free on H5GAMES SPACE. Full-screen experience, zero downloads, and mobile friendly. The ultimate open-source games portal.",
   keywords: "h5games space, h5 games space, h5games, free browser games, open source games, play online, arcade games",
   verification: {
-    google: "klhefXtPtglnAChIv7xhLIMBSsdlXOQxO3dlcrckAcI",
+    google: "jAKellkBv8NUvrk-_Hy5XrP0cBwJJeTOjGqgZqPCaRs",
   },
 };
 
