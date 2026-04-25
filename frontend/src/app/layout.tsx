@@ -21,14 +21,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <head>
-        <script
+      <head />
+      <body>
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8194925511868451"
           crossOrigin="anonymous"
-        ></script>
-      </head>
-      <body>
+          strategy="afterInteractive"
+        />
         <Providers>
           <div className="flex flex-col min-h-screen">
             <Header />
