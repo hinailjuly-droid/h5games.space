@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const BlogPost = require('./src/models/BlogPost');
+const BlogPost = require('../src/models/BlogPost');
 require('dotenv').config();
 
 const MONGODB_URI = process.env.MONGODB_URI;
