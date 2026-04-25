@@ -74,6 +74,7 @@ const getGames = async (req, res) => {
     };
 
     await setCache(cacheKey, result, 3600); // 1 hour
+    res.setHeader('Cache-Control', 'public, max-age=120, stale-while-revalidate=60');
     res.json(result);
   } catch (error) {
     console.error('getGames error:', error);
@@ -94,6 +95,7 @@ const getFeaturedGames = async (req, res) => {
       .lean();
 
     await setCache('games:featured', games, 3600);
+    res.setHeader('Cache-Control', 'public, max-age=300, stale-while-revalidate=60');
     res.json(games);
   } catch (error) {
     console.error('getFeaturedGames error:', error);
@@ -153,6 +155,7 @@ const getCategories = async (req, res) => {
     }));
 
     await setCache('categories', result, 3600);
+    res.setHeader('Cache-Control', 'public, max-age=3600, stale-while-revalidate=60');
     res.json(result);
   } catch (error) {
     console.error('getCategories error:', error);
