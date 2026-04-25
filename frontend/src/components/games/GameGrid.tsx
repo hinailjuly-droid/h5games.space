@@ -37,7 +37,7 @@ export default function GameGrid({ games, isLoading }: GameGridProps) {
           transition={{ duration: 0.4, delay: index * 0.05 }}
           viewport={{ once: true }}
         >
-          <GameCard game={game} />
+          <GameCard game={game} priority={index < 8} />
         </motion.div>
       ))}
     </div>

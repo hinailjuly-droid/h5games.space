@@ -9,9 +9,10 @@ import Badge from "../ui/Badge";
 
 interface GameCardProps {
   game: Game;
+  priority?: boolean;
 }
 
-export default function GameCard({ game }: GameCardProps) {
+export default function GameCard({ game, priority }: GameCardProps) {
   const categoryArt: Record<string, string> = {
     Action: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop",
     Puzzle: "https://images.unsplash.com/photo-1586281314110-66122d48c78f?q=80&w=800&auto=format&fit=crop",
@@ -40,8 +41,9 @@ export default function GameCard({ game }: GameCardProps) {
               src={game.thumbnail && (game.thumbnail.startsWith('http') || game.thumbnail.startsWith('/')) ? game.thumbnail : fallbackImage}
               alt={game.title}
               fill
+              priority={priority}
               className="object-cover transition-transform duration-500 group-hover:scale-110"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 20vw"
             />
           </div>
           

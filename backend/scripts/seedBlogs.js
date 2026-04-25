@@ -40,7 +40,7 @@ const newPosts = [
     slug: "ethics-indie-gaming-github",
     content: "At h5games space, our foundation is built on respect for the creator. The indie gaming scene on GitHub is a vibrant ecosystem where developers share their code, experiments, and passion projects freely. However, 'free to play' should never mean 'ignored.' We take pride in our 'Open Source First' philosophy, which ensures every game we host points back to its original creator's repository. Supporting these developers means more than just playing their games; it means acknowledging their licenses, contributing to their issues, and sharing their work with the world. This symbiotic relationship between portals and developers is what keeps the web gaming scene alive and flourishing.",
     excerpt: "Behind every game is a developer. Discover how h5games space supports the open-source community and the importance of creator attribution.",
-    coverImage: "https://images.unsplash.com/photo-1522071823991-b99c273c15c0?q=80&w=1200&auto=format&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop",
     category: "Community",
     readTime: "6 min read",
     featured: false
@@ -50,7 +50,7 @@ const newPosts = [
     slug: "retrogaming-2026-browser-emulation",
     content: "Nostalgia is a powerful force. The games we played in our childhood continue to influence modern design and mechanics. Thanks to advancements in web technology, the browser has become a flawless emulation powerhouse. Titles that once required specialized hardware can now be played with a single click. We explore the rise of 'Retro-Inspired' H5 games—new titles that use 8-bit and 16-bit aesthetics but leverage modern web APIs for social features and cloud saves. On h5games space, our retro category remains one of our most popular, proving that great game design is truly timeless.",
     excerpt: "Why retro-style gaming is making a massive comeback in the browser and如何 the latest web tech is preserving gaming history.",
-    coverImage: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=1200&auto=format&fit=crop",
     category: "Culture",
     readTime: "8 min read",
     featured: false
@@ -64,13 +64,12 @@ async function seed() {
     console.log('✅ Connected.');
 
     for (const post of newPosts) {
-      const exists = await BlogPost.findOne({ slug: post.slug });
-      if (!exists) {
-          await BlogPost.create(post);
-          console.log(`➕ Added: ${post.title}`);
-      } else {
-          console.log(`⏭️  Skipped (exists): ${post.title}`);
-      }
+      await BlogPost.findOneAndUpdate(
+        { slug: post.slug },
+        post,
+        { upsert: true, new: true }
+      );
+      console.log(`✅ Synced: ${post.title}`);
     }
 
     console.log('🏁 Seeding finished successfully.');

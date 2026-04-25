@@ -4,15 +4,15 @@ import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Gamepad2, TrendingUp, Star, LayoutGrid, Search, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { gamesApi } from "@/lib/api";
+import { blogApi, gamesApi } from "@/lib/api";
 import GameGrid from "@/components/games/GameGrid";
 import GameCard from "@/components/games/GameCard";
 import Button from "@/components/ui/Button";
 import AdSlot from "@/components/ads/AdSlot";
 import { Game, Category, BlogPost } from "@/types";
-import { blogApi } from "@/lib/api";
 import BlogCard from "@/components/BlogCard";
-import { BookOpen } from "lucide-react";
+import Image from "next/image";
+import { BookOpen, Flame as FlameIcon } from "lucide-react";
 
 export default function HomePage() {
   const { data: featuredGames, isLoading: featuredLoading } = useQuery<Game[]>({
@@ -184,10 +184,11 @@ export default function HomePage() {
                     className="relative flex flex-col items-center justify-center h-48 bg-primary-light border border-white/5 rounded-2xl overflow-hidden group shadow-lg"
                   >
                     <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-colors duration-500" />
-                    <img 
+                    <Image 
                       src={getCategoryThumbnail(cat.name)} 
                       alt={cat.name} 
-                      loading="lazy"
+                      fill
+                      sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
                       className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-125 transition-transform duration-700 scale-110 origin-top-left" 
                     />
                     <div className="relative z-20 flex flex-col items-center p-4">
@@ -209,7 +210,7 @@ export default function HomePage() {
           <div>
             <div className="flex items-center gap-3 mb-10">
               <div className="w-12 h-12 bg-red-500/10 text-red-500 rounded-xl flex items-center justify-center">
-                <Flame size={28} />
+                <FlameIcon size={28} />
               </div>
               <h2 className="text-3xl font-black text-white uppercase italic">Trending <span className="text-red-500">Now</span></h2>
             </div>
@@ -318,6 +319,6 @@ function Badge({ children, variant, className, ...props }: any) {
   );
 }
 
-function Flame({ size }: { size: number }) {
-  return <TrendingUp size={size} className="text-red-500" />;
+function Flame() {
+  return <FlameIcon size={28} className="text-red-500" />;
 }
