@@ -70,7 +70,7 @@ export default function HomePage() {
       'Board Games': '/assets/categories/board.png',
       'Multiplayer': '/assets/categories/multiplayer.png',
     };
-    return (mapping[name] || '/assets/categories/puzzle.png') + '?v=3';
+    return (mapping[name] || '/assets/categories/puzzle.png');
   };
 
   function ShieldCheck({ size }: { size: number }) {
