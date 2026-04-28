@@ -113,9 +113,6 @@ export default function GameDetailPage() {
               />
             </div>
 
-            {/* AdSlot - Below Game */}
-            <AdSlot position="game_bottom" />
-
             {/* Game Details Section */}
             <div className="bg-primary-light border border-white/5 rounded-[2rem] p-8 md:p-12">
               <div className="flex items-center gap-4 mb-8">
@@ -170,9 +167,6 @@ export default function GameDetailPage() {
             </div>
             
             <Newsletter />
-
-            {/* AdSlot - Sidebar */}
-            <AdSlot position="game_sidebar" />
 
             {/* Related Games */}
             <div>
