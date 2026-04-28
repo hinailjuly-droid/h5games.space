@@ -88,10 +88,11 @@ export default function GamePlayer({ playUrl, githubUrl, title, standalone }: Ga
             key={key}
             src={playUrl}
             title={title}
+            referrerPolicy="no-referrer"
             className="w-full h-full border-none"
             sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock"
             allow="fullscreen; autoplay; gamepad"
-            loading="lazy"
+            loading="eager"
           />
 
           {/* Controls Overlay (appears on hover) */}
