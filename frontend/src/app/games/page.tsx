@@ -1,26 +1,37 @@
-"use client";
-
-import { Suspense } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { useSearchParams } from "next/navigation";
-import { gamesApi } from "@/lib/api";
+import { serverApi } from "@/lib/api-server";
 import GameGrid from "@/components/games/GameGrid";
 import GameFilters from "@/components/games/GameFilters";
-import { ChevronLeft, ChevronRight, LayoutGrid } from "lucide-react";
-import Button from "@/components/ui/Button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 import AdSlot from "@/components/ads/AdSlot";
+import { Metadata } from "next";
 
-function GamesPageContent() {
-  const searchParams = useSearchParams();
+export const metadata: Metadata = {
+  title: "Browse Games | H5GAMES SPACE",
+  description: "Browse thousands of free HTML5 games across multiple categories.",
+};
+
+interface Props {
+  searchParams: Promise<{
+    page?: string;
+    category?: string;
+    sort?: string;
+    search?: string;
+  }>;
+}
+
+export default async function GamesPage({ searchParams }: Props) {
+  const { page: pageStr, category, sort, search } = await searchParams;
   
-  const page = parseInt(searchParams.get('page') || '1');
-  const category = searchParams.get('category') || '';
-  const sort = searchParams.get('sort') || 'stars';
-  const search = searchParams.get('search') || '';
+  const page = parseInt(pageStr || '1');
+  const limit = 44;
 
-  const { data, isLoading } = useQuery({
-    queryKey: ['games', { page, category, sort, search }],
-    queryFn: () => gamesApi.getGames({ page, category, sort, search, limit: 44 }),
+  const data = await serverApi.getGames({ 
+    page, 
+    category: category || '', 
+    sort: sort || 'stars', 
+    search: search || '', 
+    limit 
   });
 
   return (
@@ -50,7 +61,6 @@ function GamesPageContent() {
           <div className="lg:col-span-3">
             <GameGrid 
               games={data?.games || []} 
-              isLoading={isLoading} 
             />
 
             {/* AdSlot - List Inline */}
@@ -62,7 +72,9 @@ function GamesPageContent() {
                 <Pagination 
                   currentPage={page} 
                   totalPages={data.pagination.pages} 
-                  searchParams={searchParams} 
+                  category={category}
+                  sort={sort}
+                  search={search}
                 />
               </div>
             )}
@@ -73,15 +85,15 @@ function GamesPageContent() {
   );
 }
 
-function Pagination({ currentPage, totalPages, searchParams }: any) {
-  const router = typeof window !== 'undefined' ? require('next/navigation').useRouter() : null;
-  const pathname = typeof window !== 'undefined' ? require('next/navigation').usePathname() : '';
-
-  const handlePageChange = (newPage: number) => {
-    const params = new URLSearchParams(searchParams);
-    params.set('page', newPage.toString());
-    router.push(`${pathname}?${params.toString()}`);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+function Pagination({ currentPage, totalPages, category, sort, search }: any) {
+  const getUrl = (p: number) => {
+    const params = new URLSearchParams();
+    if (p > 1) params.set('page', p.toString());
+    if (category) params.set('category', category);
+    if (sort) params.set('sort', sort);
+    if (search) params.set('search', search);
+    const query = params.toString();
+    return `/games${query ? `?${query}` : ''}`;
   };
 
   const pages = [];
@@ -94,63 +106,71 @@ function Pagination({ currentPage, totalPages, searchParams }: any) {
 
   return (
     <div className="flex items-center gap-3">
-      <button
-        disabled={currentPage === 1}
-        onClick={() => handlePageChange(currentPage - 1)}
-        className="w-10 h-10 rounded-xl border border-white/5 bg-primary-light flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all disabled:opacity-30 disabled:cursor-not-allowed group"
-      >
-        <ChevronLeft size={20} className="group-hover:-translate-x-0.5 transition-transform" />
-      </button>
+      {currentPage > 1 ? (
+        <Link
+          href={getUrl(currentPage - 1)}
+          className="w-10 h-10 rounded-xl border border-white/5 bg-primary-light flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all group"
+        >
+          <ChevronLeft size={20} className="group-hover:-translate-x-0.5 transition-transform" />
+        </Link>
+      ) : (
+        <div className="w-10 h-10 rounded-xl border border-white/5 bg-primary-light flex items-center justify-center text-gray-400 opacity-30 cursor-not-allowed">
+          <ChevronLeft size={20} />
+        </div>
+      )}
       
       <div className="flex items-center gap-2">
         {startPage > 1 && (
           <>
-            <button 
-              onClick={() => handlePageChange(1)} 
-              className="w-10 h-10 rounded-xl text-sm font-black text-gray-500 hover:text-white hover:bg-white/5 transition-all"
+            <Link 
+              href={getUrl(1)} 
+              className="w-10 h-10 rounded-xl text-sm font-black text-gray-500 hover:text-white hover:bg-white/5 transition-all flex items-center justify-center"
             >
               1
-            </button>
+            </Link>
             <span className="text-gray-700 font-bold px-1">...</span>
           </>
         )}
         
         {pages.map((p) => (
-          <button
+          <Link
             key={p}
-            onClick={() => handlePageChange(p)}
-            className={`w-10 h-10 rounded-xl text-sm font-black transition-all ${
+            href={getUrl(p)}
+            className={`w-10 h-10 rounded-xl text-sm font-black transition-all flex items-center justify-center ${
               currentPage === p 
                 ? 'bg-accent text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] ring-1 ring-white/20' 
                 : 'text-gray-500 hover:text-white hover:bg-white/10 border border-transparent hover:border-white/10'
             }`}
           >
             {p}
-          </button>
+          </Link>
         ))}
 
         {endPage < totalPages && (
           <>
             <span className="text-gray-700 font-bold px-1">...</span>
-            <button 
-              onClick={() => handlePageChange(totalPages)} 
-              className="w-10 h-10 rounded-xl text-sm font-black text-gray-500 hover:text-white hover:bg-white/5 transition-all"
+            <Link 
+              href={getUrl(totalPages)} 
+              className="w-10 h-10 rounded-xl text-sm font-black text-gray-500 hover:text-white hover:bg-white/5 transition-all flex items-center justify-center"
             >
               {totalPages}
-            </button>
+            </Link>
           </>
         )}
       </div>
 
-      <button
-        disabled={currentPage === totalPages}
-        onClick={() => handlePageChange(currentPage + 1)}
-        className="w-10 h-10 rounded-xl border border-white/5 bg-primary-light flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all disabled:opacity-30 disabled:cursor-not-allowed group"
-      >
-        <ChevronRight size={20} className="group-hover:translate-x-0.5 transition-transform" />
-      </button>
+      {currentPage < totalPages ? (
+        <Link
+          href={getUrl(currentPage + 1)}
+          className="w-10 h-10 rounded-xl border border-white/5 bg-primary-light flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all group"
+        >
+          <ChevronRight size={20} className="group-hover:translate-x-0.5 transition-transform" />
+        </Link>
+      ) : (
+        <div className="w-10 h-10 rounded-xl border border-white/5 bg-primary-light flex items-center justify-center text-gray-400 opacity-30 cursor-not-allowed">
+          <ChevronRight size={20} />
+        </div>
+      )}
     </div>
   );
 }
-
-export default function GamesPage() { return ( <Suspense fallback={<div className='min-h-screen bg-black flex items-center justify-center text-white/20 italic font-black uppercase tracking-tighter'>Loading Games...</div>}><GamesPageContent /></Suspense> ); }

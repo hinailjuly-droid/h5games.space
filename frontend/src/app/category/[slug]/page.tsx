@@ -1,30 +1,53 @@
-"use client";
-
-import { Suspense } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { useParams, useSearchParams } from "next/navigation";
-import { gamesApi } from "@/lib/api";
+import { serverApi } from "@/lib/api-server";
 import GameGrid from "@/components/games/GameGrid";
 import { ChevronRight, Gamepad2, LayoutGrid, Star, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import Badge from "@/components/ui/Badge";
+import { Metadata } from "next";
 
-function CategoryPageContent() {
-  const { slug } = useParams();
-  const searchParams = useSearchParams();
-  const page = parseInt(searchParams.get('page') || '1');
-  
-  // Format slug to proper category name (e.g. "board-card" -> "Board & Card")
-  const categoryName = (slug as string)
+interface Props {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ page?: string }>;
+}
+
+export async function generateStaticParams() {
+  try {
+    const categories = await serverApi.getCategories();
+    return categories.map((cat: any) => ({
+      slug: cat.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '')
+    }));
+  } catch (error) {
+    return [];
+  }
+}
+
+function formatCategoryName(slug: string) {
+  return slug
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
-    .replace('Board Card', 'Board & Card');
+    .replace('Board Card', 'Board & Card')
+    .replace('Strategy Simulation', 'Strategy & Simulation')
+    .replace('Card Solitaire', 'Card & Solitaire')
+    .replace('Action Arcade', 'Action & Arcade');
+}
 
-  const { data, isLoading } = useQuery({
-    queryKey: ['games', { category: categoryName, page }],
-    queryFn: () => gamesApi.getGames({ category: categoryName, page, limit: 24 }),
-  });
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const categoryName = formatCategoryName(slug);
+  return {
+    title: `${categoryName} Games | Play Free HTML5 Games`,
+    description: `Browse the best free ${categoryName} games on H5GAMES SPACE. No downloads required.`
+  };
+}
+
+export default async function CategoryPage({ params, searchParams }: Props) {
+  const { slug } = await params;
+  const { page: pageStr } = await searchParams;
+  const page = parseInt(pageStr || '1');
+  const categoryName = formatCategoryName(slug);
+
+  const data = await serverApi.getGames({ category: categoryName, page, limit: 24 });
 
   const categoryIcons: Record<string, any> = {
     Action: Gamepad2,
@@ -40,7 +63,6 @@ function CategoryPageContent() {
     <div className="pb-20">
       {/* Category Hero */}
       <div className="bg-primary-light/50 border-b border-white/5 pt-12 pb-16 relative overflow-hidden">
-        {/* Background Blur */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-[100px] -z-10" />
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-600/5 rounded-full blur-[80px] -z-10" />
 
@@ -73,7 +95,7 @@ function CategoryPageContent() {
           </h2>
         </div>
 
-        <GameGrid games={data?.games || []} isLoading={isLoading} />
+        <GameGrid games={data?.games || []} />
 
         {/* Simplistic Pagination for Category Page */}
         {data && data.pagination.pages > 1 && (
@@ -97,13 +119,5 @@ function CategoryPageContent() {
         )}
       </div>
     </div>
-  );
-}
-
-export default function CategoryPage() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center text-white/20 italic font-black uppercase tracking-tighter">Loading Category...</div>}>
-      <CategoryPageContent />
-    </Suspense>
   );
 }

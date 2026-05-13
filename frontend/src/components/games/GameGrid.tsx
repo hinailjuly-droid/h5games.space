@@ -1,3 +1,5 @@
+"use client";
+
 import { Game } from "@/types";
 import GameCard from "./GameCard";
 import { motion } from "framer-motion";
