@@ -7,10 +7,27 @@ import { Category } from "@/types";
 
 interface CategoryGridProps {
   categories: Category[];
-  getThumbnail: (name: string) => string;
 }
 
-export default function CategoryGrid({ categories, getThumbnail }: CategoryGridProps) {
+const getCategoryThumbnail = (name: string) => {
+  const mapping: Record<string, string> = {
+    'Puzzle': '/assets/categories/puzzle.png',
+    'Mahjong': '/assets/categories/mahjong.png',
+    'Hidden Object': '/assets/categories/hidden_object.png',
+    'Card & Solitaire': '/assets/categories/card_solitaire.png',
+    'Match 3': '/assets/categories/match3.png',
+    'Action & Arcade': '/assets/categories/action_arcade.png',
+    'Sports': '/assets/categories/sports.png',
+    'Racing': '/assets/categories/racing.png',
+    'Strategy & Simulation': '/assets/categories/strategy_sim.png',
+    'Word Games': '/assets/categories/word.png',
+    'Board Games': '/assets/categories/board.png',
+    'Multiplayer': '/assets/categories/multiplayer.png',
+  };
+  return (mapping[name] || '/assets/categories/puzzle.png');
+};
+
+export default function CategoryGrid({ categories }: CategoryGridProps) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {categories.filter(c => c.name !== 'Other').map((cat, index) => (
@@ -28,7 +45,7 @@ export default function CategoryGrid({ categories, getThumbnail }: CategoryGridP
           >
             <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-colors duration-500" />
             <Image 
-              src={getThumbnail(cat.name)} 
+              src={getCategoryThumbnail(cat.name)} 
               alt={cat.name} 
               fill
               sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"

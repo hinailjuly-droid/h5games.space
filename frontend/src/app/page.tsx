@@ -27,60 +27,6 @@ export default async function HomePage() {
     serverApi.getCategories()
   ]);
 
-  const getCategoryThumbnail = (name: string) => {
-    const mapping: Record<string, string> = {
-      'Puzzle': '/assets/categories/puzzle.png',
-      'Mahjong': '/assets/categories/mahjong.png',
-      'Hidden Object': '/assets/categories/hidden_object.png',
-      'Card & Solitaire': '/assets/categories/card_solitaire.png',
-      'Match 3': '/assets/categories/match3.png',
-      'Action & Arcade': '/assets/categories/action_arcade.png',
-      'Sports': '/assets/categories/sports.png',
-      'Racing': '/assets/categories/racing.png',
-      'Strategy & Simulation': '/assets/categories/strategy_sim.png',
-      'Word Games': '/assets/categories/word.png',
-      'Board Games': '/assets/categories/board.png',
-      'Multiplayer': '/assets/categories/multiplayer.png',
-    };
-    return (mapping[name] || '/assets/categories/puzzle.png');
-  };
-
-  return (
-    <div className="flex flex-col gap-20 pb-20">
-      {/* Hero Section */}
-      <HomeHero />
-
-      {/* AdSlot - Home Hero */}
-      <AdSlot position="home_hero" className="container mx-auto px-4" />
-
-      {/* Featured Games Section */}
-      <section className="container mx-auto px-4">
-        <div className="flex items-end justify-between mb-10">
-          <div>
-            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-2 uppercase italic">
-              Our <span className="text-accent italic tracking-normal underline decoration-white/10">Games</span>
-            </h2>
-            <p className="text-gray-500 font-medium">Hand-picked premium titles from our curators.</p>
-          </div>
-          <Link href="/games" className="text-accent font-black uppercase text-sm tracking-widest hover:text-white transition-colors flex items-center gap-2 group">
-            Explore All <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-
-        <GameGrid games={featuredGames?.slice(0, 30) || []} />
-
-        <div className="mt-16 flex justify-center">
-          <Link href="/games">
-            <button className="relative group overflow-hidden bg-accent text-white font-black italic text-2xl px-12 py-5 rounded-2xl transition-all shadow-2xl shadow-accent/20 hover:scale-[1.02] active:scale-95 border border-white/20">
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-              <span className="relative z-10 flex items-center gap-3 drop-shadow-md">
-                VIEW ALL GAMES <ChevronRight size={28} className="group-hover:translate-x-2 transition-transform" />
-              </span>
-            </button>
-          </Link>
-        </div>
-      </section>
-
       {/* Categories Grid */}
       <section id="categories" className="bg-primary-light/30 py-24 border-y border-white/5">
         <div className="container mx-auto px-4">
@@ -91,7 +37,7 @@ export default async function HomePage() {
             <div className="w-20 h-1.5 bg-accent mx-auto rounded-full" />
           </div>
 
-          <CategoryGrid categories={categories} getThumbnail={getCategoryThumbnail} />
+          <CategoryGrid categories={categories} />
         </div>
       </section>
 
