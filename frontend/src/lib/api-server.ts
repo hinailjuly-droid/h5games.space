@@ -56,5 +56,14 @@ export const serverApi = {
 
   getLatestBlogPosts: (limit = 3) => {
     return fetchFromApi(`/blog?limit=${limit}&featured=true`, { next: { revalidate: 3600, tags: ['blog'] } });
+  },
+
+  getBlogPosts: (params: any = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return fetchFromApi(`/blog?${query}`, { next: { revalidate: 3600, tags: ['blog'] } });
+  },
+
+  getPostBySlug: (slug: string) => {
+    return fetchFromApi(`/blog/${slug}`, { next: { revalidate: 86400, tags: [`blog-${slug}`] } });
   }
 };

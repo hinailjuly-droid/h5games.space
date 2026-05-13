@@ -1,28 +1,24 @@
-"use client";
-
-import { useQuery } from "@tanstack/react-query";
-import { blogApi } from "@/lib/api";
+import { serverApi } from "@/lib/api-server";
 import BlogCard from "@/components/BlogCard";
 import { BlogResponse } from "@/types";
-import { Loader2, Search, Filter } from "lucide-react";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import Link from "next/link";
 
-export default function BlogListingPage() {
-  const [page, setPage] = useState(1);
+interface Props {
+  searchParams: Promise<{ page?: string }>;
+}
 
-  const { data, isLoading } = useQuery<BlogResponse>({
-    queryKey: ['blog', 'posts', page],
-    queryFn: () => blogApi.getPosts({ page, limit: 10 }),
-  });
+export const revalidate = 3600; // Revalidate every hour
 
-
-  if (isLoading) {
-    return (
-      <div className="flex bg-black min-h-screen items-center justify-center">
-        <Loader2 className="animate-spin text-accent" size={48} />
-      </div>
-    );
+export default async function BlogListingPage({ searchParams }: Props) {
+  const params = await searchParams;
+  const page = parseInt(params.page || "1");
+  
+  let data: BlogResponse;
+  try {
+    data = await serverApi.getBlogPosts({ page, limit: 10 });
+  } catch (error) {
+    console.error("Error fetching blog posts:", error);
+    data = { posts: [], pagination: { total: 0, page: 1, limit: 10, pages: 0, hasNext: false, hasPrev: false } };
   }
 
   const posts = data?.posts || [];
@@ -31,31 +27,25 @@ export default function BlogListingPage() {
 
   return (
     <div className="bg-black min-h-screen pb-32">
-      {/* Header Section */}
-      <section className="relative py-24 overflow-hidden border-b border-white/5 bg-primary-light/10">
-        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:40px_40px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-        
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/20 border border-accent/20 text-accent text-xs font-black uppercase italic mb-8"
-          >
-            h5games space blog
-          </motion.div>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white italic uppercase tracking-tighter mb-8 max-w-5xl mx-auto leading-none">
-            Level up your <span className="text-accent underline decoration-white/10">knowledge</span>
-          </h1>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">
-            Dive into the technical mechanics, history, and future of browser-based gaming with our expert guides and developer spotlight.
-          </p>
+      {/* Simpler Header Section for AdSense */}
+      <section className="pt-20 pb-10">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center text-center">
+            <div className="px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-black uppercase italic mb-6">
+              H5GAMES SPACE BLOG
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black text-white italic uppercase tracking-tighter mb-4">
+              Latest <span className="text-accent">Articles</span>
+            </h1>
+            <p className="text-gray-500 max-w-2xl mx-auto font-medium">
+              Gaming guides, developer insights, and technical browser gaming news.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Filters & Content */}
-      <div className="container mx-auto px-4 -mt-10 relative z-20">
-
+      {/* Content */}
+      <div className="container mx-auto px-4 mt-10 relative z-20">
         {/* Featured Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredPost && (
@@ -77,13 +67,13 @@ export default function BlogListingPage() {
         {data && data.pagination.pages > 1 && (
           <div className="mt-20 flex justify-center gap-4">
             {Array.from({ length: data.pagination.pages }).map((_, i) => (
-              <button
+              <Link
                 key={i}
-                onClick={() => setPage(i + 1)}
+                href={`/blog?page=${i + 1}`}
                 className={`w-12 h-12 rounded-2xl font-black text-sm transition-all border flex items-center justify-center ${page === i + 1 ? 'bg-accent text-white border-accent shadow-lg shadow-accent/20' : 'bg-primary-light text-gray-500 border-white/5 hover:border-white/20'}`}
               >
                 {i + 1}
-              </button>
+              </Link>
             ))}
           </div>
         )}

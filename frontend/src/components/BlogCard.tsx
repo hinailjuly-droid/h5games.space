@@ -29,9 +29,7 @@ export default function BlogCard({ post, featured }: BlogCardProps) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute top-4 left-4 z-10">
-          <Badge variant="accent" className="bg-accent text-white border-none shadow-lg">
-            {post.category}
-          </Badge>
+          {/* Category removed as per request */}
         </div>
       </Link>
 

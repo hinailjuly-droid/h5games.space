@@ -60,9 +60,7 @@ export default function BlogPostPage() {
             <ArrowLeft size={16} /> Back to Blog
           </Link>
           
-          <Badge variant="accent" className="w-fit mb-6 px-4 py-1.5 text-xs font-black uppercase italic shadow-lg">
-            {post.category}
-          </Badge>
+          {/* Category removed as per request */}
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white italic uppercase tracking-tighter mb-8 max-w-5xl leading-none">
             {post.title}
