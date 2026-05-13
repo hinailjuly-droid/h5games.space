@@ -9,7 +9,7 @@ interface Props {
 
 export async function generateStaticParams() {
   try {
-    const slugs = await serverApi.getAllGameSlugs();
+    const slugs = await serverApi.getAllGameSlugs(200); // Pre-render top 200 games for build stability
     return slugs.map((slug: string) => ({ slug }));
   } catch (error) {
     console.error("Error generating static params:", error);

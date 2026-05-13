@@ -2,7 +2,7 @@ const rateLimit = require('express-rate-limit');
 
 const publicLimiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
-  max: 100,
+  max: 2000, // Increased to allow SSG build to complete
   message: { error: 'Too many requests, please try again later.' },
   standardHeaders: true,
   legacyHeaders: false,

@@ -48,9 +48,9 @@ export const serverApi = {
     return fetchFromApi('/games/categories', { next: { revalidate: 86400, tags: ['categories'] } });
   },
 
-  getAllGameSlugs: async () => {
-    // Fetch a large number of games to get slugs for SSG
-    const data = await fetchFromApi('/games?limit=2000', { next: { revalidate: 3600 } });
+  getAllGameSlugs: async (limit = 2000) => {
+    // Fetch games to get slugs for SSG
+    const data = await fetchFromApi(`/games?limit=${limit}`, { next: { revalidate: 3600 } });
     return data.games.map((g: any) => g.slug);
   },
 
