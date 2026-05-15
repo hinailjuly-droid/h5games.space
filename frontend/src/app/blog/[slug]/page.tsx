@@ -47,6 +47,7 @@ export default function BlogPostPage() {
           src={post.coverImage}
           alt={post.title}
           fill
+          unoptimized={true}
           className="object-cover opacity-60"
           priority
         />

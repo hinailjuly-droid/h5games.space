@@ -25,6 +25,7 @@ export default function BlogCard({ post, featured }: BlogCardProps) {
           src={post.coverImage}
           alt={post.title}
           fill
+          unoptimized={true}
           className="object-cover transition-transform duration-700 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />

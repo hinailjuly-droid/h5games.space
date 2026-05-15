@@ -41,6 +41,7 @@ export default function GameCard({ game, priority }: GameCardProps) {
               src={game.thumbnail && (game.thumbnail.startsWith('http') || game.thumbnail.startsWith('/')) ? game.thumbnail : fallbackImage}
               alt={game.title}
               fill
+              unoptimized={true}
               priority={priority}
               className="object-cover transition-transform duration-500 group-hover:scale-110"
               sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 20vw"
