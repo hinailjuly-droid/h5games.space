@@ -24,7 +24,7 @@ export default function RootLayout({
       <head>
         <script 
           async 
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4300791954530897"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8194925511868451"
           crossOrigin="anonymous"
           data-overlays="false"
         ></script>
