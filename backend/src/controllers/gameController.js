@@ -37,7 +37,12 @@ const getGames = async (req, res) => {
     if (language) query.language = language;
     if (license) query.license = license;
     if (search) {
-      query.$text = { $search: search };
+      const searchRegex = new RegExp(search.trim(), 'i');
+      query.$or = [
+        { title: searchRegex },
+        { name: searchRegex },
+        { tags: searchRegex }
+      ];
     }
 
     // Sort options
@@ -175,17 +180,23 @@ const searchGames = async (req, res) => {
     const limitNum = Math.min(2000, Math.max(1, parseInt(limit)));
     const skip = (pageNum - 1) * limitNum;
 
+    const searchRegex = new RegExp(q.trim(), 'i');
     const query = {
       active: true,
-      $text: { $search: q.trim() }
+      $or: [
+        { title: searchRegex },
+        { name: searchRegex },
+        { tags: searchRegex },
+        { category: searchRegex }
+      ]
     };
     if (category && CATEGORIES.includes(category)) {
       query.category = category;
     }
 
     const [games, total] = await Promise.all([
-      Game.find(query, { score: { $meta: 'textScore' } })
-        .sort({ score: { $meta: 'textScore' } })
+      Game.find(query)
+        .sort({ stars: -1, plays: -1 })
         .skip(skip)
         .limit(limitNum)
         .select('-customDescription -__v')
