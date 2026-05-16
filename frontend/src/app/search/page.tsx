@@ -2,7 +2,7 @@
 
 import { Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { gamesApi } from "@/lib/api";
 import GameGrid from "@/components/games/GameGrid";
 import { Search as SearchIcon, XCircle, Lightbulb } from "lucide-react";
@@ -10,6 +10,7 @@ import Button from "@/components/ui/Button";
 import { useState, useEffect } from "react";
 
 function SearchPageContent() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
   const [searchInput, setSearchInput] = useState(query);
@@ -20,14 +21,32 @@ function SearchPageContent() {
     enabled: query.length > 1,
   });
 
+  // Live Search via Debounce
   useEffect(() => {
-    setSearchInput(query);
+    const timer = setTimeout(() => {
+      const trimmed = searchInput.trim();
+      if (trimmed !== query.trim()) {
+        if (trimmed.length > 1) {
+          router.replace(`/search?q=${encodeURIComponent(trimmed)}`);
+        } else if (trimmed.length === 0 && query) {
+          router.replace(`/search`);
+        }
+      }
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [searchInput, query, router]);
+
+  // Sync back from URL if user uses browser history
+  useEffect(() => {
+    if (query !== searchInput && searchInput === '') {
+      setSearchInput(query);
+    }
   }, [query]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchInput.trim().length > 1) {
-      window.location.href = `/search?q=${encodeURIComponent(searchInput.trim())}`;
+      router.push(`/search?q=${encodeURIComponent(searchInput.trim())}`);
     }
   };
 
