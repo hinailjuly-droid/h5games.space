@@ -63,6 +63,21 @@ export default function GamesManagerPage() {
             </h1>
             <p className="text-gray-500 font-medium tracking-tight">Manage, edit, and verify all games in the database.</p>
           </div>
+          <Button 
+            onClick={async () => {
+               if (confirm("Start the AI content generation? This will run in the background and may take hours.")) {
+                  try {
+                     const res = await adminApi.triggerAiGeneration();
+                     alert("AI Generator Started! It will run in the background.");
+                  } catch (err) {
+                     alert("Failed to start AI generation. Make sure GEMINI_API_KEY is configured on the backend.");
+                  }
+               }
+            }}
+            className="bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-bold px-6 py-3"
+          >
+            Start AI Generator
+          </Button>
         </div>
 
         {/* Filters Bar */}

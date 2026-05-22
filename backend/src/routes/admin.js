@@ -37,5 +37,6 @@ router.post('/games/bulk', bulkAction);
 router.post('/fetch', triggerFetch);
 router.get('/analytics', getAnalytics);
 router.put('/settings/password', changePassword);
+router.post('/generate-descriptions', require('../controllers/adminController').triggerAiGeneration);
 
 module.exports = router;

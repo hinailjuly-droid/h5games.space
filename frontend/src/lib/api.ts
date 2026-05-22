@@ -101,6 +101,10 @@ export const adminApi = {
     const { data } = await api.get('/admin/analytics');
     return data;
   },
+  triggerAiGeneration: async () => {
+    const { data } = await api.post('/admin/generate-descriptions');
+    return data;
+  },
   changePassword: async (passwords: any) => {
     const { data } = await api.put('/admin/settings/password', passwords);
     return data;

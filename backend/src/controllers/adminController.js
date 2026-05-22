@@ -389,6 +389,20 @@ const changePassword = async (req, res) => {
     res.status(500).json({ error: 'Failed to change password' });
   }
 };
+// POST /api/admin/generate-descriptions
+const triggerAiGeneration = async (req, res) => {
+  try {
+    const { startBackgroundGeneration } = require('../services/aiService');
+    
+    // Start it in the background
+    startBackgroundGeneration().catch(console.error);
+    
+    res.json({ message: 'Background AI Generation started successfully. This will take a while.' });
+  } catch (error) {
+    console.error('triggerAiGeneration error:', error);
+    res.status(500).json({ error: 'Failed to start AI generation' });
+  }
+};
 
 module.exports = {
   login,
@@ -403,5 +417,6 @@ module.exports = {
   triggerFetch,
   bulkAction,
   getAnalytics,
-  changePassword
+  changePassword,
+  triggerAiGeneration
 };
