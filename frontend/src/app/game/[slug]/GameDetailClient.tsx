@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { gamesApi } from "@/lib/api";
 import { Game } from "@/types";
 import Badge from "@/components/ui/Badge";
@@ -9,6 +9,7 @@ import { Star, Eye, Play, Share2, ChevronRight, Quote } from "lucide-react";
 import Link from "next/link";
 import GamePlayer from "@/components/games/GamePlayer";
 import Newsletter from "@/components/Newsletter";
+import { generateGameGuide } from "@/lib/generateDescription";
 
 interface GameDetailClientProps {
   game: Game & { related: Game[] };
@@ -96,20 +97,10 @@ export default function GameDetailClient({ game }: GameDetailClientProps) {
                <h2 className="text-2xl md:text-3xl font-black text-white italic uppercase tracking-tighter mb-6 border-b border-white/10 pb-4">
                  Game Guide & Review
                </h2>
-               {game.customDescription ? (
-                 <div 
-                   className="prose prose-invert max-w-none prose-lg text-gray-300 prose-headings:text-white prose-headings:font-black prose-headings:italic prose-headings:uppercase prose-a:text-accent prose-strong:text-white prose-p:leading-loose prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3" 
-                   dangerouslySetInnerHTML={{ __html: game.customDescription }} 
-                 />
-               ) : (
-                 <div className="prose prose-invert max-w-none">
-                   <div className="text-lg text-gray-300 leading-relaxed flex gap-4">
-                     <Quote className="text-accent shrink-0" size={32} />
-                     <p className="italic font-medium">{game.description || "No description available for this game."}</p>
-                   </div>
-                   <p className="text-sm text-gray-500 mt-6 italic font-medium bg-black/20 p-4 rounded-lg inline-block border border-white/5">Detailed game guide coming soon...</p>
-                 </div>
-               )}
+               <div 
+                 className="prose prose-invert max-w-none prose-lg text-gray-300 prose-headings:text-white prose-headings:font-black prose-headings:italic prose-headings:uppercase prose-a:text-accent prose-strong:text-white prose-p:leading-loose prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3" 
+                 dangerouslySetInnerHTML={{ __html: game.customDescription || generateGameGuide(game) }} 
+               />
                
                {game.tags && game.tags.length > 0 && (
                  <div className="mt-10 pt-8 border-t border-white/5">

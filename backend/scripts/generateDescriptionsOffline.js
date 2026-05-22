@@ -1,3 +1,5 @@
+const dns = require('dns');
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 require('dotenv').config();
 const mongoose = require('mongoose');
 const Game = require('../src/models/Game');
@@ -69,8 +71,7 @@ async function run() {
       </div>
     `;
 
-    game.customDescription = generatedHtml.trim();
-    await game.save();
+    await Game.updateOne({ _id: game._id }, { $set: { customDescription: generatedHtml.trim() } });
     
     if (i % 100 === 0 || i === games.length - 1) {
       console.log(`[${i + 1}/${games.length}] Saved description for: ${safeTitle}`);
