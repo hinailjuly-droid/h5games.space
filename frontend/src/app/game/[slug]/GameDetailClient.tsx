@@ -106,26 +106,25 @@ export default function GameDetailClient({ game }: GameDetailClientProps) {
               </div>
               
               <div className="prose prose-invert max-w-none">
-                <div className="text-lg text-gray-400 leading-relaxed mb-8 flex gap-4">
+                <div className="text-lg text-gray-300 leading-relaxed flex gap-4">
                   <Quote className="text-accent shrink-0" size={32} />
-                  <p className="italic font-medium">{game.description || "No description available for this game."}</p>
+                  <div className="flex flex-col gap-4">
+                    <p className="italic font-medium">{game.customDescription || game.description || "No description available for this game."}</p>
+                  </div>
                 </div>
-                
-                <div className="text-gray-300 space-y-4 text-base leading-loose whitespace-pre-line">
-                  <p>
-                    Welcome to the ultimate online gaming experience with {game.title}, a premier title in the {game.category} genre! Whether you are a casual player looking for some quick fun or a seasoned gamer aiming for high scores, {game.title} is designed to offer endless entertainment. Playable directly in your browser without any downloads, this game combines stunning visuals with smooth gameplay mechanics.
-                  </p>
-                  <p>
-                    In {game.title}, players will dive into beautifully crafted levels that challenge your reflexes, strategy, and problem-solving skills. The developers have optimized the game to run seamlessly on both desktop and mobile devices, ensuring you can enjoy uncompromised performance wherever you go. As part of our curated {game.category} collection, it stands out for its engaging dynamics and intuitive controls. Master the unique mechanics and beat your own records!
-                  </p>
-                  <p>
-                    Why wait? Dive into {game.title} right now and discover why it is so highly rated among players worldwide. Enjoy the captivating graphics, the immersive background score, and the thrill of the completely free gameplay that will keep you glued to your screen for hours!
-                  </p>
-                  <h3 className="text-xl font-bold text-white mt-8 mb-4">How to Play {game.title}</h3>
-                  <p>
-                    Getting started is incredibly easy! The game typically uses simple mouse clicks, taps, or basic keyboard controls depending on your device. Follow the on-screen tutorial during your first session to learn the core mechanics. Your main objective is to complete the level requirements, score maximum points, and unlock further challenges. Pay attention to power-ups and special items that appear—they can give you a massive advantage! Remember to save your progress and share your top scores with your friends.
-                  </p>
-                </div>
+
+                {game.tags && game.tags.length > 0 && (
+                  <div className="mt-8 pt-8 border-t border-white/5">
+                    <h3 className="text-sm font-black text-gray-500 uppercase tracking-widest mb-4">Tags</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {game.tags.map(tag => (
+                        <span key={tag} className="px-3 py-1 bg-white/5 hover:bg-accent/20 border border-white/10 hover:border-accent/50 transition-colors rounded-lg text-sm text-gray-300">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
