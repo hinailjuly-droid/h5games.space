@@ -2,10 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Star, Play, CheckCircle } from "lucide-react";
 import { Game } from "@/types";
-import Badge from "../ui/Badge";
 
 interface GameCardProps {
   game: Game;
@@ -29,68 +27,45 @@ export default function GameCard({ game, priority }: GameCardProps) {
   const fallbackImage = categoryArt[game.category] || categoryArt.Other;
 
   return (
-    <motion.div
-      whileHover={{ y: -8 }}
-      className="group relative bg-primary-light rounded-xl overflow-hidden border border-white/5 hover:border-accent/30 transition-all duration-300"
-    >
-      <Link href={`/game/${game.slug}`}>
-        <div className="relative aspect-[16/10] overflow-hidden">
-          {/* Thumbnail Image with Category Fallback */}
-          <div className="absolute inset-0 bg-primary-lighter">
-            <Image
-              src={game.thumbnail && (game.thumbnail.startsWith('http') || game.thumbnail.startsWith('/')) ? game.thumbnail : fallbackImage}
-              alt={game.title}
-              fill
-              unoptimized={true}
-              priority={priority}
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
-              sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 20vw"
-            />
+    <div className="group relative bg-[#1a1a1a] rounded-[14px] overflow-hidden cursor-pointer transition-all duration-200 hover:z-10 hover:scale-[1.03] shadow-md hover:shadow-2xl hover:shadow-[#4ade80]/20">
+      <Link href={`/game/${game.slug}`} className="block relative aspect-[16/10] w-full h-full">
+        <Image
+          src={game.thumbnail && (game.thumbnail.startsWith('http') || game.thumbnail.startsWith('/')) ? game.thumbnail : fallbackImage}
+          alt={game.title}
+          fill
+          unoptimized={true}
+          priority={priority}
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 640px) 45vw, (max-width: 1024px) 25vw, (max-width: 1536px) 15vw, 10vw"
+        />
+        
+        {/* Verification Badge (Top Left) */}
+        {game.verified && (
+          <div className="absolute top-2 left-2 bg-[#4ade80] text-black w-5 h-5 rounded flex items-center justify-center font-black shadow-md z-10" title="Verified">
+            <CheckCircle size={12} strokeWidth={3} />
           </div>
-          
-          {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent opacity-60" />
-          
-          {/* Hover Play Icon Overlay */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/40 backdrop-blur-sm">
-            <div className="w-14 h-14 bg-accent rounded-full flex items-center justify-center shadow-lg shadow-accent/50 scale-90 group-hover:scale-100 transition-transform duration-300">
-              <Play className="fill-white text-white ml-1" size={28} />
-            </div>
-          </div>
+        )}
 
-          {/* Verification Badge */}
-          {game.verified && (
-            <div className="absolute top-3 left-3 bg-green-500/90 text-white p-1 rounded-full backdrop-blur-sm">
-              <CheckCircle size={14} />
-            </div>
-          )}
-
-          {/* Stars Badge */}
-          <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1 text-xs font-bold text-yellow-400">
-            <Star size={12} className="fill-yellow-400" />
-            {game.stars > 1000 ? `${(game.stars / 1000).toFixed(1)}k` : game.stars}
-          </div>
+        {/* Bottom Left Badge */}
+        <div className="absolute bottom-2 left-2 bg-[#4ade80] px-1.5 py-0.5 rounded flex items-center gap-1 text-[11px] font-black text-black z-10 shadow-sm">
+          {game.stars > 1000 ? `${(game.stars / 1000).toFixed(1)}k` : game.stars}
         </div>
 
-        <div className="p-4">
-          <div className="flex items-start justify-between gap-2 mb-2">
-            <h3 className="font-bold text-white leading-tight line-clamp-1 group-hover:text-accent transition-colors">
-              {game.title}
-            </h3>
-          </div>
-          
-          <div className="flex items-center gap-2 mb-4">
-            <Badge variant="accent">{game.category}</Badge>
-            <span className="text-[10px] text-gray-500 font-mono uppercase tracking-wider">{game.license}</span>
-          </div>
+        {/* Bottom Right Badge (Age) */}
+        <div className="absolute bottom-2 right-2 bg-black/80 backdrop-blur-md px-1.5 py-0.5 rounded text-[10px] font-bold text-white/90 uppercase z-10">
+          13+
+        </div>
 
-          <div className="flex items-center justify-end mt-auto">
-            <div className="text-xs font-semibold text-accent opacity-0 group-hover:opacity-100 transition-opacity">
-              Play Now →
-            </div>
+        {/* Hover Overlay Title */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-end p-3 z-10">
+          <h3 className="font-bold text-white text-sm leading-tight truncate">
+            {game.title}
+          </h3>
+          <div className="flex items-center gap-1 mt-1 text-[#4ade80] text-xs font-bold">
+            <Play size={10} className="fill-[#4ade80]" /> Play Now
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }

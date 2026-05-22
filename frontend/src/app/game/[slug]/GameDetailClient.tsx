@@ -93,9 +93,12 @@ export default function GameDetailClient({ game }: GameDetailClientProps) {
 
             {/* Description / How to Play section */}
             <div className="bg-primary-light border border-white/5 rounded-2xl p-6 md:p-10 mt-4 shadow-lg">
+               <h2 className="text-2xl md:text-3xl font-black text-white italic uppercase tracking-tighter mb-6 border-b border-white/10 pb-4">
+                 Game Guide & Review
+               </h2>
                {game.customDescription ? (
                  <div 
-                   className="prose prose-invert max-w-none prose-lg text-gray-300 prose-headings:text-white prose-headings:font-black prose-headings:italic prose-headings:uppercase prose-a:text-accent prose-strong:text-white" 
+                   className="prose prose-invert max-w-none prose-lg text-gray-300 prose-headings:text-white prose-headings:font-black prose-headings:italic prose-headings:uppercase prose-a:text-accent prose-strong:text-white prose-p:leading-loose prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3" 
                    dangerouslySetInnerHTML={{ __html: game.customDescription }} 
                  />
                ) : (

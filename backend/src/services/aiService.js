@@ -18,7 +18,6 @@ async function startBackgroundGeneration(providedApiKey) {
   isGenerating = true;
   console.log("Starting background AI generation...");
 
-  // Inline generateDescription to easily use finalApiKey
   async function generateDescription(game) {
     const prompt = `
       You are an expert gaming journalist. Write a detailed, engaging description for a browser HTML5 game called "${game.title}". 
@@ -38,21 +37,15 @@ async function startBackgroundGeneration(providedApiKey) {
     `;
 
     try {
-      const response = await fetch(GEMINI_API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.7 }
-        }),
+      const axios = require('axios');
+      const response = await axios.post(GEMINI_API_URL, {
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: { temperature: 0.7 }
+      }, {
+        headers: { "Content-Type": "application/json" }
       });
 
-      if (!response.ok) {
-        throw new Error(`API Error ${response.status}`);
-      }
-
-      const data = await response.json();
-      let text = data.candidates[0].content.parts[0].text;
+      let text = response.data.candidates[0].content.parts[0].text;
       text = text.replace(/```html\n?/g, "").replace(/```\n?/g, "").trim();
       return text;
     } catch (err) {
