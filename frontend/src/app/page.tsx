@@ -7,54 +7,18 @@ import AdSlot from "@/components/ads/AdSlot";
 export const revalidate = 3600; // Revalidate every hour
 
 export default async function HomePage() {
-  const [
-    featuredGames,
-    trendingGames,
-    popularGames
-  ] = await Promise.all([
-    serverApi.getFeaturedGames(),
-    serverApi.getTrendingGames(),
-    serverApi.getPopularGames()
-  ]);
+  const gamesData = await serverApi.getGames({ limit: 48 });
 
   return (
     <div className="flex flex-col gap-8 pb-20 pt-4 px-4 max-w-[1920px] mx-auto w-full">
       
-      {/* Recommended Section (Featured) */}
+      {/* All Games Section */}
       <section>
-        <div className="flex items-center gap-3 mb-4 pl-2">
-          <div className="w-8 h-8 bg-[#4ade80]/10 text-[#4ade80] rounded-xl flex items-center justify-center">
-            <Sparkles size={18} />
-          </div>
-          <h2 className="text-2xl font-bold text-white tracking-tight">Recommended</h2>
-        </div>
-        <GameGrid games={featuredGames?.slice(0, 32) || []} />
+        <GameGrid games={gamesData?.games || []} />
       </section>
 
       {/* AdSlot - Middle */}
       <AdSlot position="home_hero" className="w-full my-2" />
-
-      {/* Trending Section */}
-      <section>
-        <div className="flex items-center gap-3 mb-4 pl-2">
-          <div className="w-8 h-8 bg-red-500/10 text-red-500 rounded-xl flex items-center justify-center">
-            <Flame size={18} />
-          </div>
-          <h2 className="text-2xl font-bold text-white tracking-tight">Trending Now</h2>
-        </div>
-        <GameGrid games={trendingGames?.slice(0, 24) || []} />
-      </section>
-
-      {/* Popular Section */}
-      <section>
-        <div className="flex items-center gap-3 mb-4 pl-2">
-          <div className="w-8 h-8 bg-blue-500/10 text-blue-500 rounded-xl flex items-center justify-center">
-            <Star size={18} />
-          </div>
-          <h2 className="text-2xl font-bold text-white tracking-tight">Most Played</h2>
-        </div>
-        <GameGrid games={popularGames?.slice(0, 24) || []} />
-      </section>
 
       <div className="mt-8 flex justify-center">
         <Link href="/games">
