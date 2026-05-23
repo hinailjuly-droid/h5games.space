@@ -11,7 +11,7 @@ interface GameGridProps {
 export default function GameGrid({ games, isLoading }: GameGridProps) {
   if (isLoading) {
     return (
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-3">
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-8 2xl:grid-cols-10 gap-3">
         {[...Array(16)].map((_, i) => (
           <div key={i} className="bg-[#1a1a1a] aspect-[16/10] rounded-[14px] animate-pulse border border-white/5" />
         ))}
@@ -28,7 +28,7 @@ export default function GameGrid({ games, isLoading }: GameGridProps) {
   }
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-3">
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-8 2xl:grid-cols-10 gap-3">
       {games.map((game, index) => (
         <GameCard key={game._id} game={game} priority={index < 12} />
       ))}

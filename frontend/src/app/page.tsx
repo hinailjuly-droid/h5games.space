@@ -7,7 +7,7 @@ import AdSlot from "@/components/ads/AdSlot";
 export const revalidate = 3600; // Revalidate every hour
 
 export default async function HomePage() {
-  const gamesData = await serverApi.getGames({ limit: 48 });
+  const gamesData = await serverApi.getGames({ limit: 50 });
 
   return (
     <div className="flex flex-col gap-8 pb-20 pt-4 px-4 max-w-[1920px] mx-auto w-full">
