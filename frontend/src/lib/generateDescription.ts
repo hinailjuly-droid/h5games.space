@@ -1,10 +1,8 @@
 /**
  * Generates a unique, deterministic 200+ word game guide using
  * only the game's existing metadata (title, category, tags, description).
- * No database writes needed — runs purely on the frontend at render time.
  */
 
-// Simple hash to pick templates deterministically (same game = same description every time)
 function simpleHash(str: string): number {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
@@ -31,66 +29,116 @@ export function generateGameGuide(game: {
   const shortDesc = game.description || "";
   const hash = simpleHash(title + category);
 
-  const aboutOptions = [
-    `Welcome to the incredible world of <strong>${title}</strong>, a standout title in the <strong>${category}</strong> genre that guarantees hours of non-stop entertainment. Designed for players who crave engaging gameplay, this game tests your skills and reflexes in a vibrant, highly interactive environment. Whether you are looking for a quick distraction or a deep gaming session, ${title} offers an immersive experience that keeps you coming back for more. The intuitive design combined with challenging mechanics makes it a must-play for both casual gamers and hardcore enthusiasts alike. As you dive deeper into the game, you will discover layered complexities that keep the experience fresh and exciting every single time you play.`,
+  const introOptions = [
+    `${title} is a standout title in the <strong>${category}</strong> genre that guarantees hours of non-stop entertainment. Designed for players who crave engaging gameplay, this game tests your skills and reflexes in a vibrant, highly interactive environment. Whether you are looking for a quick distraction or a deep gaming session, ${title} offers an immersive experience that keeps you coming back for more. The intuitive design combined with challenging mechanics makes it a must-play for both casual gamers and hardcore enthusiasts alike. As you dive deeper into the game, you will discover layered complexities that keep the experience fresh and exciting every single time you play.`,
 
-    `Prepare yourself for <strong>${title}</strong>, an absolute masterpiece in the <strong>${category}</strong> category that is taking the browser gaming world by storm. This game is built around a captivating core loop that rewards precision, strategy, and quick thinking. The stunning visuals and smooth animations create a visually appealing playground where every interaction feels impactful and satisfying. ${title} is not just about killing time — it is about mastering a carefully crafted digital challenge that pushes your abilities to the limit. With its engaging progression system and dynamic difficulty scaling, you will find yourself constantly pushing your limits and aiming for that new personal best.`,
+    `${title} is an absolute masterpiece in the <strong>${category}</strong> category that is taking the browser gaming world by storm. This game is built around a captivating core loop that rewards precision, strategy, and quick thinking. The stunning visuals and smooth animations create a visually appealing playground where every interaction feels impactful and satisfying. ${title} is not just about killing time — it is about mastering a carefully crafted digital challenge that pushes your abilities to the limit. With its engaging progression system and dynamic difficulty scaling, you will find yourself constantly pushing your limits and aiming for that new personal best.`,
 
-    `Step into the action with <strong>${title}</strong>, a top-tier <strong>${category}</strong> game that perfectly balances fun and challenge in equal measure. What sets this game apart from hundreds of others is its meticulous attention to detail and a gameplay loop that is incredibly easy to learn but fiercely difficult to master. Players are instantly drawn into a world where every decision matters and every second counts. The developers have created a seamless experience that runs flawlessly on any device, ensuring that the thrill of ${title} is always just a click away no matter where you are.`,
+    `${title} is a top-tier <strong>${category}</strong> game that perfectly balances fun and challenge in equal measure. What sets this game apart from hundreds of others is its meticulous attention to detail and a gameplay loop that is incredibly easy to learn but fiercely difficult to master. Players are instantly drawn into a world where every decision matters and every second counts. The developers have created a seamless experience that runs flawlessly on any device, ensuring that the thrill of ${title} is always just a click away no matter where you are.`,
 
-    `Discover <strong>${title}</strong>, a brilliantly designed <strong>${category}</strong> game that has captivated thousands of players worldwide with its addictive gameplay and polished presentation. From the moment you start playing, you will notice the exceptional quality that goes into every aspect of this title. The responsive controls, beautiful art style, and carefully balanced difficulty curve make ${title} an outstanding choice for anyone looking for a premium gaming experience right in their browser. Every level introduces new mechanics and surprises that keep the gameplay loop feeling fresh and engaging throughout your entire journey.`
+    `${title} is a brilliantly designed <strong>${category}</strong> game that has captivated thousands of players worldwide with its addictive gameplay and polished presentation. From the moment you start playing, you will notice the exceptional quality that goes into every aspect of this title. The responsive controls, beautiful art style, and carefully balanced difficulty curve make ${title} an outstanding choice for anyone looking for a premium gaming experience right in their browser.`
   ];
 
   const mechanicsOptions = [
-    `At its core, the mechanics of ${title} rely heavily on timing and spatial awareness. You must carefully navigate the environment while anticipating upcoming obstacles and challenges. This requires a perfect blend of fast reaction times and long-term strategic planning that will keep your mind sharp and engaged.`,
+    `At its core, the mechanics rely heavily on timing and spatial awareness. You must carefully navigate the environment while anticipating upcoming obstacles and challenges. This requires a perfect blend of fast reaction times and long-term strategic planning.`,
 
-    `The core gameplay loop of ${title} revolves around resource management and rapid decision-making under pressure. Every move you make can alter the outcome of your entire session, meaning you must constantly adapt your strategy to the ever-changing in-game situations and emerging threats.`,
+    `The core gameplay loop revolves around resource management and rapid decision-making under pressure. Every move you make can alter the outcome of your entire session, meaning you must constantly adapt your strategy to the ever-changing in-game situations.`,
 
-    `Success in ${title} hinges on your ability to recognize patterns and react with precision. The dynamic game engine ensures that no two playthroughs are exactly the same, keeping you on your toes and constantly testing your cognitive reflexes and problem-solving abilities.`,
+    `Success hinges on your ability to recognize patterns and react with precision. The dynamic game engine ensures that no two playthroughs are exactly the same, keeping you on your toes and constantly testing your cognitive reflexes and problem-solving abilities.`,
 
-    `What makes ${title} truly special is its layered difficulty system that gradually introduces new challenges as you progress. The game respects your intelligence by never holding your hand, instead rewarding players who take the time to learn its intricacies and develop their own winning strategies.`
+    `What makes this game truly special is its layered difficulty system that gradually introduces new challenges as you progress. The game respects your intelligence by never holding your hand, instead rewarding players who take the time to learn its intricacies.`
   ];
 
-  const howToPlayOptions = [
-    `Getting started with ${title} is incredibly simple and intuitive. Use your mouse or touch screen to interact with the main game interface. Click or tap to initiate actions, and swipe or drag to control movement where applicable. Your primary objective is to progress through each challenge while maximizing your score along the way. Pay close attention to the visual and audio cues on the screen, as they will hint at incoming dangers, hidden opportunities, or valuable power-ups that can turn the tide in your favor.`,
-
-    `The controls for ${title} are designed to be highly intuitive for players of all skill levels. Simply use your mouse cursor to aim and click to execute your moves with precision. On mobile devices, tap directly on the interactive elements for seamless gameplay. Your goal is to clear each stage or reach the finish line before time runs out. Always keep a close eye on your progress indicators, and do not hesitate to use special abilities when you find yourself in a challenging situation.`,
-
-    `To play ${title}, navigate using the on-screen buttons or your mouse and keyboard. The objective is straightforward: overcome the challenges presented in each level to progress to the next stage and unlock new content. Timing is absolutely everything in this game. Wait for the perfect moment to act, and utilize the environment to your strategic advantage. Remember that rushing headlong into obstacles often leads to costly mistakes, so patience and careful observation are your greatest allies.`,
-
-    `Playing ${title} is easy to pick up but endlessly rewarding to master. The game uses standard browser controls — mouse clicks for desktop and touch input for mobile devices. Navigate through each level by interacting with the game elements strategically. The game provides helpful tutorials during the opening stages, but the real challenge begins when the training wheels come off. Focus on mastering the fundamentals first, and advanced techniques will naturally follow as you gain experience and confidence.`
+  const stepsOptions = [
+    [
+      `Open the game in your browser — no downloads or installations required.`,
+      `Use your <strong>mouse</strong> to click or <strong>touch screen</strong> to tap on interactive elements.`,
+      `Follow the on-screen tutorial during the first level to learn the basic controls.`,
+      `Complete each challenge to progress to the next stage and unlock new content.`,
+      `Pay close attention to visual and audio cues — they hint at dangers and power-ups.`,
+      `Track your score and try to beat your personal best with each new attempt.`
+    ],
+    [
+      `Launch ${title} directly in your browser — it works on both desktop and mobile.`,
+      `Use your <strong>mouse cursor</strong> to aim and <strong>click</strong> to execute moves. On mobile, tap the screen.`,
+      `Start with the beginner levels to familiarize yourself with the game mechanics.`,
+      `Manage your resources carefully — every action has consequences.`,
+      `Use special abilities strategically when you find yourself in tough spots.`,
+      `Keep an eye on your progress meter and aim for the highest score possible.`
+    ],
+    [
+      `Click <strong>Play</strong> to start ${title} instantly in your web browser.`,
+      `Navigate using on-screen buttons, mouse, or keyboard arrow keys depending on the game mode.`,
+      `Learn the objective — whether it's clearing the board, reaching the goal, or surviving as long as possible.`,
+      `Master the timing — wait for the perfect moment before making your move.`,
+      `Utilize the environment to your advantage and look for hidden shortcuts.`,
+      `Practice consistently to improve your reflexes and climb the leaderboard.`
+    ],
+    [
+      `Start playing ${title} with a single click — no plugins or sign-ups needed.`,
+      `Use standard browser controls: <strong>mouse clicks</strong> for desktop, <strong>touch gestures</strong> for mobile.`,
+      `Begin with the tutorial section to understand the core game mechanics.`,
+      `Progress through levels by completing objectives and overcoming obstacles.`,
+      `Collect bonuses and power-ups scattered throughout each stage for extra points.`,
+      `Challenge yourself to achieve higher scores and unlock all achievements.`
+    ]
   ];
 
   const tipsOptions = [
-    `<strong>Pro Tips for ${title}:</strong> Do not underestimate the early levels! Use them to completely master the basic controls and mechanics before the difficulty ramps up significantly. Save your most powerful abilities for critical moments rather than using them immediately. Take short breaks between intense sessions to keep your reflexes sharp and your decision-making clear. Most importantly, learn from every failure — each attempt teaches you something valuable about the game.`,
-
-    `<strong>Expert Strategy for ${title}:</strong> Speed is important in this game, but accuracy is absolutely paramount. Taking an extra half-second to align your move precisely will often yield a much higher score than recklessly rushing through challenges. Practice consistently to build muscle memory, and do not be afraid to experiment with different approaches to the same problem. The best players are those who combine quick reflexes with thoughtful strategy.`,
-
-    `<strong>Winning Tips for ${title}:</strong> Always try to maintain a central position in the playing area when possible. This strategic positioning gives you the maximum amount of time to react to threats and opportunities coming from any direction. Watch carefully for hidden bonus items and secret paths that occasionally appear during gameplay. Keep track of your highest scores and set incremental goals to improve steadily over time rather than trying to achieve perfection immediately.`,
-
-    `<strong>Master Guide for ${title}:</strong> The key to excelling at this game is understanding its rhythm and flow. Every ${category} game has a natural pace, and ${title} is no exception. Once you tune into this rhythm, you will find that obstacles become more predictable and opportunities become more visible. Study the leaderboard strategies of top players for inspiration, and remember that consistency beats occasional brilliance in the long run.`
+    [
+      `Don't rush through the early levels — use them to master the fundamentals.`,
+      `Save your most powerful abilities for critical moments rather than using them immediately.`,
+      `Take short breaks between sessions to keep your reflexes sharp.`,
+      `Learn from every failure — each attempt teaches you something valuable.`
+    ],
+    [
+      `Accuracy is more important than speed — take an extra moment to plan your moves.`,
+      `Experiment with different strategies to find what works best for your play style.`,
+      `Practice consistently to build muscle memory for faster reaction times.`,
+      `Watch for patterns in the game — most challenges follow a predictable rhythm.`
+    ],
+    [
+      `Stay centered in the play area to maximize your reaction time to threats.`,
+      `Watch for hidden bonus items that appear during gameplay.`,
+      `Set small incremental goals rather than trying for perfection immediately.`,
+      `Study top players' strategies for inspiration on advanced techniques.`
+    ],
+    [
+      `Focus on understanding the game's rhythm and flow — every ${category} game has one.`,
+      `Don't ignore the scoring multipliers — they can dramatically boost your results.`,
+      `Use headphones if possible — audio cues often provide gameplay advantages.`,
+      `Consistency beats occasional brilliance in the long run.`
+    ]
   ];
 
-  const about = pick(aboutOptions, hash, 0);
+  const intro = pick(introOptions, hash, 0);
   const mechanics = pick(mechanicsOptions, hash, 1);
-  const howToPlay = pick(howToPlayOptions, hash, 2);
+  const steps = pick(stepsOptions, hash, 2);
   const tips = pick(tipsOptions, hash, 3);
 
+  const stepsHtml = steps.map((step, i) => 
+    `<li><span class="step-number">${i + 1}</span>${step}</li>`
+  ).join("\n");
+
+  const tipsHtml = tips.map(tip => `<li>${tip}</li>`).join("\n");
+
   return `
-    <div class="game-article">
-      <h2>About ${title}</h2>
-      <p>${about}</p>
-      ${shortDesc ? `<p><em>Official description: ${shortDesc}</em></p>` : ""}
-      <p>${mechanics}</p>
+<div class="game-guide-content">
+  <p>${intro}</p>
+  ${shortDesc ? `<p><em>${shortDesc}</em></p>` : ""}
+  <p>${mechanics}</p>
 
-      <h2>How to Play ${title}</h2>
-      <p>${howToPlay}</p>
+  <h2>How to Play ${title}</h2>
+  <ol class="steps-list">
+    ${stepsHtml}
+  </ol>
 
-      <h3>Features &amp; Tags</h3>
-      <p>This game is packed with exciting features and is perfect for fans of <strong>${tags}</strong>. The seamless HTML5 integration means you can enjoy ${title} instantly without any downloads, installations, or plugins — just click and play directly in your browser on any device.</p>
+  <p>This game is packed with exciting features and is perfect for fans of <strong>${tags}</strong>. The seamless HTML5 integration means you can enjoy ${title} instantly without any downloads, installations, or plugins — just click and play directly in your browser on any device.</p>
 
-      <h3>Expert Tips</h3>
-      <p>${tips}</p>
-    </div>
+  <h2>Tips & Tricks</h2>
+  <ul class="tips-list">
+    ${tipsHtml}
+  </ul>
+</div>
   `.trim();
 }
