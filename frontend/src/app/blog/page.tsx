@@ -7,7 +7,7 @@ interface Props {
   searchParams: Promise<{ page?: string }>;
 }
 
-export const revalidate = 3600; // Revalidate every hour
+export const revalidate = 60; // Revalidate every minute
 
 export default async function BlogListingPage({ searchParams }: Props) {
   const params = await searchParams;
