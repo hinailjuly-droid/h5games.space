@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Gamepad2, Code2, Share2, Mail } from "lucide-react";
 
 export default function Footer() {
@@ -16,8 +17,8 @@ export default function Footer() {
                 <Gamepad2 className="text-white" size={18} />
               </div>
               <span className="text-xl font-black tracking-tight text-white uppercase italic">
-            h5games<span className="text-accent underline decoration-white/10"> space</span>
-          </span>
+                h5games<span className="text-accent underline decoration-white/10"> space</span>
+              </span>
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed mb-6">
               The premium gateway to the best open-source HTML5 games. Play instantly in your browser, no downloads or login required.

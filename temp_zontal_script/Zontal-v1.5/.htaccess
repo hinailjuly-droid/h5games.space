@@ -1,0 +1,13 @@
+
+ErrorDocument 404 http://localhost/Zontal/404
+RewriteEngine On
+RewriteRule ^{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+RewriteRule ^single/([0-9]+)/([a-z]+) single.php?id=$1&name=$2 [NC,L]
+RewriteRule ^page/([0-9]+)/([a-z]+) page.php?id=$1&slug=$2 [NC,L]
+RewriteRule ^archive/([a-z]+) archive.php?type=$1 [NC,L]
+RewriteRule ^game/([a-z]+[A-Z]) category.php?name=$1 [NC,L]
+RewriteRule ^search/([a-z]+[A-Z]) category.php?query=$1 [NC,L]
+RewriteRule ^user/([a-z]+[A-Z]) user.php?page=$1 [NC,L]
+RewriteRule ^sitemap.xml sitemap.php

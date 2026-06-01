@@ -3,18 +3,26 @@ const Analytics = require('../models/Analytics');
 const { getCache, setCache, deleteCache } = require('../services/cache');
 
 const CATEGORIES = [
-  'Action & Arcade',
-  'Board Games',
-  'Card & Solitaire',
-  'Hidden Object',
-  'Mahjong',
-  'Match 3',
-  'Multiplayer',
-  'Puzzle',
-  'Racing',
-  'Sports',
-  'Strategy & Simulation',
-  'Word Games'
+  'Action & Arcade', 
+  'Action', 
+  'Arcade',
+  'Board Games', 
+  'Board & Card',
+  'Card & Solitaire', 
+  'Hidden Object', 
+  'Mahjong', 
+  'Match 3', 
+  'Multiplayer', 
+  'Puzzle', 
+  'Racing', 
+  'RPG',
+  'Simulation',
+  'Platformer',
+  'Sports', 
+  'Strategy & Simulation', 
+  'Strategy',
+  'Word Games', 
+  'Other'
 ];
 
 // GET /api/games - Paginated list
