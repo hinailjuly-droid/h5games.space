@@ -4,7 +4,7 @@ import GameCard from "@/components/games/GameCard";
 import AdSlot from "@/components/ads/AdSlot";
 import { ChevronLeft, ChevronRight, ChevronRightIcon } from "lucide-react";
 
-export const revalidate = 3600;
+export const revalidate = 60;
 
 export default async function HomePage() {
   const [
