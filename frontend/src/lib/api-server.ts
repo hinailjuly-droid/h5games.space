@@ -25,7 +25,7 @@ export async function fetchFromApi(endpoint: string, options: RequestInit = {}) 
 export const serverApi = {
   getGames: (params: any = {}) => {
     const query = new URLSearchParams(params).toString();
-    return fetchFromApi(`/games?${query}`, { next: { revalidate: 3600, tags: ['games'] } });
+    return fetchFromApi(`/games?${query}`, { next: { revalidate: 60, tags: ['games'] } });
   },
   
   getGameBySlug: (slug: string) => {
@@ -33,15 +33,15 @@ export const serverApi = {
   },
   
   getFeaturedGames: () => {
-    return fetchFromApi('/games/featured', { next: { revalidate: 3600, tags: ['featured-games'] } });
+    return fetchFromApi('/games/featured', { next: { revalidate: 60, tags: ['featured-games'] } });
   },
   
   getTrendingGames: () => {
-    return fetchFromApi('/games/trending', { next: { revalidate: 3600, tags: ['trending-games'] } });
+    return fetchFromApi('/games/trending', { next: { revalidate: 60, tags: ['trending-games'] } });
   },
   
   getPopularGames: () => {
-    return fetchFromApi('/games/popular', { next: { revalidate: 3600, tags: ['popular-games'] } });
+    return fetchFromApi('/games/popular', { next: { revalidate: 60, tags: ['popular-games'] } });
   },
   
   getCategories: () => {
@@ -50,17 +50,17 @@ export const serverApi = {
 
   getAllGameSlugs: async (limit = 2000) => {
     // Fetch games to get slugs for SSG
-    const data = await fetchFromApi(`/games?limit=${limit}`, { next: { revalidate: 3600 } });
+    const data = await fetchFromApi(`/games?limit=${limit}`, { next: { revalidate: 60 } });
     return data.games.map((g: any) => g.slug);
   },
 
   getLatestBlogPosts: (limit = 3) => {
-    return fetchFromApi(`/blog?limit=${limit}&featured=true`, { next: { revalidate: 3600, tags: ['blog'] } });
+    return fetchFromApi(`/blog?limit=${limit}&featured=true`, { next: { revalidate: 60, tags: ['blog'] } });
   },
 
   getBlogPosts: (params: any = {}) => {
     const query = new URLSearchParams(params).toString();
-    return fetchFromApi(`/blog?${query}`, { next: { revalidate: 3600, tags: ['blog'] } });
+    return fetchFromApi(`/blog?${query}`, { next: { revalidate: 60, tags: ['blog'] } });
   },
 
   getPostBySlug: (slug: string) => {
