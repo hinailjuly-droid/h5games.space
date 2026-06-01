@@ -27,6 +27,23 @@ export default async function BlogListingPage({ searchParams }: Props) {
 
   return (
     <div className="bg-black min-h-screen pb-32">
+      {/* Simpler Header Section for AdSense */}
+      <section className="pt-20 pb-10">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center text-center">
+            <div className="px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-black uppercase italic mb-6">
+              H5GAMES SPACE BLOG
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black text-white italic uppercase tracking-tighter mb-4">
+              Latest <span className="text-accent">Articles</span>
+            </h1>
+            <p className="text-gray-500 max-w-2xl mx-auto font-medium">
+              Gaming guides, developer insights, and technical browser gaming news.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Content */}
       <div className="container mx-auto px-4 mt-10 relative z-20">
         {/* Featured Grid */}
