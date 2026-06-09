@@ -41,7 +41,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6">Explore</h4>
+            <h4 className="text-white font-bold mb-6">Categories</h4>
             <ul className="space-y-4 text-sm">
               <li><Link href="/games" className="text-gray-500 hover:text-accent transition-colors">All Games</Link></li>
               <li><Link href="/featured" className="text-gray-500 hover:text-accent transition-colors">Our Games</Link></li>
