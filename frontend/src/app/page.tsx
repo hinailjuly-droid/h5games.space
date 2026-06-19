@@ -33,7 +33,7 @@ export default async function HomePage() {
   const blogs = blogsData?.posts || [];
 
   return (
-    <div className="flex flex-col gap-6 pb-20 pt-4 px-4 max-w-[1920px] mx-auto w-full">
+    <div className="flex flex-col gap-6 pb-20 pt-4 px-4 container mx-auto w-full">
       {/* 1. Category Slider */}
       {categories?.length > 0 && (
         <div className="relative mt-4 flex items-center group">
