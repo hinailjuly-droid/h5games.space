@@ -2,6 +2,12 @@ import { serverApi } from "@/lib/api-server";
 import BlogCard from "@/components/BlogCard";
 import { BlogResponse } from "@/types";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog | H5GAMES SPACE",
+  description: "Gaming guides, developer insights, and technical browser gaming news.",
+};
 
 interface Props {
   searchParams: Promise<{ page?: string }>;
