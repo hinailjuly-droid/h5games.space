@@ -1,21 +1,28 @@
 import { MetadataRoute } from 'next';
-import { gamesApi } from '@/lib/api';
+import { serverApi } from '@/lib/api-server';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://h5games.space';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.h5games.space';
 
-  // Since h5games space uses slugs for categories and games, 
-  // we would fetch those from the API here in a real scenario.duction app, you might want to paginate this or pull from a separate endpoint
-  // Implementation of a 5-second timeout to prevent build hangs
   let gameEntries: MetadataRoute.Sitemap = [];
+  let blogEntries: MetadataRoute.Sitemap = [];
+  
   try {
-    const data = await gamesApi.getGames({ limit: 2000, sort: 'newest' });
+    const slugs = await serverApi.getAllGameSlugs(2000);
     
-    gameEntries = (data?.games || []).map((game: any) => ({
-      url: `${baseUrl}/game/${game.slug}`,
-      lastModified: new Date(game.updatedAt),
+    gameEntries = slugs.map((slug: string) => ({
+      url: `${baseUrl}/game/${slug}`,
+      lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.8,
+    }));
+
+    const blogData = await serverApi.getBlogPosts({ limit: 100 });
+    blogEntries = (blogData?.posts || []).map((post: any) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.publishedAt || post.updatedAt),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     }));
   } catch (error) {
     console.warn('Sitemap dynamic fetch skipped (backend unreachable). Proceeding with static routes.');
@@ -46,5 +53,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...routes, ...categoryRoutes, ...gameEntries];
+  return [...routes, ...categoryRoutes, ...gameEntries, ...blogEntries];
 }
