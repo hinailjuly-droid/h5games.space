@@ -85,11 +85,6 @@ export default function GameDetailClient({ game }: GameDetailClientProps) {
                      <span className="flex items-center gap-1.5"><Star size={16} className="fill-yellow-400 text-yellow-400" /> {game.stars.toLocaleString()} STARS</span>
                      <span className="flex items-center gap-1.5"><Eye size={16} /> {game.views.toLocaleString()} VIEWS</span>
                      <Badge variant="accent">{game.category}</Badge>
-                     {game.curated && game.editorRating && (
-                       <Badge variant="success" className="font-black bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                         ★ {game.editorRating.toFixed(1)}/10 EDITOR RATING
-                       </Badge>
-                     )}
                   </div>
                </div>
                <div className="flex gap-2 shrink-0">
