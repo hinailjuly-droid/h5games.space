@@ -8,7 +8,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let blogEntries: MetadataRoute.Sitemap = [];
   
   try {
-    const slugs = await serverApi.getAllGameSlugs(2000);
+    const data = await serverApi.getGames({ limit: 2000, curated: 'true' });
+    const slugs = (data?.games || []).map((g: any) => g.slug);
     
     gameEntries = slugs.map((slug: string) => ({
       url: `${baseUrl}/game/${slug}`,

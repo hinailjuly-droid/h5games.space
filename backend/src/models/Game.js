@@ -125,6 +125,19 @@ const gameSchema = new mongoose.Schema({
   fetchedAt: {
     type: Date,
     default: Date.now
+  },
+  curated: {
+    type: Boolean,
+    default: false,
+    index: true
+  },
+  seoContent: {
+    type: String,
+    default: ''
+  },
+  editorRating: {
+    type: Number,
+    default: 0
   }
 }, {
   timestamps: true

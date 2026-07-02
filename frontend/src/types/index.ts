@@ -26,6 +26,9 @@ export interface Game {
   fetchedAt: string;
   createdAt: string;
   updatedAt: string;
+  curated?: boolean;
+  seoContent?: string;
+  editorRating?: number;
 }
 
 export interface Pagination {

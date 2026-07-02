@@ -42,6 +42,9 @@ const getGames = async (req, res) => {
     if (category && CATEGORIES.includes(category)) {
       query.category = category;
     }
+    if (req.query.curated === 'true') {
+      query.curated = true;
+    }
     if (language) query.language = language;
     if (license) query.license = license;
     if (search) {

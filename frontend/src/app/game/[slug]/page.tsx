@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: {
         images: [game.thumbnail || ""],
       },
+      robots: game.curated ? { index: true, follow: true } : { index: false, follow: false },
     };
   } catch {
     return { title: "Game not found" };

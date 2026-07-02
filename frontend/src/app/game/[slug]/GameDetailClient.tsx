@@ -10,6 +10,8 @@ import Link from "next/link";
 import GamePlayer from "@/components/games/GamePlayer";
 import Newsletter from "@/components/Newsletter";
 import { generateGameGuide } from "@/lib/generateDescription";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface GameDetailClientProps {
   game: Game & { related: Game[] };
@@ -83,6 +85,11 @@ export default function GameDetailClient({ game }: GameDetailClientProps) {
                      <span className="flex items-center gap-1.5"><Star size={16} className="fill-yellow-400 text-yellow-400" /> {game.stars.toLocaleString()} STARS</span>
                      <span className="flex items-center gap-1.5"><Eye size={16} /> {game.views.toLocaleString()} VIEWS</span>
                      <Badge variant="accent">{game.category}</Badge>
+                     {game.curated && game.editorRating && (
+                       <Badge variant="success" className="font-black bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                         ★ {game.editorRating.toFixed(1)}/10 EDITOR RATING
+                       </Badge>
+                     )}
                   </div>
                </div>
                <div className="flex gap-2 shrink-0">
@@ -96,20 +103,34 @@ export default function GameDetailClient({ game }: GameDetailClientProps) {
             <div className="bg-primary-light border border-white/5 rounded-2xl p-6 md:p-10 mt-4 shadow-lg">
                <h2 className="text-xl md:text-2xl font-bold text-white mb-6 flex items-center gap-3">
                  <span className="w-1 h-6 bg-accent rounded-full" />
-                 Description
+                 {game.curated ? "Editor's Review & Guide" : "Description"}
                </h2>
-               <div 
-                 className="game-desc-content text-[15px] leading-[1.85] text-gray-300
-                   [&_.game-guide-content_>_p]:mb-4
-                   [&_h2]:text-lg [&_h2]:font-bold [&_h2]:text-white [&_h2]:mt-8 [&_h2]:mb-4 [&_h2]:flex [&_h2]:items-center [&_h2]:gap-3
-                   [&_strong]:text-white [&_em]:text-gray-400
-                   [&_ol]:my-5 [&_ol]:space-y-3 [&_ol]:list-none [&_ol]:pl-0
-                   [&_ol_li]:flex [&_ol_li]:items-start [&_ol_li]:gap-3 [&_ol_li]:bg-white/[0.03] [&_ol_li]:border [&_ol_li]:border-white/5 [&_ol_li]:rounded-xl [&_ol_li]:p-4 [&_ol_li]:text-sm
-                   [&_ul]:my-5 [&_ul]:space-y-2 [&_ul]:list-none [&_ul]:pl-0
-                   [&_ul_li]:flex [&_ul_li]:items-start [&_ul_li]:gap-3 [&_ul_li]:text-sm [&_ul_li]:py-2
-                   [&_ul_li]:before:content-['✦'] [&_ul_li]:before:text-accent [&_ul_li]:before:text-xs [&_ul_li]:before:mt-0.5"
-                 dangerouslySetInnerHTML={{ __html: game.customDescription || generateGameGuide(game) }} 
-               />
+               
+               {game.curated && game.seoContent ? (
+                 <div className="max-w-none text-gray-300 font-medium leading-relaxed
+                   [&>p]:mb-6
+                   [&>h2]:text-2xl [&>h2]:font-black [&>h2]:text-white [&>h2]:italic [&>h2]:uppercase [&>h2]:tracking-tighter [&>h2]:mt-10 [&>h2]:mb-4 [&>h2]:flex [&>h2]:items-center [&>h2]:gap-3
+                   [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-8 [&>ul]:space-y-3 [&_li]:marker:text-accent
+                   [&>strong]:text-white"
+                 >
+                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                     {game.seoContent}
+                   </ReactMarkdown>
+                 </div>
+               ) : (
+                 <div 
+                   className="game-desc-content text-[15px] leading-[1.85] text-gray-300
+                     [&_.game-guide-content_>_p]:mb-4
+                     [&_h2]:text-lg [&_h2]:font-bold [&_h2]:text-white [&_h2]:mt-8 [&_h2]:mb-4 [&_h2]:flex [&_h2]:items-center [&_h2]:gap-3
+                     [&_strong]:text-white [&_em]:text-gray-400
+                     [&_ol]:my-5 [&_ol]:space-y-3 [&_ol]:list-none [&_ol]:pl-0
+                     [&_ol_li]:flex [&_ol_li]:items-start [&_ol_li]:gap-3 [&_ol_li]:bg-white/[0.03] [&_ol_li]:border [&_ol_li]:border-white/5 [&_ol_li]:rounded-xl [&_ol_li]:p-4 [&_ol_li]:text-sm
+                     [&_ul]:my-5 [&_ul]:space-y-2 [&_ul]:list-none [&_ul]:pl-0
+                     [&_ul_li]:flex [&_ul_li]:items-start [&_ul_li]:gap-3 [&_ul_li]:text-sm [&_ul_li]:py-2
+                     [&_ul_li]:before:content-['✦'] [&_ul_li]:before:text-accent [&_ul_li]:before:text-xs [&_ul_li]:before:mt-0.5"
+                   dangerouslySetInnerHTML={{ __html: game.customDescription || generateGameGuide(game) }} 
+                 />
+               )}
                
                {game.tags && game.tags.length > 0 && (
                  <div className="mt-8 pt-6 border-t border-white/5">
