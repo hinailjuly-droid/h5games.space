@@ -90,7 +90,7 @@ export default function GamePlayer({ playUrl, githubUrl, title, standalone }: Ga
             title={title}
             referrerPolicy="no-referrer"
             className="w-full h-full border-none"
-            allow="fullscreen; autoplay; gamepad"
+            allow="autoplay *; fullscreen *; gamepad *; focus-without-user-activation *; monetization *; accelerometer *; gyroscope *; xr-spatial-tracking *; clipboard-read *; clipboard-write *;"
             loading="eager"
           />
 
