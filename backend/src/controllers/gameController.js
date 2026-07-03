@@ -144,7 +144,7 @@ const getGameBySlug = async (req, res) => {
       .lean();
 
     const result = { ...game, related };
-    await setCache(cacheKey, result, 86400); // 24 hours
+    await setCache(cacheKey, result, 60); // 60 seconds (lowered for live editing)
     res.json(result);
   } catch (error) {
     console.error('getGameBySlug error:', error);
