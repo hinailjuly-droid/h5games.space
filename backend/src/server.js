@@ -13,6 +13,8 @@ const adminRoutes = require('./routes/admin');
 const blogRoutes = require('./routes/blog');
 
 const app = express();
+// Trust Render's reverse proxy for rate limiting (X-Forwarded-For)
+app.set('trust proxy', 1);
 const PORT = process.env.PORT || 5000;
 
 // Security middleware
