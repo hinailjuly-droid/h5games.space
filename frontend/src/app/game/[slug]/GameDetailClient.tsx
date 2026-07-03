@@ -12,6 +12,7 @@ import Newsletter from "@/components/Newsletter";
 import { generateGameGuide } from "@/lib/generateDescription";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import GameCard from "@/components/games/GameCard";
 
 interface GameDetailClientProps {
   game: Game & { related: Game[] };
@@ -58,8 +59,8 @@ export default function GameDetailClient({ game }: GameDetailClientProps) {
         </div>
       </div>
 
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-8">
+      <div className="max-w-5xl mx-auto px-4">
+        <div className="flex flex-col gap-8">
           {/* Main Game Area */}
           <div className="flex-1 min-w-0 flex flex-col gap-6">
             
@@ -139,36 +140,22 @@ export default function GameDetailClient({ game }: GameDetailClientProps) {
                )}
             </div>
           </div>
+        </div>
 
-          {/* Right Sidebar - Related Games */}
-          <div className="lg:w-80 shrink-0 flex flex-col gap-6">
-            <div className="bg-primary-light border border-white/5 rounded-2xl p-6 sticky top-28 shadow-lg">
-               <h3 className="text-xl font-black text-white uppercase italic tracking-tight mb-6 flex items-center gap-2">
-                  More <span className="text-accent">{game.category}</span>
-               </h3>
-               <div className="flex flex-col gap-3">
-                 {game.related.map((rel) => (
-                    <Link 
-                      key={rel._id} 
-                      href={`/game/${rel.slug}`} 
-                      className="flex items-center gap-4 p-2.5 bg-primary/50 hover:bg-primary-lighter border border-transparent rounded-xl hover:border-accent/40 group transition-all"
-                    >
-                      <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center text-xl font-black text-white/10 uppercase shrink-0 overflow-hidden relative shadow-inner">
-                         {rel.thumbnail ? (
-                           <img src={rel.thumbnail} alt={rel.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                         ) : (
-                           rel.title[0]
-                         )}
-                      </div>
-                      <div className="flex-grow min-w-0">
-                         <h4 className="text-sm text-white font-bold truncate group-hover:text-accent transition-colors mt-2">{rel.title}</h4>
-                      </div>
-                    </Link>
-                 ))}
-               </div>
+        {/* Bottom Section - Related Games */}
+        {game.related && game.related.length > 0 && (
+          <div className="mt-16 mb-8">
+            <h3 className="text-2xl md:text-3xl font-black text-white uppercase italic tracking-tight mb-8 flex items-center gap-3">
+              <span className="w-1.5 h-8 bg-accent rounded-full" />
+              More <span className="text-accent">{game.category}</span>
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+              {game.related.map((rel) => (
+                <GameCard key={rel._id} game={rel} />
+              ))}
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
