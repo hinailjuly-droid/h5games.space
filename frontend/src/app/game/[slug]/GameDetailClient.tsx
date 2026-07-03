@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { gamesApi } from "@/lib/api";
 import { Game } from "@/types";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import { Star, Eye, Play, Share2, ChevronRight } from "lucide-react";
+import { Star, Eye, Play, Share2, ChevronRight, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import GamePlayer from "@/components/games/GamePlayer";
 import Newsletter from "@/components/Newsletter";
@@ -19,6 +19,16 @@ interface GameDetailClientProps {
 }
 
 export default function GameDetailClient({ game }: GameDetailClientProps) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) scrollRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+  };
+  
+  const scrollRight = () => {
+    if (scrollRef.current) scrollRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+  };
+
   useEffect(() => {
     if (game?._id) {
       gamesApi.trackView(game._id).catch(console.error);
@@ -144,14 +154,31 @@ export default function GameDetailClient({ game }: GameDetailClientProps) {
 
         {/* Bottom Section - Related Games */}
         {game.related && game.related.length > 0 && (
-          <div className="mt-16 mb-8">
-            <h3 className="text-2xl md:text-3xl font-black text-white uppercase italic tracking-tight mb-8 flex items-center gap-3">
-              <span className="w-1.5 h-8 bg-accent rounded-full" />
-              More <span className="text-accent">{game.category}</span>
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="mt-16 mb-8 relative group">
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="text-2xl md:text-3xl font-black text-white uppercase italic tracking-tight flex items-center gap-3">
+                <span className="w-1.5 h-8 bg-accent rounded-full" />
+                More <span className="text-accent">{game.category}</span>
+              </h3>
+              <div className="hidden md:flex gap-2">
+                <button onClick={scrollLeft} className="w-10 h-10 rounded-full bg-primary-light text-white hover:bg-accent flex items-center justify-center transition-colors shadow-lg">
+                  <ChevronLeft size={20} />
+                </button>
+                <button onClick={scrollRight} className="w-10 h-10 rounded-full bg-primary-light text-white hover:bg-accent flex items-center justify-center transition-colors shadow-lg">
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
+            
+            <div 
+              ref={scrollRef}
+              className="flex overflow-x-auto gap-4 md:gap-6 snap-x snap-mandatory scrollbar-hide pb-4"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
               {game.related.map((rel) => (
-                <GameCard key={rel._id} game={rel} />
+                <div key={rel._id} className="min-w-[45vw] md:min-w-[30vw] lg:min-w-[calc(20%-1.2rem)] snap-start shrink-0 h-full">
+                  <GameCard game={rel} />
+                </div>
               ))}
             </div>
           </div>
