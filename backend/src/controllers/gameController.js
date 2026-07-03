@@ -123,7 +123,7 @@ const getFeaturedGames = async (req, res) => {
 const getGameBySlug = async (req, res) => {
   try {
     const { slug } = req.params;
-    const cacheKey = `game:${slug}`;
+    const cacheKey = `game_v2:${slug}`;
     const cached = await getCache(cacheKey);
     if (cached) return res.json(cached);
 
@@ -139,7 +139,7 @@ const getGameBySlug = async (req, res) => {
       _id: { $ne: game._id }
     })
       .sort({ stars: -1 })
-      .limit(6)
+      .limit(20)
       .select('name slug title thumbnail category stars plays license verified')
       .lean();
 
