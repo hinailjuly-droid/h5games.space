@@ -29,7 +29,7 @@ export const serverApi = {
   },
   
   getGameBySlug: (slug: string) => {
-    return fetchFromApi(`/games/${slug}`, { next: { revalidate: 86400, tags: [`game-${slug}`] } });
+    return fetchFromApi(`/games/${slug}`, { next: { revalidate: 60, tags: [`game-${slug}`] } });
   },
   
   getFeaturedGames: () => {
