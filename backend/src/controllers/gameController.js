@@ -123,7 +123,7 @@ const getFeaturedGames = async (req, res) => {
 const getGameBySlug = async (req, res) => {
   try {
     const { slug } = req.params;
-    const cacheKey = `game_v2:${slug}`;
+    const cacheKey = `game_v3:${slug}`;
     const cached = await getCache(cacheKey);
     if (cached) return res.json(cached);
 
