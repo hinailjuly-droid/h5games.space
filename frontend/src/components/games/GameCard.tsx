@@ -46,10 +46,7 @@ export default function GameCard({ game, priority }: GameCardProps) {
           </div>
         )}
 
-        {/* Bottom Left Badge */}
-        <div className="absolute bottom-2 left-2 bg-[#4ade80] px-1.5 py-0.5 rounded flex items-center gap-1 text-[11px] font-black text-black z-10 shadow-sm">
-          {game.stars > 1000 ? `${(game.stars / 1000).toFixed(1)}k` : game.stars}
-        </div>
+
 
         {/* Bottom Right Badge (Age) */}
         <div className="absolute bottom-2 right-2 bg-black/80 backdrop-blur-md px-1.5 py-0.5 rounded text-[10px] font-bold text-white/90 uppercase z-10">

@@ -95,14 +95,15 @@ export default function GameDetailClient({ game }: GameDetailClientProps) {
             <div className="bg-primary-light border border-white/5 rounded-2xl p-6 md:p-10 mt-4 shadow-lg">
                <h2 className="text-xl md:text-2xl font-bold text-white mb-6 flex items-center gap-3">
                  <span className="w-1 h-6 bg-accent rounded-full" />
-                 {game.curated ? "Editor's Review & Guide" : "Description"}
+                 {game.curated ? "About Game" : "Description"}
                </h2>
                
                {game.curated && game.seoContent ? (
-                 <div className="max-w-none text-gray-300 font-medium leading-relaxed
-                   [&>p]:mb-6
-                   [&>h2]:text-2xl [&>h2]:font-black [&>h2]:text-white [&>h2]:italic [&>h2]:uppercase [&>h2]:tracking-tighter [&>h2]:mt-10 [&>h2]:mb-4 [&>h2]:flex [&>h2]:items-center [&>h2]:gap-3
-                   [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-8 [&>ul]:space-y-3 [&_li]:marker:text-accent
+                 <div className="max-w-none text-gray-300 font-medium text-lg md:text-xl leading-[1.8] tracking-wide
+                   [&>p]:mb-8
+                   [&>h2]:text-3xl [&>h2]:font-black [&>h2]:text-white [&>h2]:italic [&>h2]:uppercase [&>h2]:tracking-tighter [&>h2]:mt-12 [&>h2]:mb-6 [&>h2]:flex [&>h2]:items-center [&>h2]:gap-3
+                   [&>ul]:list-none [&>ul]:mb-8 [&>ul]:space-y-4 [&>ul]:pl-0
+                   [&_li]:flex [&_li]:items-start [&_li]:gap-3 [&_li]:bg-white/[0.02] [&_li]:border [&_li]:border-white/5 [&_li]:rounded-xl [&_li]:p-5 [&_li]:text-base md:[&_li]:text-lg
                    [&>strong]:text-white"
                  >
                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
@@ -160,10 +161,7 @@ export default function GameDetailClient({ game }: GameDetailClientProps) {
                          )}
                       </div>
                       <div className="flex-grow min-w-0">
-                         <h4 className="text-sm text-white font-bold truncate group-hover:text-accent transition-colors">{rel.title}</h4>
-                         <span className="text-[11px] text-yellow-400 font-bold flex items-center gap-1 mt-1.5">
-                            <Star size={12} className="fill-yellow-400" /> {rel.stars.toLocaleString()}
-                         </span>
+                         <h4 className="text-sm text-white font-bold truncate group-hover:text-accent transition-colors mt-2">{rel.title}</h4>
                       </div>
                     </Link>
                  ))}
