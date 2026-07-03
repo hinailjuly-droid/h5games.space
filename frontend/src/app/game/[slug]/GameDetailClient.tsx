@@ -115,7 +115,9 @@ export default function GameDetailClient({ game }: GameDetailClientProps) {
                    [&>h2]:text-3xl [&>h2]:font-black [&>h2]:text-white [&>h2]:italic [&>h2]:uppercase [&>h2]:tracking-tighter [&>h2]:mt-12 [&>h2]:mb-6 [&>h2]:flex [&>h2]:items-center [&>h2]:gap-3
                    [&>ul]:list-none [&>ul]:mb-8 [&>ul]:space-y-4 [&>ul]:pl-0
                    [&_li]:flex [&_li]:items-start [&_li]:gap-3 [&_li]:bg-white/[0.02] [&_li]:border [&_li]:border-white/5 [&_li]:rounded-xl [&_li]:p-5 [&_li]:text-base md:[&_li]:text-lg
-                   [&>strong]:text-white"
+                   [&>strong]:text-white
+                   [&_code]:inline-flex [&_code]:items-center [&_code]:justify-center [&_code]:px-2.5 [&_code]:py-1 [&_code]:text-[13px] [&_code]:font-black [&_code]:font-mono [&_code]:text-white [&_code]:bg-[#2a2b33] [&_code]:border [&_code]:border-white/10 [&_code]:rounded-md [&_code]:shadow-[0_4px_0_0_#111] [&_code]:mx-1 [&_code]:align-middle [&_code]:uppercase
+                   [&_img]:w-full [&_img]:rounded-2xl [&_img]:mb-8 [&_img]:shadow-2xl [&_img]:border [&_img]:border-white/10 [&_img]:object-cover [&_img]:aspect-video"
                  >
                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
                      {game.seoContent}
