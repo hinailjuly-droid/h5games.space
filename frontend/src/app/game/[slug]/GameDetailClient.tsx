@@ -81,9 +81,6 @@ export default function GameDetailClient({ game }: GameDetailClientProps) {
                      {game.verified && <Badge variant="success" className="text-xs">Verified</Badge>}
                   </h1>
                   <div className="flex flex-wrap items-center gap-6 text-sm font-bold text-gray-400 mt-4">
-                     <span className="flex items-center gap-1.5"><Play size={16} className="fill-accent text-accent" /> {game.plays.toLocaleString()} PLAYS</span>
-                     <span className="flex items-center gap-1.5"><Star size={16} className="fill-yellow-400 text-yellow-400" /> {game.stars.toLocaleString()} STARS</span>
-                     <span className="flex items-center gap-1.5"><Eye size={16} /> {game.views.toLocaleString()} VIEWS</span>
                      <Badge variant="accent">{game.category}</Badge>
                   </div>
                </div>
