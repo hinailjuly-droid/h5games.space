@@ -41,21 +41,21 @@ export default function FeaturedCarousel({ games }: { games: any[] }) {
   }
 
   return (
-    <div className="relative w-full h-[300px] md:h-[450px] flex items-center justify-center overflow-hidden py-4 mt-2 mb-8 select-none">
+    <div className="relative w-full h-[250px] md:h-[350px] flex items-center justify-center overflow-hidden py-4 mt-2 mb-4 select-none">
        {/* Carousel track */}
        <div className="relative w-full h-full flex justify-center items-center">
          
          {/* Previous Card */}
          <div 
-           className="absolute left-0 -translate-x-[20%] w-[50%] md:w-[40%] h-[75%] opacity-40 cursor-pointer transition-all duration-500 rounded-2xl overflow-hidden hover:opacity-60" 
+           className="absolute left-0 -translate-x-[15%] w-[45%] md:w-[35%] h-[85%] opacity-50 cursor-pointer transition-all duration-500 rounded-2xl overflow-hidden hover:opacity-70" 
            onClick={prev}
          >
            <img src={getGame(-1).thumbnail} className="w-full h-full object-cover" />
-           <div className="absolute inset-0 bg-black/60" />
+           <div className="absolute inset-0 bg-black/50" />
          </div>
          
          {/* Current Card */}
-         <div className="relative z-10 w-[85%] md:w-[65%] h-full rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 ring-2 ring-white/10 ring-offset-4 ring-offset-primary">
+         <div className="relative z-10 w-[75%] md:w-[60%] h-full rounded-2xl overflow-hidden shadow-2xl transition-all duration-500">
            <AnimatePresence mode="popLayout">
              <motion.div 
                key={currentIndex}
@@ -79,18 +79,18 @@ export default function FeaturedCarousel({ games }: { games: any[] }) {
 
          {/* Next Card */}
          <div 
-           className="absolute right-0 translate-x-[20%] w-[50%] md:w-[40%] h-[75%] opacity-40 cursor-pointer transition-all duration-500 rounded-2xl overflow-hidden hover:opacity-60" 
+           className="absolute right-0 translate-x-[15%] w-[45%] md:w-[35%] h-[85%] opacity-50 cursor-pointer transition-all duration-500 rounded-2xl overflow-hidden hover:opacity-70" 
            onClick={next}
          >
            <img src={getGame(1).thumbnail} className="w-full h-full object-cover" />
-           <div className="absolute inset-0 bg-black/60" />
+           <div className="absolute inset-0 bg-black/50" />
          </div>
        </div>
 
        {/* Prev Button - positioned on the left edge of the center box */}
        <button 
          onClick={prev} 
-         className="absolute left-[7.5%] md:left-[17.5%] -translate-x-1/2 z-20 bg-black/60 border border-white/10 hover:bg-accent hover:border-accent hover:scale-110 text-white p-3 md:p-4 rounded-full backdrop-blur transition-all shadow-xl"
+         className="absolute left-[12.5%] md:left-[20%] -translate-x-1/2 z-20 bg-black/60 border border-white/10 hover:bg-accent hover:border-accent hover:scale-110 text-white p-3 md:p-4 rounded-full backdrop-blur transition-all shadow-xl"
        >
          <ChevronLeft size={28} />
        </button>
@@ -98,7 +98,7 @@ export default function FeaturedCarousel({ games }: { games: any[] }) {
        {/* Next Button - positioned on the right edge of the center box */}
        <button 
          onClick={next} 
-         className="absolute right-[7.5%] md:right-[17.5%] translate-x-1/2 z-20 bg-black/60 border border-white/10 hover:bg-accent hover:border-accent hover:scale-110 text-white p-3 md:p-4 rounded-full backdrop-blur transition-all shadow-xl"
+         className="absolute right-[12.5%] md:right-[20%] translate-x-1/2 z-20 bg-black/60 border border-white/10 hover:bg-accent hover:border-accent hover:scale-110 text-white p-3 md:p-4 rounded-full backdrop-blur transition-all shadow-xl"
        >
          <ChevronRight size={28} />
        </button>
