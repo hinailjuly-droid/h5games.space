@@ -3,6 +3,7 @@ import Link from "next/link";
 import GameCard from "@/components/games/GameCard";
 import AdSlot from "@/components/ads/AdSlot";
 import { ChevronLeft, ChevronRight, ChevronRightIcon } from "lucide-react";
+import FeaturedCarousel from "@/components/games/FeaturedCarousel";
 
 export const revalidate = 60;
 
@@ -57,30 +58,8 @@ export default async function HomePage() {
         </div>
       )}
 
-      {/* 2. Featured & Recent Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-2">
-        {featuredGame && (
-          <div className="lg:col-span-2 row-span-2 h-[400px] lg:h-auto">
-            <Link href={`/game/${featuredGame.slug}`} className="block relative w-full h-full rounded-2xl overflow-hidden group shadow-lg">
-              <img src={featuredGame.thumbnail} alt={featuredGame.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-6 z-10">
-                <h2 className="text-3xl font-black text-white mb-2">{featuredGame.title}</h2>
-                <div className="flex items-center gap-3">
-                  <span className="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">{featuredGame.category}</span>
-                </div>
-              </div>
-            </Link>
-          </div>
-        )}
-        <div className="lg:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {allGames.slice(featuredGame ? 1 : 0, 7).map((game: any) => (
-            <div key={game.id} className="h-full">
-               <GameCard game={game} />
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* 2. Featured Carousel */}
+      <FeaturedCarousel games={featuredGamesData?.games?.length > 0 ? featuredGamesData.games : allGames.slice(0, 5)} />
 
       <AdSlot position="home_hero" className="w-full my-4" />
 
