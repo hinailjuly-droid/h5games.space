@@ -20,10 +20,10 @@ export default async function HomePage() {
     serverApi.getGames({ limit: 12 }),
     serverApi.getFeaturedGames().catch(() => null),
     serverApi.getGames({ category: 'Action', limit: 7 }).catch(() => ({ games: [] })),
-    serverApi.getGames({ category: 'Arcade', limit: 6 }).catch(() => ({ games: [] })),
-    serverApi.getGames({ category: 'Puzzle', limit: 6 }).catch(() => ({ games: [] })),
+    serverApi.getGames({ category: 'Arcade', limit: 9 }).catch(() => ({ games: [] })),
+    serverApi.getGames({ category: 'Puzzle', limit: 9 }).catch(() => ({ games: [] })),
     serverApi.getCategories().catch(() => []),
-    serverApi.getLatestBlogPosts(3).catch(() => ({ posts: [] }))
+    serverApi.getLatestBlogPosts(6).catch(() => ({ posts: [] }))
   ]);
 
   const allGames = allGamesData?.games || [];
