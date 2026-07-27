@@ -198,7 +198,7 @@ export default async function HomePage() {
             H5GAMES SPACE is free to use and built on open-source foundations. We believe browser gaming works best when it's accessible to everyone — no paywalls, no forced downloads, no friction between you and the fun. As HTML5 technology continues to evolve, we're committed to expanding our library, improving performance, and making this the best place on the web to jump into a game whenever you have a few spare minutes or a few spare hours.
           </p>
           <p className="text-white font-semibold mt-6 text-center text-lg">
-            Ready to play? Browse our categories, pick a game, and dive in — it's already loading.
+            Ready to play? Browse our <Link href="/games" className="text-accent hover:underline">categories</Link>, pick a game, and dive in — it's already loading.
           </p>
         </div>
       </div>
