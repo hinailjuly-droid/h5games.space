@@ -150,6 +150,59 @@ export default async function HomePage() {
         </div>
       )}
 
+      {/* 6. SEO Description */}
+      <div className="mt-16 pt-12 pb-10 border-t border-white/5 text-gray-400">
+        <h2 className="text-3xl font-black text-white mb-6">H5GAMES SPACE: Your Home for Free Browser Gaming</h2>
+        <div className="space-y-6 text-sm md:text-base leading-relaxed">
+          <p>
+            <strong className="text-white font-bold">H5GAMES SPACE</strong> is your home for free, instant-play browser gaming. We've built a library of over 1,000 HTML5 games spanning every genre imaginable — puzzle, arcade, action, strategy, racing, sports, card games, and more — all playable directly in your browser. No downloads, no installs, no account sign-ups. Just click a game and start playing in seconds, whether you're on a desktop, laptop, tablet, or phone.
+          </p>
+          
+          <h3 className="text-xl font-bold text-white mt-8 mb-4">Why We Built This</h3>
+          <p>
+            Gaming should be simple. Too many platforms today bury you in downloads, storage requirements, invasive permissions, and mandatory logins before you've even played a single level. We wanted to bring back the feeling of the early browser-gaming era — open a tab, pick a game, play — but with modern HTML5 technology that makes everything faster, smoother, and better looking than ever before. Every game on H5GAMES SPACE runs natively in your browser using open web standards, which means it works across devices without the compatibility headaches of older Flash-based sites.
+          </p>
+
+          <h3 className="text-xl font-bold text-white mt-8 mb-4">Explore Every Genre</h3>
+          <p>
+            Our games are organized into clear, easy-to-browse categories so you can find exactly what you're in the mood for:
+          </p>
+          <ul className="list-disc pl-5 space-y-2 mt-4 mb-4">
+            <li><strong className="text-white">Puzzle & Match 3</strong> — brain teasers, tile matchers, and logic challenges</li>
+            <li><strong className="text-white">Mahjong & Card Games</strong> — classic solitaire and tile-matching favorites</li>
+            <li><strong className="text-white">Hidden Object</strong> — sharpen your eye for detail across dozens of scenes</li>
+            <li><strong className="text-white">Action & Arcade</strong> — fast-paced reflex games and retro-inspired classics</li>
+            <li><strong className="text-white">Strategy & Simulation</strong> — build, manage, and plan your way to victory</li>
+            <li><strong className="text-white">Sports & Racing</strong> — competitive games built for quick sessions or long play</li>
+            <li><strong className="text-white">Word Games & Board Games</strong> — timeless formats reimagined for the browser</li>
+          </ul>
+          <p>
+            New titles are added regularly, so there's always something fresh to discover, alongside the tried-and-true favorites that keep players coming back.
+          </p>
+
+          <h3 className="text-xl font-bold text-white mt-8 mb-4">Built for Every Screen</h3>
+          <p>
+            Every game on H5GAMES SPACE is optimized for full-screen play and designed to work smoothly whether you're on a desktop monitor or a mobile screen. Our layout adapts to your device automatically, so the experience stays consistent no matter how you access the site. That means you can start a game on your laptop during a break and pick up something similar on your phone later — no friction, no setup.
+          </p>
+
+          <h3 className="text-xl font-bold text-white mt-8 mb-4">More Than Just Games</h3>
+          <p>
+            Beyond our game library, our <Link href="/blog" className="text-accent hover:underline">Blog</Link> covers guides, roundups, and industry trends — from the best browser gaming sites to explainers on how HTML5 and WebGL are shaping the future of web gaming. Whether you're a curious player or a fellow developer, there's always something worth reading.
+          </p>
+          <p>
+            We've also built a Discord community for players who want more than just a games library. Join to chat with other players, share your favorite finds, request new titles, and get updates on what's coming next to the platform. It's a space built around the same idea as the site itself: gaming should be social, accessible, and free of unnecessary barriers.
+          </p>
+
+          <h3 className="text-xl font-bold text-white mt-8 mb-4">Free, Open, and Always Improving</h3>
+          <p>
+            H5GAMES SPACE is free to use and built on open-source foundations. We believe browser gaming works best when it's accessible to everyone — no paywalls, no forced downloads, no friction between you and the fun. As HTML5 technology continues to evolve, we're committed to expanding our library, improving performance, and making this the best place on the web to jump into a game whenever you have a few spare minutes or a few spare hours.
+          </p>
+          <p className="text-white font-semibold mt-6 text-center text-lg">
+            Ready to play? Browse our categories, pick a game, and dive in — it's already loading.
+          </p>
+        </div>
+      </div>
+
     </div>
   );
 }
