@@ -1,8 +1,4 @@
 import { ImageResponse } from 'next/og'
-import { Gamepad2 } from 'lucide-react'
-
-// Route segment config
-export const runtime = 'edge'
 
 // Image metadata
 export const size = {
@@ -33,17 +29,9 @@ export default function Icon() {
           width="20"
           height="20"
           viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          fill="currentColor"
         >
-          <line x1="6" y1="12" x2="10" y2="12" />
-          <line x1="8" y1="10" x2="8" y2="14" />
-          <line x1="15" y1="13" x2="15.01" y2="13" />
-          <line x1="18" y1="11" x2="18.01" y2="11" />
-          <rect x="2" y="6" width="20" height="12" rx="2" />
+          <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
         </svg>
       </div>
     ),
