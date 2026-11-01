@@ -28,24 +28,8 @@ export default function AppTopbar({ onOpenMobileSidebar }: AppTopbarProps) {
         </Link>
       </div>
 
-      {/* Model Badges */}
-      <div className="flex items-center gap-2 text-xs">
-        <span className="text-slate-500 font-semibold text-[11px] uppercase tracking-wider hidden sm:inline">Top Engines:</span>
-        <Link
-          href="/?model=Google+Gemini"
-          className="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 border border-slate-200 text-slate-700 hover:text-blue-700 text-[11px] font-semibold transition-colors flex items-center gap-1.5"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
-          Google Gemini
-        </Link>
-        <Link
-          href="/?model=ChatGPT"
-          className="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 border border-slate-200 text-slate-700 hover:text-blue-700 text-[11px] font-semibold transition-colors flex items-center gap-1.5"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-          ChatGPT
-        </Link>
-      </div>
+      {/* Right Spacer / Actions */}
+      <div className="flex items-center gap-2"></div>
     </header>
   );
 }

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { INITIAL_PROMPTS, CATEGORIES, AI_MODELS, BLOG_POSTS } from './mockData';
 import { Prompt, PromptsResponse, CategoryItem, ModelItem, BlogPost } from '@/types';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || (typeof window !== 'undefined' ? '/api' : 'http://localhost:3000/api');
 
 const api = axios.create({
   baseURL: API_URL,
@@ -23,8 +23,8 @@ export const promptsApi = {
   }): Promise<PromptsResponse> => {
     try {
       const { data } = await api.get('/prompts', { params });
-      if (data && data.prompts) return data;
-      throw new Error('Invalid response structure');
+      if (data && Array.isArray(data.prompts) && data.prompts.length > 0) return data;
+      throw new Error('API returned empty or invalid structure');
     } catch {
       // Fallback filtering on mock data
       let filtered = [...INITIAL_PROMPTS];
