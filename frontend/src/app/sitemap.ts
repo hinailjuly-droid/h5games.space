@@ -1,38 +1,35 @@
 import { MetadataRoute } from 'next';
-import { serverApi } from '@/lib/api-server';
+import { INITIAL_PROMPTS, CATEGORIES, BLOG_POSTS } from '@/lib/mockData';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.h5games.space';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://h5games.space';
 
-  let gameEntries: MetadataRoute.Sitemap = [];
-  let blogEntries: MetadataRoute.Sitemap = [];
-  
-  try {
-    const data = await serverApi.getGames({ limit: 2000 });
-    const slugs = (data?.games || []).map((g: any) => g.slug);
-    
-    gameEntries = slugs.map((slug: string) => ({
-      url: `${baseUrl}/game/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    }));
+  const promptEntries: MetadataRoute.Sitemap = INITIAL_PROMPTS.map((p) => ({
+    url: `${baseUrl}/prompt/${p.slug}`,
+    lastModified: new Date(p.createdAt || Date.now()),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
 
-    const blogData = await serverApi.getBlogPosts({ limit: 100 });
-    blogEntries = (blogData?.posts || []).map((post: any) => ({
-      url: `${baseUrl}/blog/${post.slug}`,
-      lastModified: new Date(post.publishedAt || post.updatedAt),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    }));
-  } catch (error) {
-    console.warn('Sitemap dynamic fetch skipped (backend unreachable). Proceeding with static routes.');
-  }
+  const blogEntries: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.publishedAt || Date.now()),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  const categoryEntries: MetadataRoute.Sitemap = CATEGORIES.filter((c) => c.slug !== 'all').map((cat) => ({
+    url: `${baseUrl}/category/${cat.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'daily' as const,
+    priority: 0.8,
+  }));
 
   const routes = [
     '',
-    '/games',
-    '/featured',
+    '/trending',
+    '/categories',
+    '/blog',
     '/about',
     '/contact',
     '/privacy-policy',
@@ -45,14 +42,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route === '' ? 1.0 : 0.7,
   }));
 
-  const categoryRoutes = [
-    'action', 'puzzle', 'rpg', 'racing', 'strategy', 'arcade', 'multiplayer', 'board-card', 'simulation', 'platformer'
-  ].map((cat) => ({
-    url: `${baseUrl}/category/${cat}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.6,
-  }));
-
-  return [...routes, ...categoryRoutes, ...gameEntries, ...blogEntries];
+  return [...routes, ...promptEntries, ...categoryEntries, ...blogEntries];
 }

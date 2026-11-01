@@ -1,60 +1,47 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0D1117;
-  --color-primary-light: #161B22;
-  --color-primary-lighter: #21262D;
-  
-  --color-accent: #4F8EF7;
-  --color-accent-dark: #2F6AD0;
-  --color-accent-light: #79A9F9;
-  
-  --color-success: #238636;
-  
-  --animate-float: float 3s ease-in-out infinite;
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
+  --color-offwhite-bg: #F1F5F9;
+  --color-offwhite-card: #FFFFFF;
+  --color-offwhite-border: #E2E8F0;
+
+  --color-navy-dark: #0F172A;
+  --color-navy-blue: #1E3A8A;
+  --color-royal-blue: #2563EB;
+  --color-sky-blue: #0284C7;
 }
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 13, 17, 23;
-  --background-end-rgb: 0, 0, 0;
+  --foreground-rgb: 15, 23, 42;    /* Dark navy blue text (#0F172A) */
+  --background-rgb: 241, 245, 249; /* Dark shade of white / off-white (#F1F5F9) */
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #F1F5F9;
   min-height: 100vh;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Custom Scrollbar */
+/* Custom scrollbar in clean blue & slate */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d1117;
+  background: #E2E8F0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #21262d;
-  border-radius: 4px;
+  background: #94A3B8;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4f8ef7;
+  background: #2563EB;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -66,20 +53,44 @@ body {
   scrollbar-width: none;
 }
 
-@layer components {
-  .glass-card {
-    @apply bg-primary-light/50 backdrop-blur-md border border-white/5;
-  }
-  
-  .btn-primary {
-    @apply bg-accent hover:bg-accent-dark text-white px-6 py-2 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 active:scale-95;
-  }
-  
-  .btn-outline {
-    @apply bg-transparent border border-white/20 hover:border-white/40 hover:bg-white/5 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 active:scale-95;
-  }
+/* Crisp White & Blue Cards */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid #E2E8F0;
 }
 
-.text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent-light;
+.glass-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: #93C5FD;
+  box-shadow: 0 12px 30px -6px rgba(30, 58, 138, 0.12);
+  transform: translateY(-2px);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #2563EB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-accent-text {
+  background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 50%, #0284C7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glow-btn {
+  transition: all 0.2s ease;
+}
+
+.glow-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px -4px rgba(37, 99, 235, 0.4);
 }

@@ -1,12 +1,12 @@
 {
-  "name": "pixelvault-backend",
+  "name": "promptvault-backend",
   "version": "1.0.0",
-  "description": "PixelVault HTML5 Games Portal - Backend API",
+  "description": "PromptVault AI Prompts Portal - Backend API",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "fetch-games": "node scripts/fetchGames.js",
+    "seed-prompts": "node scripts/seedPrompts.js",
     "seed-admin": "node scripts/seedAdmin.js"
   },
   "dependencies": {

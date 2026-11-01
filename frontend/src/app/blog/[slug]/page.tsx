@@ -1,13 +1,12 @@
-import { serverApi } from "@/lib/api-server";
-import { BlogPost } from "@/types";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import Image from "next/image";
-import { Calendar, Clock, ArrowLeft } from "lucide-react";
-import Link from "next/link";
-import Newsletter from "@/components/Newsletter";
-import ShareButtons from "@/components/blog/ShareButtons";
-import { Metadata } from "next";
+import React from 'react';
+import { BLOG_POSTS } from '@/lib/mockData';
+import { BlogPost } from '@/types';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import Image from 'next/image';
+import { Calendar, Clock, ArrowLeft, Sparkles } from 'lucide-react';
+import Link from 'next/link';
+import { Metadata } from 'next';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -15,156 +14,112 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  try {
-    const post: BlogPost = await serverApi.getPostBySlug(slug);
-    if (!post) return {};
-    
-    return {
-      title: `${post.title} | H5GAMES SPACE Blog`,
+  const post = BLOG_POSTS.find((p) => p.slug === slug);
+  if (!post) return { title: 'Article Not Found | h5games' };
+
+  return {
+    title: `${post.title} | h5games Guides`,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
       description: post.excerpt,
-      openGraph: {
-        title: post.title,
-        description: post.excerpt,
-        images: [post.coverImage],
-        type: 'article',
-        publishedTime: post.publishedAt.toString(),
-      },
-    };
-  } catch (error) {
-    return {};
-  }
+      images: [post.coverImage],
+      type: 'article',
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  
-  let post: BlogPost | null = null;
-  try {
-    post = await serverApi.getPostBySlug(slug);
-  } catch (error) {
-    console.error("Error fetching post:", error);
-  }
+  const post = BLOG_POSTS.find((p) => p.slug === slug);
 
   if (!post) {
     return (
-      <div className="flex bg-black min-h-screen items-center justify-center text-white">
-        Post not found
+      <div className="max-w-2xl mx-auto px-4 py-24 text-center space-y-4">
+        <Sparkles className="w-10 h-10 text-sky-400 mx-auto" />
+        <h1 className="text-2xl font-bold text-slate-100">Article Not Found</h1>
+        <p className="text-sm text-slate-300">The guide you are looking for does not exist.</p>
+        <Link
+          href="/blog"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold bg-blue-600 text-white"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back to Guides
+        </Link>
       </div>
     );
   }
 
   return (
-    <div className="bg-black min-h-screen pb-32">
-      {/* Hero Header */}
-      <div className="relative h-[60vh] min-h-[400px] w-full overflow-hidden">
-        <Image
-          src={post.coverImage}
-          alt={post.title}
-          fill
-          unoptimized={true}
-          className="object-cover opacity-60"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-        
-        <div className="container mx-auto px-4 absolute inset-0 flex flex-col justify-end pb-20">
-          <Link 
-            href="/blog" 
-            className="inline-flex items-center gap-2 text-accent text-xs font-black uppercase italic tracking-widest mb-8 hover:translate-x-[-4px] transition-all bg-white/5 px-6 py-2.5 rounded-full border border-white/10 hover:bg-white/10"
-          >
-            <ArrowLeft size={16} /> Back to Blog
-          </Link>
-          
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white italic uppercase tracking-tighter mb-8 max-w-5xl leading-none">
-            {post.title}
-          </h1>
+    <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+      {/* Back button */}
+      <div>
+        <Link
+          href="/blog"
+          className="inline-flex items-center gap-2 text-xs font-medium text-slate-400 hover:text-white transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Back to All Guides</span>
+        </Link>
+      </div>
 
-          <div className="flex flex-wrap items-center gap-8 text-xs font-bold text-gray-300 uppercase tracking-widest border-t border-white/10 pt-8 mt-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full border-2 border-white/20 shadow-xl overflow-hidden bg-primary-lighter">
-                {post.author.name.toLowerCase() === 'h5games space team' ? (
-                  <Image 
-                    src="/assets/team/h5games_team.png" 
-                    alt="H5Games Space Team" 
-                    width={48} 
-                    height={48} 
-                    className="object-cover w-full h-full"
-                  />
-                ) : (
-                  <Image 
-                    src={post.author.avatar} 
-                    alt={post.author.name} 
-                    width={48} 
-                    height={48} 
-                    className="object-cover w-full h-full"
-                  />
-                )}
-              </div>
-              <span className="text-white font-black italic uppercase tracking-widest text-[10px]">{post.author.name}</span>
+      {/* Article Header */}
+      <header className="space-y-4 border-b border-slate-700/40 pb-8">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sky-400">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>{post.category}</span>
+        </div>
+
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-100 tracking-tight leading-tight">
+          {post.title}
+        </h1>
+
+        <div className="flex flex-wrap items-center gap-4 text-xs text-slate-400 pt-2">
+          <div className="flex items-center gap-2">
+            <div className="relative w-6 h-6 rounded-full overflow-hidden bg-blue-900/40">
+              <Image src={post.author.avatar} alt={post.author.name} fill className="object-cover" />
             </div>
-            <div className="flex items-center gap-2 font-mono">
-              <Calendar size={16} className="text-accent" />
-              {new Date(post.publishedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
-            </div>
-            <div className="flex items-center gap-2 font-mono">
-              <Clock size={16} className="text-accent" />
-              {post.readTime}
-            </div>
+            <span className="text-slate-200 font-medium">{post.author.name}</span>
+          </div>
+          <span>•</span>
+          <div className="flex items-center gap-1.5">
+            <Clock className="w-3.5 h-3.5" />
+            <span>{post.readTime}</span>
+          </div>
+          <span>•</span>
+          <div className="flex items-center gap-1.5">
+            <Calendar className="w-3.5 h-3.5" />
+            <span>{post.publishedAt}</span>
           </div>
         </div>
+      </header>
+
+      {/* Hero Image */}
+      <div className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden bg-slate-950 border border-slate-700/60 shadow-2xl">
+        <Image src={post.coverImage} alt={post.title} fill priority className="object-cover" />
       </div>
 
-      <div className="container mx-auto px-4 mt-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          {/* Main Content */}
-          <article className="lg:col-span-8">
-            <div className="max-w-none text-gray-400 font-medium leading-loose">
-              <ReactMarkdown 
-                remarkPlugins={[remarkGfm]}
-                components={{
-                  h1: ({node, ...props}) => <h1 className="text-4xl md:text-5xl font-black text-white italic uppercase tracking-tighter mb-8 mt-12" {...props} />,
-                  h2: ({node, ...props}) => <h2 className="text-3xl md:text-4xl font-black text-white italic uppercase tracking-tighter mb-6 mt-16 flex items-center gap-4 before:w-2 before:h-8 before:bg-accent before:rounded-full" {...props} />,
-                  h3: ({node, ...props}) => <h3 className="text-2xl font-black text-white italic uppercase tracking-tight mb-4 mt-10" {...props} />,
-                  p: ({node, ...props}) => <p className="mb-6" {...props} />,
-                  ul: ({node, ...props}) => <ul className="list-disc pl-6 mb-8 space-y-3" {...props} />,
-                  li: ({node, ...props}) => <li className="marker:text-accent" {...props} />,
-                  table: ({node, ...props}) => (
-                    <div className="overflow-x-auto my-12 rounded-[2rem] border border-white/5 bg-primary-light/30">
-                      <table className="w-full text-left border-collapse" {...props} />
-                    </div>
-                  ),
-                  thead: ({node, ...props}) => <thead className="bg-accent/10 border-b border-white/5" {...props} />,
-                  th: ({node, ...props}) => <th className="p-6 text-xs font-black text-accent uppercase italic tracking-widest" {...props} />,
-                  td: ({node, ...props}) => <td className="p-6 text-sm border-b border-white/5 text-gray-300" {...props} />,
-                  tr: ({node, ...props}) => <tr className="hover:bg-white/5 transition-colors" {...props} />,
-                  code: ({node, inline, ...props}: any) => (
-                    inline 
-                      ? <code className="bg-accent/10 text-accent px-1.5 py-0.5 rounded font-mono text-sm" {...props} />
-                      : <div className="p-6 bg-primary-light border border-white/5 rounded-2xl my-8 overflow-x-auto"><code className="font-mono text-sm text-gray-300 block" {...props} /></div>
-                  ),
-                  blockquote: ({node, ...props}) => (
-                    <blockquote className="border-l-4 border-accent bg-accent/5 p-8 rounded-2xl italic my-10 text-gray-300 relative overflow-hidden">
-                       <div className="relative z-10">{props.children}</div>
-                    </blockquote>
-                  ),
-                }}
-              >
-                {post.content}
-              </ReactMarkdown>
-            </div>
-          </article>
-
-          {/* Sidebar */}
-          <aside className="lg:col-span-4 space-y-8">
-            <div className="bg-primary-light border border-white/5 rounded-[2.5rem] p-8 flex flex-col gap-6 scale-95 origin-top-right">
-               <h4 className="text-gray-500 font-black italic uppercase text-xs text-center tracking-widest border-b border-white/5 pb-4">Share this Article</h4>
-               <ShareButtons title={post.title} />
-            </div>
-
-            <Newsletter />
-          </aside>
-        </div>
+      {/* Markdown Content in Dark White & Slate */}
+      <div className="prose prose-invert max-w-none prose-headings:font-bold prose-headings:text-slate-100 prose-p:text-slate-300 prose-p:leading-relaxed prose-a:text-sky-400 prose-code:text-sky-300 prose-code:bg-slate-900/80 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-blockquote:border-sky-500 prose-blockquote:text-slate-300">
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          {post.content}
+        </ReactMarkdown>
       </div>
-    </div>
+
+      {/* CTA Box in Deep Navy */}
+      <div className="p-8 rounded-3xl glass-card text-center space-y-4 my-10">
+        <h3 className="text-xl font-bold text-slate-100">Ready to create your own images?</h3>
+        <p className="text-xs text-slate-300 max-w-md mx-auto">
+          Explore our complete collection of tested Google Gemini and ChatGPT prompts with exact camera angles and copy buttons.
+        </p>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold bg-gradient-to-r from-blue-700 via-blue-600 to-sky-600 text-white shadow-lg shadow-blue-950/50"
+        >
+          <Sparkles className="w-4 h-4" />
+          <span>Browse 10,000+ AI Prompts</span>
+        </Link>
+      </div>
+    </article>
   );
 }

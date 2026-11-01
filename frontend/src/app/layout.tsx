@@ -1,16 +1,28 @@
 import type { Metadata } from "next";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import AppShell from "@/components/layout/AppShell";
 import Providers from "@/components/Providers";
-import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "H5GAMES SPACE | Play 1000+ Free Browser Games - No Login Required",
-  description: "Browse and play premium HTML5 games for free on H5GAMES SPACE. Full-screen experience, zero downloads, and mobile friendly. The ultimate open-source games portal.",
-  keywords: "h5games space, h5 games space, h5games, free browser games, open source games, play online, arcade games",
-  verification: {
-    google: "jAKellkBv8NUvrk-_Hy5XrP0cBwJJeTOjGqgZqPCaRs",
+  metadataBase: new URL("https://h5games.space"),
+  title: "h5games — Curated AI Prompts for Google Gemini & ChatGPT",
+  description: "Explore, inspect, and copy 100+ curated AI art prompts for Google Gemini and ChatGPT. 100% free with zero login required.",
+  keywords: "h5games, h5games.space, ai prompts, gemini prompts, chatgpt prompts, copy paste prompts, prompt library, ai photo prompts",
+  alternates: {
+    canonical: "https://h5games.space",
+  },
+  openGraph: {
+    title: "h5games — Curated AI Prompts for Google Gemini & ChatGPT",
+    description: "Explore, inspect, and copy 100+ curated AI art prompts for Google Gemini and ChatGPT. 100% free with zero login required.",
+    url: "https://h5games.space",
+    siteName: "h5games",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "h5games — Curated AI Prompts for Google Gemini & ChatGPT",
+    description: "Explore, inspect, and copy 100+ curated AI art prompts for Google Gemini and ChatGPT. 100% free with zero login required.",
   },
 };
 
@@ -21,23 +33,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <head>
-        <script 
-          async 
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8194925511868451"
-          crossOrigin="anonymous"
-          data-overlays="false"
-        ></script>
-      </head>
-      <body>
+      <body className="min-h-screen bg-[#F1F5F9] text-slate-900 antialiased selection:bg-blue-600/20 selection:text-blue-900">
         <Providers>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow pt-24">
-              {children}
-            </main>
-            <Footer />
-          </div>
+          <AppShell>
+            {children}
+          </AppShell>
         </Providers>
       </body>
     </html>

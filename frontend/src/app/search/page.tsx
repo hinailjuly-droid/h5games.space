@@ -1,120 +1,125 @@
-"use client";
+'use client';
 
-import { Suspense } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { useSearchParams, useRouter } from "next/navigation";
-import { gamesApi } from "@/lib/api";
-import GameGrid from "@/components/games/GameGrid";
-import { Search as SearchIcon, XCircle, Lightbulb } from "lucide-react";
-import Button from "@/components/ui/Button";
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+import { promptsApi } from '@/lib/api';
+import { Prompt } from '@/types';
+import PromptCard from '@/components/prompts/PromptCard';
+import PromptModal from '@/components/prompts/PromptModal';
+import { Search as SearchIcon, Sparkles } from 'lucide-react';
 
 function SearchPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
   const [searchInput, setSearchInput] = useState(query);
+  const [prompts, setPrompts] = useState<Prompt[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [activeModalPrompt, setActiveModalPrompt] = useState<Prompt | null>(null);
 
-  const { data, isLoading } = useQuery({
-    queryKey: ['search', query],
-    queryFn: () => gamesApi.searchGames({ q: query, limit: 24 }),
-    enabled: query.length > 1,
-  });
-
-  // Live Search via Debounce
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const trimmed = searchInput.trim();
-      if (trimmed !== query.trim()) {
-        if (trimmed.length > 1) {
-          router.replace(`/search?q=${encodeURIComponent(trimmed)}`);
-        } else if (trimmed.length === 0 && query) {
-          router.replace(`/search`);
-        }
+    async function doSearch() {
+      if (!query.trim()) {
+        setPrompts([]);
+        return;
       }
-    }, 400);
-    return () => clearTimeout(timer);
-  }, [searchInput, query, router]);
-
-  // Sync back from URL if user uses browser history
-  useEffect(() => {
-    if (query !== searchInput && searchInput === '') {
-      setSearchInput(query);
+      setLoading(true);
+      try {
+        const res = await promptsApi.getPrompts({ search: query, limit: 30 });
+        setPrompts(res.prompts);
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setLoading(false);
+      }
     }
+    doSearch();
   }, [query]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchInput.trim().length > 1) {
+    if (searchInput.trim()) {
       router.push(`/search?q=${encodeURIComponent(searchInput.trim())}`);
     }
   };
 
   return (
-    <div className="container mx-auto px-4 py-16 min-h-[70vh]">
-      <div className="max-w-4xl mx-auto mb-20 text-center">
-        <h1 className="text-4xl md:text-6xl font-black text-white italic uppercase mb-8">
-          Search the <span className="text-accent underline decoration-white/10">Vault</span>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+      {/* Search Header */}
+      <div className="max-w-2xl mx-auto text-center space-y-4">
+        <h1 className="text-3xl font-extrabold text-white tracking-tight">
+          Search AI Prompts
         </h1>
-        
-        <form onSubmit={handleSearch} className="relative group max-w-2xl mx-auto">
-          <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none text-gray-400 group-focus-within:text-accent transition-colors">
-            <SearchIcon size={24} />
-          </div>
-          <input
-            type="text"
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-            placeholder="Search titles, tags, or categories..."
-            className="w-full bg-primary-light border border-white/10 rounded-[2rem] py-6 pl-16 pr-24 text-xl text-white placeholder-gray-600 focus:outline-none focus:border-accent/50 focus:ring-4 focus:ring-accent/10 transition-all font-bold shadow-2xl"
-          />
-          <div className="absolute right-4 inset-y-0 flex items-center">
-             <Button type="submit" size="sm" className="h-10 px-6 rounded-full font-black uppercase text-xs italic">
-                FIND
-             </Button>
+        <form onSubmit={handleSearch} className="relative">
+          <div className="relative flex items-center rounded-2xl bg-[#0e1320] border border-white/10 p-1.5 focus-within:border-purple-500">
+            <SearchIcon className="w-5 h-5 text-gray-400 ml-3 shrink-0" />
+            <input
+              type="text"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              placeholder="Search by keywords, subject, camera lens..."
+              className="w-full bg-transparent px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none"
+            />
+            <button
+              type="submit"
+              className="px-4 py-2 rounded-xl text-xs font-semibold bg-purple-600 text-white hover:bg-purple-500 transition-colors"
+            >
+              Search
+            </button>
           </div>
         </form>
-
-        {query && (
-          <p className="mt-8 text-gray-500 font-medium tracking-tight">
-            Found {data?.pagination.total || 0} results for <span className="text-white">"{query}"</span>
-          </p>
-        )}
       </div>
 
-      {!query ? (
-        <div className="flex flex-col items-center justify-center py-20 bg-primary-light/20 rounded-[3rem] border border-dashed border-white/5">
-           <SearchIcon size={64} className="text-gray-800 mb-6" />
-           <h3 className="text-2xl font-bold text-gray-600 uppercase italic">Type something to begin</h3>
-           <p className="text-gray-700 mt-2 font-medium">Find your next favorite game in the h5games space database.</p>
+      {/* Results */}
+      {query && (
+        <div className="flex items-center justify-between text-xs text-gray-400 border-b border-white/[0.08] pb-4">
+          <span>
+            Results for <span className="text-white font-bold">&quot;{query}&quot;</span>: {prompts.length} prompts
+          </span>
         </div>
-      ) : (
-        <GameGrid games={data?.games || []} isLoading={isLoading} />
       )}
 
-      {query && data?.games.length === 0 && !isLoading && (
-         <div className="flex flex-col items-center justify-center py-20 bg-primary-light/50 rounded-[3rem] border border-white/5 text-center">
-           <div className="w-20 h-20 bg-red-500/10 text-red-500 rounded-full flex items-center justify-center mb-6">
-              <XCircle size={40} />
-           </div>
-           <h3 className="text-2xl font-bold text-white uppercase italic mb-2">No Results Found</h3>
-           <p className="text-gray-500 max-w-sm mb-10">We couldn't find any games matching your request. Try using broader keywords.</p>
-           
-           <div className="bg-primary/50 p-8 rounded-2xl border border-white/5 max-w-md w-full">
-              <div className="flex items-center gap-2 text-accent mb-4 font-bold text-sm uppercase tracking-widest justify-center">
-                 <Lightbulb size={16} /> Suggestions
-              </div>
-              <ul className="text-gray-400 text-sm space-y-3 font-medium">
-                 <li>Check for typos or misspellings</li>
-                 <li>Try searching by category (e.g. "Action")</li>
-                 <li>Try simpler, generic terms (e.g. "Space")</li>
-                 <li>Browse all games to discover new titles</li>
-              </ul>
-           </div>
-         </div>
+      {loading ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div
+              key={i}
+              className="rounded-2xl bg-white/[0.02] border border-white/[0.06] aspect-[4/5] animate-pulse"
+            />
+          ))}
+        </div>
+      ) : prompts.length === 0 && query ? (
+        <div className="text-center py-20 bg-white/[0.02] rounded-3xl border border-white/[0.06] max-w-md mx-auto space-y-3 px-6">
+          <Sparkles className="w-8 h-8 text-purple-400 mx-auto" />
+          <h2 className="text-base font-bold text-white">No Prompts Found</h2>
+          <p className="text-xs text-gray-400">
+            Try searching for another style like &quot;cinematic&quot;, &quot;saree&quot;, or &quot;85mm&quot;.
+          </p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {prompts.map((prompt) => (
+            <PromptCard
+              key={prompt._id}
+              prompt={prompt}
+              onOpenModal={setActiveModalPrompt}
+            />
+          ))}
+        </div>
       )}
+
+      <PromptModal
+        prompt={activeModalPrompt}
+        onClose={() => setActiveModalPrompt(null)}
+      />
     </div>
   );
 }
 
-export default function SearchPage() { return ( <Suspense fallback={<div className='min-h-screen bg-black flex items-center justify-center text-white/20 italic font-black uppercase tracking-tighter'>Loading Search...</div>}><SearchPageContent /></Suspense> ); }
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<div className="text-center py-20 text-xs text-gray-500">Loading search...</div>}>
+      <SearchPageContent />
+    </Suspense>
+  );
+}

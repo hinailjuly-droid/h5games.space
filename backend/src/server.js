@@ -8,12 +8,13 @@ const { connectRedis } = require('./services/cache');
 const { publicLimiter } = require('./middleware/rateLimit');
 const { sanitizeInput } = require('./middleware/validate');
 
+const promptRoutes = require('./routes/prompts');
 const gameRoutes = require('./routes/games');
 const adminRoutes = require('./routes/admin');
 const blogRoutes = require('./routes/blog');
 
 const app = express();
-// Trust Render's reverse proxy for rate limiting (X-Forwarded-For)
+// Trust reverse proxy for rate limiting (X-Forwarded-For)
 app.set('trust proxy', 1);
 const PORT = process.env.PORT || 5000;
 
@@ -44,9 +45,11 @@ app.use(cookieParser());
 app.use(sanitizeInput);
 
 // Rate limiting on public routes
+app.use('/api/prompts', publicLimiter);
 app.use('/api/games', publicLimiter);
 
 // Routes
+app.use('/api/prompts', promptRoutes);
 app.use('/api/games', gameRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/blog', blogRoutes);
@@ -78,23 +81,22 @@ const start = async () => {
   try {
     // Connect to MongoDB
     console.log('📡 Attempting to connect to MongoDB...');
-    if (!process.env.MONGODB_URI) {
-      console.error('❌ MONGODB_URI is missing from environment variables!');
-      process.exit(1);
+    if (process.env.MONGODB_URI) {
+      await mongoose.connect(process.env.MONGODB_URI);
+      console.log('✅ MongoDB connected successfully');
+    } else {
+      console.warn('⚠️ MONGODB_URI not provided. Running in memory / API fallback mode.');
     }
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log('✅ MongoDB connected successfully');
 
     // Connect to Redis (optional, non-blocking)
     connectRedis();
 
     app.listen(PORT, () => {
-      console.log(`🚀 h5games space API server running on port ${PORT}`);
+      console.log(`🚀 PromptVault API server running on port ${PORT}`);
       console.log(`📡 Environment: ${process.env.NODE_ENV || 'development'}`);
     });
   } catch (error) {
-    console.error('❌ Server startup failed:', error);
-    process.exit(1);
+    console.error('❌ Server startup error:', error);
   }
 };
 

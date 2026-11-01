@@ -1,69 +1,69 @@
+import { INITIAL_PROMPTS, CATEGORIES } from './mockData';
+import { Prompt, PromptsResponse, CategoryItem } from '@/types';
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
-/**
- * Server-side API utility using native fetch for Next.js caching & ISR.
- */
 export async function fetchFromApi(endpoint: string, options: RequestInit = {}) {
-  const url = `${API_URL}${endpoint}`;
-  
-  const res = await fetch(url, {
-    ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...options.headers,
-    },
-  });
+  try {
+    const url = `${API_URL}${endpoint}`;
+    const res = await fetch(url, {
+      ...options,
+      headers: {
+        'Content-Type': 'application/json',
+        ...options.headers,
+      },
+    });
 
-  if (!res.ok) {
-    const error = await res.json().catch(() => ({ error: 'Unknown error' }));
-    throw new Error(error.error || `API error: ${res.status}`);
+    if (!res.ok) {
+      throw new Error(`API error: ${res.status}`);
+    }
+
+    return await res.json();
+  } catch (err) {
+    return null;
   }
-
-  return res.json();
 }
 
 export const serverApi = {
-  getGames: (params: any = {}) => {
-    const query = new URLSearchParams(params).toString();
-    return fetchFromApi(`/games?${query}`, { next: { revalidate: 60, tags: ['games'] } });
-  },
-  
-  getGameBySlug: (slug: string) => {
-    return fetchFromApi(`/games/${slug}`, { next: { revalidate: 60, tags: [`game-${slug}`] } });
-  },
-  
-  getFeaturedGames: () => {
-    return fetchFromApi('/games/featured', { next: { revalidate: 60, tags: ['featured-games'] } });
-  },
-  
-  getTrendingGames: () => {
-    return fetchFromApi('/games/trending', { next: { revalidate: 60, tags: ['trending-games'] } });
-  },
-  
-  getPopularGames: () => {
-    return fetchFromApi('/games/popular', { next: { revalidate: 60, tags: ['popular-games'] } });
-  },
-  
-  getCategories: () => {
-    return fetchFromApi('/games/categories', { next: { revalidate: 86400, tags: ['categories'] } });
+  getPrompts: async (params: Record<string, string | number> = {}): Promise<PromptsResponse> => {
+    const query = new URLSearchParams(
+      Object.entries(params).map(([k, v]) => [k, String(v)])
+    ).toString();
+    const data = await fetchFromApi(`/prompts?${query}`, { next: { revalidate: 60 } });
+    if (data && data.prompts) return data;
+
+    return {
+      prompts: INITIAL_PROMPTS,
+      pagination: {
+        page: 1,
+        limit: 20,
+        total: INITIAL_PROMPTS.length,
+        pages: 1,
+        hasNext: false,
+        hasPrev: false,
+      },
+    };
   },
 
-  getAllGameSlugs: async (limit = 2000) => {
-    // Fetch games to get slugs for SSG
-    const data = await fetchFromApi(`/games?limit=${limit}`, { next: { revalidate: 60 } });
-    return data.games.map((g: any) => g.slug);
+  getPromptBySlug: async (slug: string): Promise<{ prompt: Prompt; relatedPrompts: Prompt[] } | null> => {
+    const data = await fetchFromApi(`/prompts/${slug}`, { next: { revalidate: 60 } });
+    if (data && data.prompt) return data;
+
+    const prompt = INITIAL_PROMPTS.find((p) => p.slug === slug);
+    if (!prompt) return null;
+    const relatedPrompts = INITIAL_PROMPTS.filter((p) => p.slug !== slug).slice(0, 4);
+    return { prompt, relatedPrompts };
   },
 
-  getLatestBlogPosts: (limit = 3) => {
-    return fetchFromApi(`/blog?limit=${limit}&featured=true`, { next: { revalidate: 60, tags: ['blog'] } });
+  getFeaturedPrompts: async (): Promise<Prompt[]> => {
+    const data = await fetchFromApi('/prompts/featured', { next: { revalidate: 60 } });
+    if (Array.isArray(data) && data.length > 0) return data;
+    return INITIAL_PROMPTS.filter((p) => p.featured).slice(0, 6);
   },
 
-  getBlogPosts: (params: any = {}) => {
-    const query = new URLSearchParams(params).toString();
-    return fetchFromApi(`/blog?${query}`, { next: { revalidate: 60, tags: ['blog'] } });
+  getCategories: async (): Promise<CategoryItem[]> => {
+    const data = await fetchFromApi('/prompts/categories', { next: { revalidate: 86400 } });
+    if (Array.isArray(data) && data.length > 0) return data;
+    return CATEGORIES;
   },
-
-  getPostBySlug: (slug: string) => {
-    return fetchFromApi(`/blog/${slug}`, { next: { revalidate: 86400, tags: [`blog-${slug}`] } });
-  }
 };

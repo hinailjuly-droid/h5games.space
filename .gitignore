@@ -46,3 +46,7 @@ yarn-error.log*
 
 # Vercel
 .vercel
+
+# Archives & Temporary
+legacy_games/
+temp_zontal_script/

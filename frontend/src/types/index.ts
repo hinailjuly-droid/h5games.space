@@ -1,34 +1,32 @@
-export interface Game {
+export interface PromptParameters {
+  ar?: string;
+  seed?: string;
+  stylize?: string;
+  chaos?: string;
+  version?: string;
+  cfgScale?: string;
+  steps?: string;
+}
+
+export interface Prompt {
   _id: string;
-  githubId: number;
-  name: string;
-  slug: string;
   title: string;
-  description: string;
-  customDescription?: string;
+  slug: string;
+  prompt: string;
+  negativePrompt?: string;
+  model: string;
   category: string;
   tags: string[];
-  license: string;
-  githubUrl: string;
-  playUrl: string;
-  hasLiveUrl: boolean;
-  standalone: boolean;
-  stars: number;
-  forks: number;
-  language: string;
-  thumbnail: string;
-  featured: boolean;
-  verified: boolean;
-  active: boolean;
+  imageUrl: string;
+  aspectRatio: string;
+  parameters?: PromptParameters;
+  description?: string;
+  copies: number;
+  likes: number;
   views: number;
-  plays: number;
-  lastUpdated: string;
-  fetchedAt: string;
-  createdAt: string;
-  updatedAt: string;
-  curated?: boolean;
-  seoContent?: string;
-  editorRating?: number;
+  featured?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface Pagination {
@@ -40,32 +38,23 @@ export interface Pagination {
   hasPrev?: boolean;
 }
 
-export interface GamesResponse {
-  games: Game[];
+export interface PromptsResponse {
+  prompts: Prompt[];
   pagination: Pagination;
 }
 
-export interface Category {
+export interface CategoryItem {
   name: string;
   slug: string;
   count: number;
+  icon?: string;
 }
 
-export interface AdminStats {
-  totalGames: number;
-  activeGames: number;
-  featuredGames: number;
-  verifiedGames: number;
-  monthlyPlays: number;
-  monthlyViews: number;
+export interface ModelItem {
+  name: string;
+  count: number;
 }
 
-export interface DashboardData {
-  stats: AdminStats;
-  topGames: Partial<Game>[];
-  recentGames: Partial<Game>[];
-  categoryBreakdown: { _id: string; count: number }[];
-}
 export interface BlogPost {
   _id: string;
   title: string;
@@ -81,13 +70,41 @@ export interface BlogPost {
   };
   readTime: string;
   publishedAt: string;
-  featured: boolean;
-  views: number;
-  createdAt: string;
-  updatedAt: string;
+  featured?: boolean;
 }
 
 export interface BlogResponse {
   posts: BlogPost[];
   pagination: Pagination;
+}
+
+// Compatibility types for legacy code
+export interface Game {
+  _id: string;
+  title: string;
+  slug: string;
+  description: string;
+  category: string;
+  tags: string[];
+  thumbnail: string;
+  playUrl: string;
+  stars?: number;
+  plays?: number;
+  views?: number;
+  featured?: boolean;
+  active?: boolean;
+  verified?: boolean;
+  customDescription?: string;
+}
+
+export interface DashboardData {
+  stats: {
+    totalGames: number;
+    activeGames: number;
+    featuredGames: number;
+    verifiedGames: number;
+    monthlyPlays: number;
+    monthlyViews: number;
+  };
+  recentGames: Game[];
 }

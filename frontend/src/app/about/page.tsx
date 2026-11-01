@@ -1,53 +1,71 @@
+import React from 'react';
+import Link from 'next/link';
+import { Sparkles, ShieldCheck, Zap, Users, ArrowRight } from 'lucide-react';
+
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-4 py-20 max-w-4xl">
-      <h1 className="text-4xl md:text-6xl font-black text-white italic uppercase mb-12 text-center">
-        About <span className="text-accent underline decoration-white/10">h5games space</span>
-      </h1>
-      
-      <div className="prose prose-invert max-w-none text-gray-400 space-y-8 text-lg font-medium leading-relaxed">
-        <p>
-          Founded in 2024, h5games space was born from a simple realization: the web is the ultimate gaming console. Our team of developers and curators set out to create a sanctuary for high-quality, open-source HTML5 games, providing a premium experience that honors the original creators while delivering instant fun to players globally.
+    <div className="max-w-4xl mx-auto space-y-8 py-4">
+      {/* Header */}
+      <div className="text-center space-y-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>About h5games</span>
+        </div>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Democratizing Generative AI Prompts
+        </h1>
+        <p className="text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          h5games is a curated, open prompt discovery library built for designers, content creators, and digital artists pushing the boundaries of Google Gemini and ChatGPT.
         </p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
-          <div className="bg-primary-light p-8 rounded-3xl border border-white/5">
-            <h2 className="text-2xl font-black text-white uppercase italic mb-4">Our Mission</h2>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              We aggregate, curate, and showcase high-quality, open-source web games. Our goal is to empower indie developers by providing a massive audience for their GitHub-hosted experiments, while giving players a lightning-fast, beautiful interface to discover their next favorite game.
-            </p>
+      </div>
+
+      {/* Feature Pillars */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-3 shadow-xs">
+          <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600">
+            <Zap className="w-5 h-5" />
           </div>
-          <div className="bg-primary-light p-8 rounded-3xl border border-white/5">
-            <h2 className="text-2xl font-black text-white uppercase italic mb-4">The h5games Standard</h2>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Every game on our platform undergoes a rigorous quality audit. We check for mobile responsiveness, performance optimized for low-end hardware, and most importantly, an "instant-fun" factor. If it doesn't hook you in 10 seconds, it's not on the Space.
-            </p>
-          </div>
+          <h3 className="text-base font-bold text-slate-900">Instant 1-Click Copy</h3>
+          <p className="text-xs text-slate-500 leading-relaxed">
+            Zero friction. No sign-up gates, email captures, or paywalls. Every prompt is ready to copy with a single tap.
+          </p>
         </div>
 
-        <section className="space-y-6">
-          <h3 className="text-2xl font-black text-white uppercase italic tracking-tight underline decoration-accent/30 underline-offset-8">Why We Are Different</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="space-y-2">
-              <h4 className="font-bold text-accent italic">Open Source First</h4>
-              <p className="text-xs leading-relaxed text-gray-500">Every title is sourced from GitHub. We respect licenses and provide direct links back to the original source code for every game.</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-bold text-accent italic">Zero Barriers</h4>
-              <p className="text-xs leading-relaxed text-gray-500">No accounts, no downloads, no high-end hardware. Just click and play directly in your mobile or desktop browser.</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-bold text-accent italic">Community Driven</h4>
-              <p className="text-xs leading-relaxed text-gray-500">We constantly update our library based on user suggestions and the latest trending repositories on GitHub.</p>
-            </div>
+        <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-3 shadow-xs">
+          <div className="w-10 h-10 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600">
+            <ShieldCheck className="w-5 h-5" />
           </div>
-        </section>
-        
-        <div className="pt-20 border-t border-white/5 text-center">
-            <p className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-4">Architecture</p>
-            <p className="text-gray-500 italic">
-                h5games space is a highly optimized Next.js 14 platform, powered by an advanced micro-services backend and a massive community of indie developers worldwide.
-            </p>
+          <h3 className="text-base font-bold text-slate-900">Tested & Verified</h3>
+          <p className="text-xs text-slate-500 leading-relaxed">
+            Every prompt in our library is verified on Google Gemini and ChatGPT models with realistic sample generations.
+          </p>
+        </div>
+
+        <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-3 shadow-xs">
+          <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600">
+            <Users className="w-5 h-5" />
+          </div>
+          <h3 className="text-base font-bold text-slate-900">Direct AI Testing</h3>
+          <p className="text-xs text-slate-500 leading-relaxed">
+            Open any prompt directly inside Google Gemini or ChatGPT with pre-filled inputs and exact parameters.
+          </p>
+        </div>
+      </div>
+
+      {/* Mission */}
+      <div className="p-8 rounded-3xl bg-white border border-slate-200 space-y-4 shadow-xs">
+        <h2 className="text-xl font-bold text-slate-900">Our Mission</h2>
+        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Prompt engineering has evolved into natural creative direction. We believe in sharing transparent, exact prompts with accurate photographic cues — from 85mm portrait lenses and golden hour lighting to intricate ethnic embroidery, cinematic color grading, and modern editorial styling.
+        </p>
+        <div className="pt-2 flex items-center gap-3">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-xs shadow-blue-500/20"
+          >
+            <span>Explore All 100+ Prompts</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </div>

@@ -1,77 +1,72 @@
-"use client";
-
-import Link from "next/link";
-import Image from "next/image";
-import { Gamepad2, Code2, Share2, Mail } from "lucide-react";
+import React from 'react';
+import Link from 'next/link';
+import { Sparkles, Heart, ShieldCheck } from 'lucide-react';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-black pt-20 pb-10 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-                <Gamepad2 className="text-white" size={18} />
+    <footer className="border-t border-slate-200 bg-white text-slate-600 text-xs mt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+          {/* Brand Info */}
+          <div className="space-y-4 md:col-span-1">
+            <Link href="/" className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-700 to-sky-500 flex items-center justify-center">
+                <Sparkles className="w-4 h-4 text-white" />
               </div>
-              <span className="text-xl font-black tracking-tight text-white uppercase italic">
-                h5games<span className="text-accent underline decoration-white/10"> space</span>
-              </span>
+              <span className="font-extrabold text-base text-slate-900 tracking-tight">h5games</span>
             </Link>
-            <p className="text-gray-500 text-sm leading-relaxed mb-6">
-              The premium gateway to the best open-source HTML5 games. Play instantly in your browser, no downloads or login required.
+            <p className="text-slate-500 text-xs leading-relaxed">
+              The premier open directory for state-of-the-art generative AI prompts. Curated, tested, and ready to copy for Google Gemini and ChatGPT.
             </p>
-            <div className="flex gap-4">
-              <a 
-                href="https://discord.gg/2pQKYUha" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#5865F2]/10 hover:bg-[#5865F2] text-[#5865F2] hover:text-white rounded-full flex items-center justify-center transition-all duration-300 group"
-              >
-                <svg 
-                  className="w-5 h-5 fill-current" 
-                  viewBox="0 0 127.14 96.36"
-                >
-                  <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.71,32.65-1.82,56.6.39,80.21a105.73,105.73,0,0,0,32.17,16.15,77.7,77.7,0,0,0,6.89-11.11,64.62,64.62,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a64.59,64.59,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1,105.25,105.25,0,0,0,32.19-16.14c2.64-27.38-4.52-51.06-19.1-72.13ZM42.45,65.69C36.18,65.69,31,60,31,53s5.07-12.73,11.44-12.73S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5.07-12.73,11.44-12.73S96.28,46,96.17,53,91.12,65.69,84.69,65.69Z"/>
-                </svg>
-              </a>
+            <div className="flex items-center gap-2 text-[11px] text-blue-700 font-semibold">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Zero-login • 100% Free • Open Access</span>
             </div>
           </div>
 
-          <div>
-            <h4 className="text-white font-bold mb-6">Categories</h4>
-            <ul className="space-y-4 text-sm">
-              <li><Link href="/games" className="text-gray-500 hover:text-accent transition-colors">All Games</Link></li>
-              <li><Link href="/featured" className="text-gray-500 hover:text-accent transition-colors">Our Games</Link></li>
-              <li><Link href="/new" className="text-gray-500 hover:text-accent transition-colors">New Games</Link></li>
+          {/* AI Engines */}
+          <div className="space-y-3">
+            <h4 className="text-slate-900 font-bold tracking-wider uppercase text-[11px]">AI Models</h4>
+            <ul className="space-y-2 font-medium">
+              <li><Link href="/?model=Google+Gemini" className="hover:text-blue-600 transition-colors">Google Gemini Prompts</Link></li>
+              <li><Link href="/?model=ChatGPT" className="hover:text-blue-600 transition-colors">ChatGPT Image Prompts</Link></li>
+              <li><a href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Open Google Gemini ↗</a></li>
+              <li><a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Open ChatGPT ↗</a></li>
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-white font-bold mb-6">Support</h4>
-            <ul className="space-y-4 text-sm">
-              <li><Link href="/blog" className="text-gray-500 hover:text-accent transition-colors font-bold text-accent/80">Blog & Guides</Link></li>
-              <li><Link href="/about" className="text-gray-500 hover:text-accent transition-colors">About Us</Link></li>
-              <li><Link href="/contact" className="text-gray-500 hover:text-accent transition-colors">Contact</Link></li>
+          {/* Categories */}
+          <div className="space-y-3">
+            <h4 className="text-slate-900 font-bold tracking-wider uppercase text-[11px]">Popular Categories</h4>
+            <ul className="space-y-2 font-medium">
+              <li><Link href="/category/cinematic" className="hover:text-blue-600 transition-colors">Cinematic & Movie Stills</Link></li>
+              <li><Link href="/category/traditional-ethnic" className="hover:text-blue-600 transition-colors">Traditional & Royal Wear</Link></li>
+              <li><Link href="/category/fashion-editorial" className="hover:text-blue-600 transition-colors">Vogue & High Fashion</Link></li>
+              <li><Link href="/category/cyberpunk-sci-fi" className="hover:text-blue-600 transition-colors">Cyberpunk & Neon UI</Link></li>
+              <li><Link href="/category/couple-portrait" className="hover:text-blue-600 transition-colors">Romantic Couple Portraits</Link></li>
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-white font-bold mb-6">Legal</h4>
-            <ul className="space-y-4 text-sm">
-              <li><Link href="/privacy-policy" className="text-gray-500 hover:text-accent transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms-of-service" className="text-gray-500 hover:text-accent transition-colors">Terms of Service</Link></li>
-              <li><Link href="/dmca" className="text-gray-500 hover:text-accent transition-colors">DMCA Policy</Link></li>
+          {/* Legal & Editorial */}
+          <div className="space-y-3">
+            <h4 className="text-slate-900 font-bold tracking-wider uppercase text-[11px]">Editorial & Legal</h4>
+            <ul className="space-y-2 font-medium">
+              <li><Link href="/blog" className="hover:text-blue-600 transition-colors">Prompt Engineering Guides</Link></li>
+              <li><Link href="/about" className="hover:text-blue-600 transition-colors">About the Project</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-blue-600 transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms-of-service" className="hover:text-blue-600 transition-colors">Terms of Service</Link></li>
+              <li><Link href="/dmca" className="hover:text-blue-600 transition-colors">DMCA Disclaimer</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-gray-600 text-xs font-medium uppercase tracking-widest">
-            © {currentYear} H5Games Space | All Rights Reserved
-          </p>
+        {/* Bottom Sub-bar */}
+        <div className="mt-10 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
+          <p>© {new Date().getFullYear()} h5games. All prompts shared under creative open curation.</p>
+          <div className="flex items-center gap-1 text-slate-500">
+            <span>Built for AI creators worldwide</span>
+            <Heart className="w-3 h-3 text-rose-500 fill-rose-500" />
+          </div>
         </div>
       </div>
     </footer>

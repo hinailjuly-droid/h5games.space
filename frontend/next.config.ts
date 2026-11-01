@@ -1,11 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    cpus: 1,
+  },
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'opengraph.githubassets.com',
+        hostname: 'faymasprompt.in',
       },
       {
         protocol: 'https',
@@ -13,11 +16,23 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'cdn.htmlgames.com',
+        hostname: 'opengraph.githubassets.com',
       },
       {
         protocol: 'https',
-        hostname: 'www.htmlgames.com',
+        hostname: 'cdn.midjourney.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'replicate.delivery',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.googleusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.fal.media',
       },
     ],
   },

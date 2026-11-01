@@ -1,123 +1,121 @@
-import { serverApi } from "@/lib/api-server";
-import GameGrid from "@/components/games/GameGrid";
-import { ChevronRight, Gamepad2, LayoutGrid, Star, TrendingUp } from "lucide-react";
-import Link from "next/link";
-import Badge from "@/components/ui/Badge";
-import { Metadata } from "next";
+'use client';
 
-interface Props {
-  params: Promise<{ slug: string }>;
-  searchParams: Promise<{ page?: string }>;
-}
-
-export async function generateStaticParams() {
-  try {
-    const categories = await serverApi.getCategories();
-    return categories.map((cat: any) => ({
-      slug: cat.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '')
-    }));
-  } catch (error) {
-    return [];
-  }
-}
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
+import { ArrowLeft, Sparkles, Filter } from 'lucide-react';
+import { promptsApi } from '@/lib/api';
+import { Prompt } from '@/types';
+import PromptCard from '@/components/prompts/PromptCard';
+import PromptModal from '@/components/prompts/PromptModal';
+import { CATEGORIES } from '@/lib/mockData';
 
 function formatCategoryName(slug: string) {
   return slug
     .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
-    .replace('Board Card', 'Board & Card')
-    .replace('Strategy Simulation', 'Strategy & Simulation')
-    .replace('Card Solitaire', 'Card & Solitaire')
-    .replace('Action Arcade', 'Action & Arcade');
+    .replace('Traditional Ethnic', 'Traditional & Ethnic')
+    .replace('Cyberpunk Sci Fi', 'Cyberpunk & Sci-Fi')
+    .replace('3d Digital Art', '3D & Digital Art')
+    .replace('Architecture Interior', 'Architecture & Interior')
+    .replace('Nature Wildlife', 'Nature & Wildlife')
+    .replace('Anime Manga', 'Anime & Manga');
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const categoryName = formatCategoryName(slug);
-  return {
-    title: `${categoryName} Games | Play Free HTML5 Games`,
-    description: `Browse the best free ${categoryName} games on H5GAMES SPACE. No downloads required.`
-  };
-}
-
-export default async function CategoryPage({ params, searchParams }: Props) {
-  const { slug } = await params;
-  const { page: pageStr } = await searchParams;
-  const page = parseInt(pageStr || '1');
+export default function CategoryDetailPage() {
+  const params = useParams();
+  const slug = (params?.slug as string) || '';
   const categoryName = formatCategoryName(slug);
 
-  const data = await serverApi.getGames({ category: categoryName, page, limit: 24 });
+  const [prompts, setPrompts] = useState<Prompt[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [activeModalPrompt, setActiveModalPrompt] = useState<Prompt | null>(null);
 
-  const categoryIcons: Record<string, any> = {
-    Action: Gamepad2,
-    Puzzle: LayoutGrid,
-    RPG: Star,
-    Racing: TrendingUp,
-    'Board & Card': LayoutGrid,
-  };
-
-  const Icon = categoryIcons[categoryName] || Gamepad2;
+  useEffect(() => {
+    async function loadCategoryPrompts() {
+      if (!slug) return;
+      setLoading(true);
+      try {
+        const res = await promptsApi.getPrompts({ category: categoryName, limit: 100 });
+        setPrompts(res.prompts);
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadCategoryPrompts();
+  }, [slug, categoryName]);
 
   return (
-    <div className="pb-20">
-      {/* Category Hero */}
-      <div className="bg-primary-light/50 border-b border-white/5 pt-12 pb-16 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-[100px] -z-10" />
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-600/5 rounded-full blur-[80px] -z-10" />
-
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center text-center">
-            <div className="w-20 h-20 bg-accent text-white rounded-[2rem] flex items-center justify-center mb-8 shadow-2xl shadow-accent/20">
-              <Icon size={40} />
-            </div>
-            <h1 className="text-4xl md:text-6xl font-black text-white italic uppercase mb-4">
-              {categoryName} <span className="text-accent underline decoration-white/10">Games</span>
-            </h1>
-            <p className="text-gray-400 max-w-2xl font-medium tracking-tight leading-relaxed">
-              Explore the best free open-source {categoryName} games. Play directly in your browser with optimized performance and high-quality graphics.
-            </p>
-            
-            <div className="mt-8 flex items-center gap-2 text-xs font-black text-gray-500 uppercase tracking-widest">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <ChevronRight size={12} />
-              <span className="text-accent">{categoryName}</span>
-            </div>
-          </div>
-        </div>
+    <div className="space-y-6">
+      {/* Back button */}
+      <div>
+        <Link
+          href="/categories"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-blue-700 transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>All Categories</span>
+        </Link>
       </div>
 
-      <div className="container mx-auto px-4 py-16">
-        <div className="flex items-center justify-between mb-10">
-          <h2 className="text-2xl font-black text-white italic uppercase flex items-center gap-3">
-             Vault <span className="text-accent">Results</span>
-             <Badge variant="accent" className="ml-2">{data?.pagination.total || 0}</Badge>
-          </h2>
+      {/* Header */}
+      <div className="border-b border-slate-200 pb-4 space-y-1">
+        <div className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 uppercase tracking-wider">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>Curated Genre</span>
         </div>
-
-        <GameGrid games={data?.games || []} />
-
-        {/* Simplistic Pagination for Category Page */}
-        {data && data.pagination.pages > 1 && (
-            <div className="mt-20 flex justify-center">
-               <div className="flex items-center gap-4">
-                  {page > 1 && (
-                    <Link href={`/category/${slug}?page=${page - 1}`} className="text-gray-400 hover:text-accent font-bold uppercase tracking-widest text-sm flex items-center gap-2">
-                      <ChevronRight size={16} className="rotate-180" /> Previous
-                    </Link>
-                  )}
-                  <span className="text-white font-black italic text-xl">
-                    {page} <span className="text-gray-600 font-normal not-italic mx-2">/</span> {data.pagination.pages}
-                  </span>
-                  {page < data.pagination.pages && (
-                    <Link href={`/category/${slug}?page=${page + 1}`} className="text-gray-400 hover:text-accent font-bold uppercase tracking-widest text-sm flex items-center gap-2">
-                      Next <ChevronRight size={16} />
-                    </Link>
-                  )}
-               </div>
-            </div>
-        )}
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          {categoryName} Prompts
+        </h1>
+        <p className="text-xs text-slate-500">
+          Showing tested AI prompts tailored for {categoryName.toLowerCase()} aesthetics across Google Gemini and ChatGPT.
+        </p>
       </div>
+
+      {/* Grid or Empty */}
+      {loading ? (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5">
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div
+              key={i}
+              className="rounded-2xl bg-white border border-slate-200 aspect-[3/4] animate-pulse shadow-xs"
+            />
+          ))}
+        </div>
+      ) : prompts.length === 0 ? (
+        <div className="text-center py-20 bg-white rounded-3xl border border-slate-200 max-w-lg mx-auto space-y-4 px-6 shadow-xs">
+          <Sparkles className="w-10 h-10 text-blue-600 mx-auto" />
+          <h2 className="text-lg font-bold text-slate-900">No Prompts In This Category Yet</h2>
+          <p className="text-xs text-slate-500">
+            Explore other categories or check back soon for updates.
+          </p>
+          <Link
+            href="/categories"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-700"
+          >
+            Explore All Categories
+          </Link>
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5">
+          {prompts.map((prompt) => (
+            <PromptCard
+              key={prompt._id}
+              prompt={prompt}
+              onOpenModal={setActiveModalPrompt}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Modal */}
+      <PromptModal
+        prompt={activeModalPrompt}
+        onClose={() => setActiveModalPrompt(null)}
+      />
     </div>
   );
 }
