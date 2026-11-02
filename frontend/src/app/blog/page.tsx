@@ -17,16 +17,6 @@ export default function BlogListingPage() {
 
   return (
     <div className="max-w-6xl mx-auto space-y-10">
-      {/* Header */}
-      <div className="border-b border-slate-200 pb-5">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-          Blogs
-        </h1>
-        <p className="text-xs sm:text-sm text-slate-500 mt-1">
-          Explore prompt engineering breakdowns, camera lens setups, and tutorials for generative AI.
-        </p>
-      </div>
-
       {/* Featured Big Article */}
       {featured && (
         <Link
