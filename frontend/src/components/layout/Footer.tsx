@@ -51,7 +51,7 @@ export default function Footer() {
           <div className="space-y-3">
             <h4 className="text-slate-900 font-bold tracking-wider uppercase text-[11px]">Editorial & Legal</h4>
             <ul className="space-y-2 font-medium">
-              <li><Link href="/blog" className="hover:text-blue-600 transition-colors">Prompt Engineering Guides</Link></li>
+              <li><Link href="/blog" className="hover:text-blue-600 transition-colors">Blogs</Link></li>
               <li><Link href="/about" className="hover:text-blue-600 transition-colors">About the Project</Link></li>
               <li><Link href="/privacy-policy" className="hover:text-blue-600 transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms-of-service" className="hover:text-blue-600 transition-colors">Terms of Service</Link></li>

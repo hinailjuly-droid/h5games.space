@@ -35,7 +35,7 @@ export default function AppSidebar({ mobileOpen, onCloseMobile }: AppSidebarProp
     { label: 'Home', href: '/' },
     { label: 'Trending', href: '/trending' },
     { label: 'All Categories', href: '/categories' },
-    { label: 'Guides & Blog', href: '/blog' },
+    { label: 'Blogs', href: '/blog' },
   ];
 
   const infoLinks = [
@@ -172,13 +172,6 @@ export default function AppSidebar({ mobileOpen, onCloseMobile }: AppSidebarProp
                 </Link>
               );
             })}
-          </div>
-        </div>
-
-        {/* Bottom Domain / Free Badge */}
-        <div className="p-3 border-t border-slate-200 bg-slate-50">
-          <div className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-[11px] font-bold text-blue-700 bg-blue-50/80 border border-blue-200/80 text-center">
-            <span>h5games.space • 100% Free</span>
           </div>
         </div>
       </aside>
