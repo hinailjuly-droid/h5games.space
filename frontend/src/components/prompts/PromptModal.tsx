@@ -96,11 +96,6 @@ export default function PromptModal({ prompt, onClose }: PromptModalProps) {
             className="object-cover"
             priority
           />
-          <div className="absolute bottom-3 left-3 flex items-center gap-2">
-            <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-white/95 text-blue-700 border border-slate-200 shadow-xs backdrop-blur-md">
-              {prompt.model}
-            </span>
-          </div>
         </div>
 
         {/* Right Side: Prompt Details & Inspector */}

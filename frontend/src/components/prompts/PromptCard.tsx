@@ -65,13 +65,6 @@ export default function PromptCard({ prompt, onOpenModal }: PromptCardProps) {
 
         {/* Subtle Vignette */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-
-        {/* Top Badges */}
-        <div className="absolute top-2.5 left-2.5 pointer-events-none">
-          <span className="px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wide bg-white/95 text-blue-700 border border-slate-200/80 shadow-xs backdrop-blur-md">
-            {prompt.model}
-          </span>
-        </div>
       </div>
 
       {/* Card Content & Prompt Snippet in Darker Blue & Crisp Slate */}

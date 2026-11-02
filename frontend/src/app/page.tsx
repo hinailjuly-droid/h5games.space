@@ -148,10 +148,10 @@ export default function HomePage() {
               onChange={(e) => setSelectedSort(e.target.value)}
               className="bg-white text-slate-700 text-xs font-semibold border border-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-blue-600 shadow-xs"
             >
-              <option value="trending">🔥 Trending</option>
-              <option value="copies">📋 Most Copied</option>
-              <option value="likes">❤️ Most Liked</option>
-              <option value="newest">✨ Newest First</option>
+              <option value="trending">Trending</option>
+              <option value="copies">Most Copied</option>
+              <option value="likes">Most Liked</option>
+              <option value="newest">Newest First</option>
             </select>
           </div>
         </div>
