@@ -6,14 +6,14 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://h5games.space"),
   title: "h5games — Curated AI Prompts for Google Gemini & ChatGPT",
-  description: "Explore, inspect, and copy 100+ curated AI art prompts for Google Gemini and ChatGPT. 100% free with zero login required.",
+  description: "Explore, inspect, and copy 100+ curated AI art prompts for Google Gemini and ChatGPT.",
   keywords: "h5games, h5games.space, ai prompts, gemini prompts, chatgpt prompts, copy paste prompts, prompt library, ai photo prompts",
   alternates: {
     canonical: "https://h5games.space",
   },
   openGraph: {
     title: "h5games — Curated AI Prompts for Google Gemini & ChatGPT",
-    description: "Explore, inspect, and copy 100+ curated AI art prompts for Google Gemini and ChatGPT. 100% free with zero login required.",
+    description: "Explore, inspect, and copy 100+ curated AI art prompts for Google Gemini and ChatGPT.",
     url: "https://h5games.space",
     siteName: "h5games",
     locale: "en_US",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "h5games — Curated AI Prompts for Google Gemini & ChatGPT",
-    description: "Explore, inspect, and copy 100+ curated AI art prompts for Google Gemini and ChatGPT. 100% free with zero login required.",
+    description: "Explore, inspect, and copy 100+ curated AI art prompts for Google Gemini and ChatGPT.",
   },
 };
 

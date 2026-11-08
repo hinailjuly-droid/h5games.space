@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Sparkles, Heart, ShieldCheck } from 'lucide-react';
+import { Sparkles, Heart } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -18,10 +18,6 @@ export default function Footer() {
             <p className="text-slate-500 text-xs leading-relaxed">
               The premier open directory for state-of-the-art generative AI prompts. Curated, tested, and ready to copy for Google Gemini and ChatGPT.
             </p>
-            <div className="flex items-center gap-2 text-[11px] text-blue-700 font-semibold">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Zero-login • 100% Free • Open Access</span>
-            </div>
           </div>
 
           {/* AI Engines */}

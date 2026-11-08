@@ -40,7 +40,7 @@ export default function PromptHero({
 
         {/* Subtitle in dark-white slate-300 */}
         <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-          Free, tested prompts with exact aspect ratios, seeds, and photographic styles. Copy directly with one click — zero login or accounts required.
+          Tested prompts with exact aspect ratios, seeds, and photographic styles. Copy directly with one click.
         </p>
 
         {/* High-End Search Bar in deep navy & dark white */}
