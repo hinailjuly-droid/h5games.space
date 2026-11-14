@@ -1,16 +1,15 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { Check, Mail, MessageSquare } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState } from 'react';
+import { Mail, MessageSquare, Check, Sparkles, Send } from 'lucide-react';
 
 export default function ContactPage() {
   const [isSent, setIsSent] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "General Inquiry",
-    message: ""
+    name: '',
+    email: '',
+    subject: 'General Inquiry',
+    message: '',
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -21,118 +20,113 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-20 max-w-4xl">
-      <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-6xl font-black text-white italic uppercase mb-6">
-          Get in <span className="text-accent underline decoration-white/10">Touch</span>
+    <div className="max-w-3xl mx-auto space-y-8 py-2">
+      {/* Header */}
+      <div className="text-center space-y-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider">
+          <Mail className="w-3.5 h-3.5" />
+          <span>Get In Touch</span>
+        </div>
+        <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Contact Editorial & Support
         </h1>
-        <p className="text-gray-500 font-medium text-lg max-w-2xl mx-auto">Have a suggestion, bug report, or DMCA request? Let us know and we'll get back to you.</p>
+        <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
+          Have a question about a prompt, a tutorial suggestion, or an editorial correction? Send us a message and our team will get back to you.
+        </p>
       </div>
 
-      <div className="max-w-3xl mx-auto">
-        <AnimatePresence mode="wait">
-          {!isSent ? (
-            <motion.div
-              key="form"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-primary-light border border-white/10 rounded-[3rem] p-8 md:p-12 shadow-2xl relative overflow-hidden"
+      {/* Main Form Container */}
+      <div className="p-6 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
+        {isSent ? (
+          <div className="text-center py-12 space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mx-auto">
+              <Check className="w-6 h-6" />
+            </div>
+            <h2 className="text-xl font-bold text-slate-900">Message Received!</h2>
+            <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto">
+              Thank you for reaching out to h5games. Our editorial desk typically reviews inquiries within 24 to 48 hours.
+            </p>
+            <button
+              onClick={() => {
+                setIsSent(false);
+                setFormData({ name: '', email: '', subject: 'General Inquiry', message: '' });
+              }}
+              className="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-700 transition-colors"
             >
-              <div className="absolute top-0 right-0 p-8 opacity-5">
-                <MessageSquare size={120} className="text-white" />
+              Send Another Message
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder="e.g. Alex Morgan"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white transition-colors"
+                />
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                  <div className="space-y-3">
-                    <label className="text-xs font-black text-gray-500 uppercase tracking-widest pl-2">Name</label>
-                    <input 
-                       type="text" 
-                       required
-                       value={formData.name}
-                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                       className="w-full bg-primary-lighter border border-white/5 rounded-2xl py-4 px-6 text-white text-sm focus:outline-none focus:border-accent/50 transition-all font-bold placeholder:text-gray-700 shadow-inner"
-                       placeholder="Your Name"
-                    />
-                  </div>
-                  <div className="space-y-3">
-                    <label className="text-xs font-black text-gray-500 uppercase tracking-widest pl-2">Email</label>
-                    <input 
-                       type="email" 
-                       required
-                       value={formData.email}
-                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                       className="w-full bg-primary-lighter border border-white/5 rounded-2xl py-4 px-6 text-white text-sm focus:outline-none focus:border-accent/50 transition-all font-bold placeholder:text-gray-700 shadow-inner"
-                       placeholder="your@email.com"
-                    />
-                  </div>
-                </div>
-                
-                <div className="space-y-3">
-                  <label className="text-xs font-black text-gray-500 uppercase tracking-widest pl-2">Subject</label>
-                  <select 
-                    value={formData.subject}
-                    onChange={(e) => setFormData({...formData, subject: e.target.value})}
-                    className="w-full bg-primary-lighter border border-white/5 rounded-2xl py-4 px-6 text-white text-sm focus:outline-none focus:border-accent/50 transition-all font-bold appearance-none cursor-pointer shadow-inner"
-                  >
-                     <option>General Inquiry</option>
-                     <option>Bug Report</option>
-                     <option>Game Submission</option>
-                     <option>DMCA Request</option>
-                     <option>Advertising</option>
-                  </select>
-                </div>
-
-                <div className="space-y-3">
-                  <label className="text-xs font-black text-gray-500 uppercase tracking-widest pl-2">Message</label>
-                  <textarea 
-                    rows={6}
-                    required
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    className="w-full bg-primary-lighter border border-white/5 rounded-2xl py-4 px-6 text-white text-sm focus:outline-none focus:border-accent/50 transition-all font-bold resize-none placeholder:text-gray-700 shadow-inner"
-                    placeholder="What's on your mind?"
-                  ></textarea>
-                </div>
-
-                <button 
-                  type="submit"
-                  className="w-full bg-accent hover:bg-accent/90 text-white font-black italic uppercase py-5 rounded-2xl transition-all shadow-xl shadow-accent/20 active:scale-[0.98] text-lg tracking-widest"
-                >
-                  SEND MESSAGE
-                </button>
-              </form>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="success"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="bg-primary-light border border-white/10 rounded-[4rem] p-16 text-center shadow-2xl relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:30px_30px]" />
-              <div className="relative z-10">
-                <div className="w-24 h-24 bg-accent rounded-full flex items-center justify-center mx-auto mb-10 shadow-3xl shadow-accent/40">
-                  <Check className="text-white" size={48} strokeWidth={4} />
-                </div>
-                <h2 className="text-4xl font-black text-white italic uppercase tracking-tighter mb-6">
-                  Message Sent Successfully
-                </h2>
-                <div className="w-20 h-1 bg-accent mx-auto mb-8 rounded-full" />
-                <p className="text-gray-400 text-lg font-bold italic max-w-md mx-auto leading-relaxed">
-                  Your inquiry has been successfully received. We will reach you in <span className="text-white">48-72 hours</span> via the email provided.
-                </p>
-                <button 
-                  onClick={() => setIsSent(false)}
-                  className="mt-12 text-accent uppercase font-black italic text-xs tracking-widest hover:text-white transition-colors"
-                >
-                  SEND ANOTHER MESSAGE
-                </button>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="alex@example.com"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white transition-colors"
+                />
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">
+                Topic / Subject
+              </label>
+              <select
+                value={formData.subject}
+                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white transition-colors"
+              >
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Prompt Suggestion">Prompt Suggestion or Feedback</option>
+                <option value="Editorial Correction">Editorial Correction Request</option>
+                <option value="DMCA / Copyright Notice">DMCA / Copyright Notice</option>
+              </select>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">
+                Your Message
+              </label>
+              <textarea
+                required
+                rows={5}
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                placeholder="Please describe your suggestion, question, or the specific article/prompt you are referencing..."
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white transition-colors"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm shadow-blue-500/25 transition-colors"
+            >
+              <Send className="w-3.5 h-3.5" />
+              <span>Send Message</span>
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );

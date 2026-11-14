@@ -1,6 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
+import { Metadata } from 'next';
 import { Sparkles, ShieldCheck, Zap, Users, ArrowRight } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'About h5games | Curated AI Prompts & Knowledge Base',
+  description: 'Learn about h5games, our mission to democratize generative AI prompt engineering, and how we curate tested prompts for Google Gemini and ChatGPT.',
+  alternates: {
+    canonical: 'https://h5games.space/about',
+  },
+};
 
 export default function AboutPage() {
   return (

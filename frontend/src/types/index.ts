@@ -55,6 +55,32 @@ export interface ModelItem {
   count: number;
 }
 
+export interface BlogPromptExample {
+  title: string;
+  prompt: string;
+  model: string;
+  explanation: string;
+  aspectRatio?: string;
+}
+
+export interface BlogFAQ {
+  question: string;
+  answer: string;
+}
+
+export interface BlogTOCItem {
+  id: string;
+  title: string;
+}
+
+export interface BlogCategory {
+  name: string;
+  slug: string;
+  description: string;
+  icon?: string;
+  count?: number;
+}
+
 export interface BlogPost {
   _id: string;
   title: string;
@@ -63,14 +89,22 @@ export interface BlogPost {
   excerpt: string;
   coverImage: string;
   category: string;
+  categorySlug: string;
   tags: string[];
   author: {
     name: string;
     avatar: string;
+    role?: string;
   };
   readTime: string;
   publishedAt: string;
+  updatedAt?: string;
   featured?: boolean;
+  popular?: boolean;
+  toc?: BlogTOCItem[];
+  faqs?: BlogFAQ[];
+  prompts?: BlogPromptExample[];
+  relatedPromptCategory?: string;
 }
 
 export interface BlogResponse {

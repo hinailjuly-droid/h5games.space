@@ -31,8 +31,39 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'h5games',
+    url: 'https://h5games.space',
+    description: 'Explore, inspect, and copy curated AI art prompts for Google Gemini and ChatGPT.',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://h5games.space/search?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
+  const orgSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'h5games',
+    url: 'https://h5games.space',
+    logo: 'https://h5games.space/icon',
+  };
+
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+      </head>
       <body className="min-h-screen bg-[#F1F5F9] text-slate-900 antialiased selection:bg-blue-600/20 selection:text-blue-900">
         <Providers>
           <AppShell>

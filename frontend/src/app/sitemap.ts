@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { INITIAL_PROMPTS, CATEGORIES, BLOG_POSTS } from '@/lib/mockData';
+import { BLOG_CATEGORIES } from '@/lib/blogData';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://h5games.space';
@@ -14,7 +15,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogEntries: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.publishedAt || Date.now()),
-    changeFrequency: 'monthly' as const,
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+
+  const blogCategoryEntries: MetadataRoute.Sitemap = BLOG_CATEGORIES.map((cat) => ({
+    url: `${baseUrl}/blog/category/${cat.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
     priority: 0.7,
   }));
 
@@ -31,6 +39,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/categories',
     '/blog',
     '/about',
+    '/editorial-policy',
     '/contact',
     '/privacy-policy',
     '/terms-of-service',
@@ -42,5 +51,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route === '' ? 1.0 : 0.7,
   }));
 
-  return [...routes, ...promptEntries, ...categoryEntries, ...blogEntries];
+  return [...routes, ...promptEntries, ...categoryEntries, ...blogEntries, ...blogCategoryEntries];
 }

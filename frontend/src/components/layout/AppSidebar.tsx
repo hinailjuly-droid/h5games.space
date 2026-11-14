@@ -40,6 +40,7 @@ export default function AppSidebar({ mobileOpen, onCloseMobile }: AppSidebarProp
 
   const infoLinks = [
     { label: 'About', href: '/about' },
+    { label: 'Editorial Policy', href: '/editorial-policy' },
     { label: 'Contact', href: '/contact' },
     { label: 'Privacy Policy', href: '/privacy-policy' },
     { label: 'Terms of Service', href: '/terms-of-service' },

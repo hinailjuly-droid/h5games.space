@@ -1,48 +1,77 @@
-export default function TermsOfService() {
+import React from 'react';
+import { Metadata } from 'next';
+import { FileText, ShieldAlert } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Terms of Service | h5games',
+  description: 'Terms and conditions governing the use of the h5games AI prompt library and educational resources.',
+  alternates: {
+    canonical: 'https://h5games.space/terms-of-service',
+  },
+};
+
+export default function TermsOfServicePage() {
   return (
-    <div className="container mx-auto px-4 py-20 max-w-4xl text-gray-400 leading-loose">
-      <h1 className="text-4xl md:text-5xl font-black text-white italic uppercase mb-12">
-        Terms of <span className="text-accent">Service</span>
-      </h1>
-      
-      <div className="space-y-10">
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 uppercase italic">1. Acceptance of Terms</h2>
+    <div className="max-w-4xl mx-auto space-y-8 py-2">
+      {/* Header */}
+      <div className="space-y-3 border-b border-slate-200 pb-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider">
+          <FileText className="w-3.5 h-3.5" />
+          <span>User Agreement</span>
+        </div>
+        <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Terms of Service
+        </h1>
+        <p className="text-xs text-slate-500">
+          Last Updated: November 13, 2026 • Effective Date: January 1, 2026
+        </p>
+      </div>
+
+      <div className="p-6 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-8 text-xs sm:text-sm text-slate-600 leading-relaxed">
+        <section className="space-y-3">
+          <h2 className="text-base sm:text-lg font-bold text-slate-900">1. Acceptance of Terms</h2>
           <p>
-            By accessing and playing games on h5games space, you agree to be bound by these terms. If you do not agree, please do not use our services.
+            By accessing and utilizing <strong>h5games</strong> (<span className="font-mono text-blue-600">https://h5games.space</span>), you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please discontinue use of the website.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 uppercase italic">2. Use of Site</h2>
+        <section className="space-y-3">
+          <h2 className="text-base sm:text-lg font-bold text-slate-900">2. Description of Service & Permissible Use</h2>
           <p>
-            h5games space provides access to open-source HTML5 games. These games are for your personal, non-commercial use. You agree not to:
+            h5games provides an open community prompt discovery library, tutorials, and educational analysis of generative AI systems. You are granted a personal, non-exclusive license to inspect, copy, and adapt prompts for your own creative, commercial, and research projects.
           </p>
-          <ul className="list-disc pl-6 mt-4 space-y-2">
-            <li>Interfere with the operation of the site or games.</li>
-            <li>Use automated scripts to access or extract data from the site.</li>
-            <li>Modify or redistribute the games unless permitted by the specific game's open-source license.</li>
+          <p>You agree not to:</p>
+          <ul className="list-disc pl-5 space-y-1.5">
+            <li>Deploy automated scrapers or bots in a manner that impairs server stability.</li>
+            <li>Use prompts or generated outputs to create abusive, defamatory, or unlawful media.</li>
+            <li>Misrepresent h5games educational materials as official documentation from third-party AI vendors.</li>
           </ul>
         </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 uppercase italic">3. Intellectual Property</h2>
+        <section className="space-y-3 p-5 rounded-2xl bg-slate-50 border border-slate-200">
+          <h2 className="text-base sm:text-lg font-bold text-slate-900">3. Third-Party Trademarks & AI Model Disclaimers</h2>
           <p>
-            Games on h5games space belong to their respective creators as indicated in the source links. h5games space does not claim ownership of the games. The site design, logo, and platform infrastructure are the property of h5games space.
+            &ldquo;Google Gemini&rdquo;, &ldquo;Imagen&rdquo;, &ldquo;ChatGPT&rdquo;, &ldquo;OpenAI&rdquo;, and &ldquo;DALL-E&rdquo; are registered trademarks of their respective owners (Google LLC and OpenAI, Inc.). <strong>h5games</strong> is an independent educational resource and prompt directory. We are not affiliated with, endorsed by, or sponsored by Google or OpenAI.
+          </p>
+          <p>
+            Prompt outputs generated by AI engines are subject to the respective terms and acceptable use policies of the platforms you choose to execute them on.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 uppercase italic">4. Disclaimer of Warranties</h2>
+        <section className="space-y-3">
+          <h2 className="text-base sm:text-lg font-bold text-slate-900">4. Intellectual Property</h2>
           <p>
-            Games are provided "as is" without any warranties. We do not guarantee that games will work on all devices or be error-free.
+            The original text tutorials, editorial analyses, site design, layouts, and curated editorial parameters created by h5games are protected under applicable copyright and intellectual property laws. Prompts themselves are shared openly for creator experimentation and copy-paste workflow acceleration.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 uppercase italic">5. Limitation of Liability</h2>
+        <section className="space-y-3">
+          <h2 className="text-base sm:text-lg font-bold text-slate-900">5. Disclaimer of Warranties & Limitation of Liability</h2>
           <p>
-            h5games space shall not be liable for any damages arising from your use of the site or games.
+            The materials and prompts on h5games are provided on an &ldquo;as is&rdquo; basis without warranties of any kind, whether express or implied. Because generative AI models are non-deterministic, outputs may vary based on model version, seed, temperature, and updates.
+          </p>
+          <p>
+            In no event shall h5games or its contributors be liable for any indirect, incidental, or consequential damages resulting from the use or inability to use the site or its prompts.
           </p>
         </section>
       </div>
