@@ -113,11 +113,8 @@ export const INITIAL_BLOG_POSTS: BlogPost[] = [
       {
         title: 'GTA 6 Beachside Character Portrait',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '4:5',
+        aspectRatio: '2:3',
         explanation: 'A relaxed tropical beach atmosphere with beautiful sunlight, coastal scenery, and summer fashion.',
-        imageUrl: '/blog/gta-6/gta6-beachside-character-portrait.jpg',
-        imageAlt: 'GTA 6 Beachside Character Portrait on a tropical beach with turquoise water',
-        imageCaption: 'Prompt 4 Example: Beachside character portrait with pastel coastal lifeguard stands.',
         prompt: "Convert the uploaded photograph into a cinematic tropical beachside character portrait. Preserve the person's original facial identity, hairstyle and recognizable appearance. Place the character near a beautiful fictional coastal city beach with turquoise water, palm trees, beachside buildings and warm golden sunlight. Give them stylish summer clothing, sunglasses if appropriate and a relaxed confident expression. Use detailed realistic 3D video game graphics, natural skin textures, beautiful environmental lighting, vibrant tropical colors and professional cinematic composition. Make the image resemble a premium open-world video game screenshot. Vertical 4:5 aspect ratio, no text or logos.",
       },
       {
@@ -257,6 +254,8 @@ Before trying the prompts, follow these straightforward steps:
 ## 4. GTA 6 Beachside Character Portrait {#prompt-4}
 
 **The style:** A relaxed tropical beach atmosphere with beautiful sunlight, coastal scenery and summer fashion.
+
+![GTA 6 inspired beachside character portrait with tropical palm trees, turquoise ocean and a coastal city background.](/blog/gta-6/gta6-beachside-character-portrait.webp "Example 4: Tropical beachside character portrait created using an AI image prompt.")
 
 [PROMPT:4]
 
