@@ -148,21 +148,15 @@ export const INITIAL_BLOG_POSTS: BlogPost[] = [
       {
         title: 'GTA 6 Convertible Car Sunset Scene',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '4:5',
+        aspectRatio: '3:4',
         explanation: 'A luxury lifestyle scene featuring a convertible driving along a tropical coastal highway at golden hour.',
-        imageUrl: '/blog/gta-6/gta6-convertible-sunset-scene.jpg',
-        imageAlt: 'GTA 6 Convertible Car Sunset Scene driving along coastal highway with ocean view',
-        imageCaption: 'Prompt 9 Example: Convertible driving scene with ocean views and sunset lighting.',
         prompt: "Use the uploaded photograph as the main character reference. Preserve the person's original facial identity, hairstyle and recognizable features. Place the character sitting confidently inside a stylish luxury convertible driving along a beautiful tropical coastal highway. Show palm trees, ocean views, modern coastal buildings and a warm sunset in the background. Use cinematic camera framing, detailed realistic vehicle interiors, natural sunlight, realistic reflections and premium 3D video game graphics. Give the scene a luxurious open-world adventure atmosphere with rich colors and professional cinematic rendering. No visible brand logos, text or watermarks.",
       },
       {
         title: 'GTA 6 Official-Style Game Loading Screen',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '4:5',
+        aspectRatio: '3:4',
         explanation: 'A dramatic character composition inspired by the illustrated promotional artwork and loading-screen aesthetics of open-world games.',
-        imageUrl: '/blog/gta-6/gta6-official-game-loading-screen.jpg',
-        imageAlt: 'GTA 6 Official-Style Game Loading Screen illustrated character poster with helicopter and cars',
-        imageCaption: 'Prompt 10 Example: Illustrated game loading screen poster with multi-layered city composition.',
         prompt: "Transform the uploaded photograph into a premium illustrated video game character poster inspired by modern tropical open-world crime-action games. Preserve the person's facial identity and recognizable features while giving the portrait a polished cinematic game-art appearance. Use a dynamic composition with a tropical coastal city, palm trees, luxury vehicles, neon-lit buildings and a beautiful sunset. Combine detailed digital illustration with realistic 3D character rendering, dramatic lighting, rich warm colors and professional game-poster composition. Make the character the main focus while the environment provides a vibrant fictional coastal city atmosphere. No copyrighted characters, official game logos, trademarks, titles or watermarks.",
       },
     ],
@@ -293,6 +287,8 @@ Before trying the prompts, follow these straightforward steps:
 
 **The style:** A luxury lifestyle scene featuring a convertible driving along a tropical coastal highway at golden hour.
 
+![GTA 6 inspired luxury convertible car scene with a character driving along a tropical coastal boulevard at sunset.](/blog/gta-6/gta-prompt-09.webp "Luxury convertible cruising along a tropical coastal boulevard at sunset.")
+
 [PROMPT:9]
 
 ---
@@ -300,6 +296,8 @@ Before trying the prompts, follow these straightforward steps:
 ## 10. GTA 6 Official-Style Game Loading Screen {#prompt-10}
 
 **The style:** A dramatic character composition inspired by the illustrated promotional artwork and loading-screen aesthetics of open-world video games.
+
+![Cinematic open-world action game scene featuring a character, helicopter and police chase in a tropical coastal city.](/blog/gta-6/gta-prompt-10.webp "Cinematic action-game artwork inspired by a tropical open-world city.")
 
 [PROMPT:10]
 
