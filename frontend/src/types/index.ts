@@ -61,6 +61,9 @@ export interface BlogPromptExample {
   model: string;
   explanation: string;
   aspectRatio?: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  imageCaption?: string;
 }
 
 export interface BlogFAQ {

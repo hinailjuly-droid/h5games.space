@@ -3,9 +3,12 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Callout from './Callout';
 import ArticleImage from './ArticleImage';
+import PromptBox from './PromptBox';
+import { BlogPromptExample } from '@/types';
 
 interface ArticleContentProps {
   content: string;
+  prompts?: BlogPromptExample[];
 }
 
 // Helper to slugify heading text into a valid HTML id
@@ -20,12 +23,39 @@ function slugify(text: string): string {
     .replace(/^-+|-+$/g, '');
 }
 
-export default function ArticleContent({ content }: ArticleContentProps) {
+export default function ArticleContent({ content, prompts }: ArticleContentProps) {
   return (
     <div className="prose prose-slate max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-headings:scroll-mt-24 prose-p:text-slate-700 prose-p:leading-relaxed prose-p:text-sm sm:prose-p:text-base prose-a:text-blue-600 prose-a:font-semibold hover:prose-a:text-blue-700 prose-code:text-blue-700 prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:font-mono prose-code:text-xs sm:prose-code:text-sm prose-pre:bg-slate-900 prose-pre:rounded-2xl prose-pre:p-4 prose-hr:border-slate-200">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
+          p: ({ children }) => {
+            const rawText = React.Children.toArray(children)
+              .map((c) => (typeof c === 'string' ? c : ''))
+              .join('')
+              .trim();
+            const promptMatch = rawText.match(/^\[PROMPT:(\d+)\]$/i);
+            if (promptMatch && prompts) {
+              const pIdx = parseInt(promptMatch[1], 10) - 1;
+              const pr = prompts[pIdx];
+              if (pr) {
+                return (
+                  <PromptBox
+                    number={pIdx + 1}
+                    title={pr.title}
+                    prompt={pr.prompt}
+                    model={pr.model}
+                    explanation={pr.explanation}
+                    aspectRatio={pr.aspectRatio}
+                    imageUrl={pr.imageUrl}
+                    imageAlt={pr.imageAlt}
+                    imageCaption={pr.imageCaption}
+                  />
+                );
+              }
+            }
+            return <p>{children}</p>;
+          },
           h2: ({ children }) => {
             const rawText = React.Children.toArray(children)
               .map((c) => (typeof c === 'string' ? c : ''))

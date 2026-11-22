@@ -320,8 +320,8 @@ export default async function UniversalArticleTemplatePage({ params }: Props) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
         {/* Main Reading Column (8 cols on desktop) */}
         <div className="lg:col-span-8 min-w-0 space-y-8">
-          {/* Universal Prompt Box Component Showcase (if structured prompts provided) */}
-          {post.prompts && post.prompts.length > 0 && (
+          {/* Universal Prompt Box Component Showcase (if structured prompts provided and not embedded inline) */}
+          {post.prompts && post.prompts.length > 0 && !post.content.includes('[PROMPT:') && (
             <section aria-label="Featured Copyable Prompts" className="space-y-4 my-6">
               <div className="flex items-center gap-2 pb-2 border-b border-slate-200 text-slate-900 font-bold text-base sm:text-lg">
                 <Sparkles className="w-4 h-4 text-blue-600" />
@@ -337,6 +337,9 @@ export default async function UniversalArticleTemplatePage({ params }: Props) {
                     model={pr.model}
                     explanation={pr.explanation}
                     aspectRatio={pr.aspectRatio}
+                    imageUrl={pr.imageUrl}
+                    imageAlt={pr.imageAlt}
+                    imageCaption={pr.imageCaption}
                   />
                 ))}
               </div>
@@ -344,7 +347,7 @@ export default async function UniversalArticleTemplatePage({ params }: Props) {
           )}
 
           {/* Main Markdown Article Content */}
-          <ArticleContent content={post.content} />
+          <ArticleContent content={post.content} prompts={post.prompts} />
 
           {/* Universal Article Ending: FAQs Accordion (if present) */}
           {post.faqs && post.faqs.length > 0 && (
