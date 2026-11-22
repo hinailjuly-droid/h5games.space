@@ -30,7 +30,8 @@ export default function ArticleContent({ content, prompts }: ArticleContentProps
         remarkPlugins={[remarkGfm]}
         components={{
           p: ({ children }) => {
-            const rawText = React.Children.toArray(children)
+            const childrenArray = React.Children.toArray(children);
+            const rawText = childrenArray
               .map((c) => (typeof c === 'string' ? c : ''))
               .join('')
               .trim();
@@ -54,6 +55,15 @@ export default function ArticleContent({ content, prompts }: ArticleContentProps
                 );
               }
             }
+
+            // Prevent invalid DOM nesting (<figure> inside <p>) when markdown renders images
+            const hasImage = childrenArray.some(
+              (c: any) => c?.props?.src !== undefined || c?.type === 'img' || c?.type === ArticleImage
+            );
+            if (hasImage) {
+              return <div>{children}</div>;
+            }
+
             return <p>{children}</p>;
           },
           h2: ({ children }) => {
@@ -123,13 +133,13 @@ export default function ArticleContent({ content, prompts }: ArticleContentProps
           td: ({ children }) => {
             return <td className="p-3.5 sm:p-4 border-b border-slate-100">{children}</td>;
           },
-          img: ({ src, alt }) => {
+          img: ({ src, alt, title }: any) => {
             if (!src) return null;
             return (
               <ArticleImage
                 src={typeof src === 'string' ? src : ''}
                 alt={alt || 'Article visual guide'}
-                caption={alt}
+                caption={title || alt}
               />
             );
           },

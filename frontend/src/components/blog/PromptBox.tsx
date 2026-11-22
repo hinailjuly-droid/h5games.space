@@ -141,18 +141,19 @@ export default function PromptBox({
       {/* 3. Optional Example Demonstration Image */}
       {imageUrl && (
         <div className="p-4 sm:p-5 bg-slate-50/50 border-b border-slate-100">
-          <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-slate-200 border border-slate-200">
+          <div className="relative w-full max-w-sm mx-auto rounded-xl overflow-hidden bg-slate-100 border border-slate-200">
             <Image
               src={imageUrl}
               alt={imageAlt || title}
-              fill
-              sizes="(max-width: 768px) 100vw, 720px"
-              className="object-cover"
+              width={682}
+              height={1024}
+              sizes="(max-width: 768px) 100vw, 384px"
+              className="w-full h-auto object-contain object-center block"
               loading="lazy"
             />
           </div>
           {imageCaption && (
-            <p className="mt-2 text-[11px] text-center text-slate-500 italic">
+            <p className="mt-2.5 text-center text-xs text-slate-500 italic px-2">
               {imageCaption}
             </p>
           )}

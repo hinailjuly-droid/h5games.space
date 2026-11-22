@@ -307,7 +307,7 @@ export default async function UniversalArticleTemplatePage({ params }: Props) {
           fill
           priority
           sizes="(max-width: 1200px) 100vw, 1200px"
-          className="object-cover"
+          className="object-cover object-center"
         />
       </div>
 

@@ -57,7 +57,7 @@ export const INITIAL_BLOG_POSTS: BlogPost[] = [
     title: '10 Best GTA 6 AI Photo Editing Prompts to Turn Your Photo into a Vice City Character',
     slug: 'best-gta-6-ai-photo-editing-prompts',
     excerpt: 'Have you ever wondered what you would look like as a character in GTA 6? Here are 10 original AI photo editing prompts to transform any ordinary photo into a cinematic Vice City character.',
-    coverImage: '/blog/gta-6/gta6-prompts-cover.jpg',
+    coverImage: '/blog/gta-6/gta6-prompts-cover.webp',
     category: 'AI Photo Editing',
     categorySlug: 'ai-photo-editing',
     tags: ['GTA 6', 'AI Photo Editing', 'Google Gemini', 'Vice City', 'Character Portrait', 'Photorealism'],
@@ -92,12 +92,9 @@ export const INITIAL_BLOG_POSTS: BlogPost[] = [
       {
         title: 'GTA 6 Cinematic Character Portrait',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '4:5',
+        aspectRatio: '2:3',
         explanation: 'Transform your ordinary portrait into a cinematic video-game character inspired by modern tropical open-world promotional artwork.',
-        imageUrl: '/blog/gta-6/gta6-cinematic-character-portrait.jpg',
-        imageAlt: 'GTA 6 Cinematic Character Portrait with palm trees and coastal city background',
-        imageCaption: 'Prompt 1 Example: Cinematic Character Portrait generated with Google Gemini.',
-        prompt: "Transform the uploaded photograph into an ultra-detailed cinematic open-world video game character portrait inspired by the atmosphere of a modern tropical crime-action game. Preserve the person's original facial identity, facial structure, hairstyle and natural appearance. Give the character a confident expression, stylish casual clothing and a relaxed pose. Place them against a beautiful tropical coastal city background with palm trees, warm sunlight, luxury architecture and subtle urban details. Use realistic 3D game-engine rendering, cinematic lighting, rich colors, detailed skin textures and professional character artwork composition. The result should look like a premium fictional video game promotional portrait, vertical 4:5 composition. Do not add text, logos or watermarks.",
+        prompt: "Transform the uploaded photograph into an ultra-detailed cinematic open-world video game character portrait inspired by the atmosphere of a modern tropical crime-action game. Preserve the person's original facial identity, facial structure, hairstyle and natural appearance. Give the character a confident expression, stylish casual clothing and a relaxed pose. Place them against a beautiful tropical coastal city background with palm trees, warm sunlight, luxury architecture and subtle urban details. Use realistic 3D game-engine rendering, cinematic lighting, rich colors, detailed skin textures and professional character artwork composition. The result should look like a premium fictional video game promotional portrait, vertical 2:3 composition. Do not add text, logos or watermarks.",
       },
       {
         title: 'Vice City Neon Night Portrait',
@@ -236,6 +233,8 @@ Before trying the prompts, follow these straightforward steps:
 ## 1. GTA 6 Cinematic Character Portrait {#prompt-1}
 
 **The style:** Transform your ordinary portrait into a cinematic video-game character. This is a great starting point if you want an image that resembles promotional character artwork for an open-world action game.
+
+![GTA 6 inspired cinematic character portrait in a tropical Vice City-style environment with palm trees and a pink classic car.](/blog/gta-6/gta6-cinematic-character-portrait.webp "Example 1: Cinematic GTA 6-inspired character portrait created using an AI image prompt.")
 
 [PROMPT:1]
 
