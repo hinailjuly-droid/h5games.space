@@ -106,11 +106,8 @@ export const INITIAL_BLOG_POSTS: BlogPost[] = [
       {
         title: 'GTA 6 Luxury Car Lifestyle Scene',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '4:5',
+        aspectRatio: '2:3',
         explanation: 'A stylish character standing beside a luxury sports car in a sunlit coastal city boulevard.',
-        imageUrl: '/blog/gta-6/gta6-luxury-car-lifestyle-scene.jpg',
-        imageAlt: 'GTA 6 Luxury Car Lifestyle Scene with yellow sports car and modern skyscrapers',
-        imageCaption: 'Prompt 3 Example: Luxury sports car lifestyle scene in a sunny tropical city.',
         prompt: "Transform the uploaded photograph into a realistic cinematic open-world video game scene. Keep the person's face, identity and natural body proportions recognizable. Show the person standing confidently beside a sleek luxury sports car parked on a sunlit coastal boulevard. Include palm trees, modern buildings, warm tropical sunshine, expensive architecture and a beautiful blue sky. Give the person fashionable casual clothing and a confident relaxed pose. Use realistic automotive reflections, detailed environments, premium 3D game-engine graphics and cinematic color grading. Create the atmosphere of a fictional luxury coastal city in a crime-action video game. No existing game logos, text or watermarks.",
       },
       {
@@ -250,6 +247,8 @@ Before trying the prompts, follow these straightforward steps:
 ## 3. GTA 6 Luxury Car Lifestyle Scene {#prompt-3}
 
 **The style:** A stylish character standing beside a luxury sports car in a beautiful tropical coastal city.
+
+![GTA 6 inspired luxury car lifestyle portrait with a character leaning against a magenta sports car on a tropical coastal boulevard.](/blog/gta-6/gta6-luxury-car-lifestyle-scene.webp "Example 3: Luxury sports car lifestyle scene created using an AI image prompt.")
 
 [PROMPT:3]
 
