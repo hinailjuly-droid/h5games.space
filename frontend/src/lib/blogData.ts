@@ -134,21 +134,15 @@ export const INITIAL_BLOG_POSTS: BlogPost[] = [
       {
         title: 'GTA 6 Gangster-Inspired Street Fashion',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '4:5',
+        aspectRatio: '2:3',
         explanation: 'A bold streetwear portrait with dramatic character styling, varsity jacket, and graffiti surroundings.',
-        imageUrl: '/blog/gta-6/gta6-gangster-street-fashion.jpg',
-        imageAlt: 'GTA 6 Gangster-Inspired Street Fashion against a colorful urban graffiti wall',
-        imageCaption: 'Prompt 7 Example: Street-style video game character portrait with bold styling.',
         prompt: "Transform the uploaded photograph into a cinematic street-style video game character portrait. Maintain the person's original facial identity, hairstyle and recognizable features. Give the character a fashionable urban streetwear outfit consisting of a premium jacket, fitted shirt, stylish accessories and modern sneakers. Place them in a colorful tropical city neighborhood with palm trees, graffiti-inspired wall textures, parked cars and warm sunlight. Use detailed realistic 3D game graphics, dramatic character lighting, natural facial textures and professional character design. The overall mood should be confident, stylish and inspired by modern open-world action games. No weapons, logos, text or watermarks.",
       },
       {
         title: 'GTA 6 Rainy Night Cinematic Scene',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '4:5',
+        aspectRatio: '2:3',
         explanation: 'A dramatic rainy city environment with wet road reflections, glowing streetlights, and a moody atmosphere.',
-        imageUrl: '/blog/gta-6/gta6-rainy-night-cinematic-scene.jpg',
-        imageAlt: 'GTA 6 Rainy Night Cinematic Scene with wet asphalt and neon lights',
-        imageCaption: 'Prompt 8 Example: Rainy night scene with vibrant neon glow and atmospheric fog.',
         prompt: "Turn the uploaded photograph into a highly cinematic rainy-night video game character scene. Preserve the person's facial identity and recognizable appearance. Position the character standing on a wet tropical city street at night, surrounded by colorful neon lights, palm trees, illuminated buildings and reflections on the road. Add realistic raindrops, atmospheric fog, glowing streetlights and dramatic blue and magenta lighting. Use photorealistic 3D game-engine rendering, detailed skin textures, realistic reflections and professional cinematic composition. The final result should resemble a high-budget open-world action game screenshot. Vertical 4:5 framing, no logos or text.",
       },
       {
@@ -219,7 +213,7 @@ Before trying the prompts, follow these straightforward steps:
 
 **The style:** Transform your ordinary portrait into a cinematic video-game character. This is a great starting point if you want an image that resembles promotional character artwork for an open-world action game.
 
-![GTA 6 inspired cinematic character portrait in a tropical Vice City-style environment with palm trees and a pink classic car.](/blog/gta-6/gta6-cinematic-character-portrait.webp "Example 1: Cinematic GTA 6-inspired character portrait created using an AI image prompt.")
+![GTA 6 inspired cinematic character portrait in a tropical Vice City-style environment with palm trees and a pink classic car.](/blog/gta-6/gta6-cinematic-character-portrait.webp "Cinematic GTA 6-inspired character portrait created using an AI image prompt.")
 
 [PROMPT:1]
 
@@ -229,7 +223,7 @@ Before trying the prompts, follow these straightforward steps:
 
 **The style:** A vibrant nighttime photograph with pink and blue neon lighting, tropical streets and a dramatic city atmosphere.
 
-![GTA 6 inspired neon night portrait featuring a character on a rain-soaked Vice City street with pink and blue neon lights.](/blog/gta-6/gta6-vice-city-neon-night-portrait.webp "Example 2: Neon-lit Vice City-inspired character portrait created using an AI image prompt.")
+![GTA 6 inspired neon night portrait featuring a character on a rain-soaked Vice City street with pink and blue neon lights.](/blog/gta-6/gta6-vice-city-neon-night-portrait.webp "Neon-lit Vice City-inspired character portrait created using an AI image prompt.")
 
 [PROMPT:2]
 
@@ -239,7 +233,7 @@ Before trying the prompts, follow these straightforward steps:
 
 **The style:** A stylish character standing beside a luxury sports car in a beautiful tropical coastal city.
 
-![GTA 6 inspired luxury car lifestyle portrait with a character leaning against a magenta sports car on a tropical coastal boulevard.](/blog/gta-6/gta6-luxury-car-lifestyle-scene.webp "Example 3: Luxury sports car lifestyle scene created using an AI image prompt.")
+![GTA 6 inspired luxury car lifestyle portrait with a character leaning against a magenta sports car on a tropical coastal boulevard.](/blog/gta-6/gta6-luxury-car-lifestyle-scene.webp "Luxury sports car lifestyle scene created using an AI image prompt.")
 
 [PROMPT:3]
 
@@ -249,7 +243,7 @@ Before trying the prompts, follow these straightforward steps:
 
 **The style:** A relaxed tropical beach atmosphere with beautiful sunlight, coastal scenery and summer fashion.
 
-![GTA 6 inspired beachside character portrait with tropical palm trees, turquoise ocean and a coastal city background.](/blog/gta-6/gta6-beachside-character-portrait.webp "Example 4: Tropical beachside character portrait created using an AI image prompt.")
+![GTA 6 inspired beachside character portrait with tropical palm trees, turquoise ocean and a coastal city background.](/blog/gta-6/gta6-beachside-character-portrait.webp "Tropical beachside character portrait created using an AI image prompt.")
 
 [PROMPT:4]
 
@@ -259,7 +253,7 @@ Before trying the prompts, follow these straightforward steps:
 
 **The style:** An action-oriented street portrait featuring a modern sports motorcycle and an urban tropical environment.
 
-![GTA 6 inspired motorcycle street scene featuring a stylish character beside a black and red sports motorcycle in a tropical neon-lit city.](/blog/gta-6/gta6-motorcycle-street-scene.webp "Example 5: Motorcycle street scene created using an AI image prompt.")
+![GTA 6 inspired motorcycle street scene featuring a stylish character beside a black and red sports motorcycle in a tropical neon-lit city.](/blog/gta-6/gta6-motorcycle-street-scene.webp "Motorcycle street scene created using an AI image prompt.")
 
 [PROMPT:5]
 
@@ -269,7 +263,7 @@ Before trying the prompts, follow these straightforward steps:
 
 **The style:** A cinematic rooftop scene overlooking a beautiful coastal city during a dramatic sunset.
 
-![GTA 6 inspired rooftop character portrait overlooking a tropical coastal city during a pink and orange sunset.](/blog/gta-6/gta6-sunset-rooftop-portrait.webp "Example 6: Cinematic sunset rooftop portrait created using an AI image prompt.")
+![GTA 6 inspired rooftop character portrait overlooking a tropical coastal city during a pink and orange sunset.](/blog/gta-6/gta6-sunset-rooftop-portrait.webp "Cinematic sunset rooftop portrait created using an AI image prompt.")
 
 [PROMPT:6]
 
@@ -279,6 +273,8 @@ Before trying the prompts, follow these straightforward steps:
 
 **The style:** A bold streetwear portrait with dramatic character styling, varsity jacket, and colorful urban surroundings.
 
+![GTA 6 inspired gangster street fashion portrait featuring a stylish character in dark streetwear beside a classic lowrider.](/blog/gta-6/gta6-gangster-street-fashion.webp "Street fashion character portrait created using an AI image prompt.")
+
 [PROMPT:7]
 
 ---
@@ -286,6 +282,8 @@ Before trying the prompts, follow these straightforward steps:
 ## 8. GTA 6 Rainy Night Cinematic Scene {#prompt-8}
 
 **The style:** A dramatic rainy city environment with wet road reflections, glowing streetlights and a moody atmospheric haze.
+
+![GTA 6 inspired rainy night portrait with pink and blue neon lights, wet streets, palm trees and a cinematic city atmosphere.](/blog/gta-6/gta6-rainy-night-cinematic-scene.webp "Rainy neon-lit Vice City-inspired character portrait.")
 
 [PROMPT:8]
 
