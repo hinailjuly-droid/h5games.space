@@ -127,11 +127,8 @@ export const INITIAL_BLOG_POSTS: BlogPost[] = [
       {
         title: 'GTA 6 Sunset Rooftop Portrait',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '4:5',
+        aspectRatio: '2:3',
         explanation: 'A cinematic rooftop scene overlooking a beautiful coastal city during a dramatic sunset.',
-        imageUrl: '/blog/gta-6/gta6-sunset-rooftop-portrait.jpg',
-        imageAlt: 'GTA 6 Sunset Rooftop Portrait overlooking skyline with orange and purple skies',
-        imageCaption: 'Prompt 6 Example: Sunset rooftop portrait with warm golden reflections and city vista.',
         prompt: 'Transform the uploaded photograph into an atmospheric cinematic video game character portrait. Preserve the original face and identity accurately. Show the person standing on a luxury rooftop overlooking a fictional tropical coastal city during a dramatic sunset. Include distant skyscrapers, palm trees, illuminated buildings, beautiful orange and purple skies and warm golden reflections. Dress the character in elegant casual clothing. Use realistic 3D rendering, cinematic lighting, detailed environmental textures, subtle film grain and sophisticated color grading. Create a premium open-world game promotional artwork aesthetic, vertical composition, without any text or logos.',
       },
       {
@@ -271,6 +268,8 @@ Before trying the prompts, follow these straightforward steps:
 ## 6. GTA 6 Sunset Rooftop Portrait {#prompt-6}
 
 **The style:** A cinematic rooftop scene overlooking a beautiful coastal city during a dramatic sunset.
+
+![GTA 6 inspired rooftop character portrait overlooking a tropical coastal city during a pink and orange sunset.](/blog/gta-6/gta6-sunset-rooftop-portrait.webp "Example 6: Cinematic sunset rooftop portrait created using an AI image prompt.")
 
 [PROMPT:6]
 
