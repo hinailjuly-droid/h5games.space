@@ -120,11 +120,8 @@ export const INITIAL_BLOG_POSTS: BlogPost[] = [
       {
         title: 'GTA 6 Motorcycle Street Scene',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '4:5',
+        aspectRatio: '2:3',
         explanation: 'An action-oriented street portrait featuring a motorcycle and an urban tropical environment.',
-        imageUrl: '/blog/gta-6/gta6-motorcycle-street-scene.jpg',
-        imageAlt: 'GTA 6 Motorcycle Street Scene with modern sports motorcycle on a palm-lined street',
-        imageCaption: 'Prompt 5 Example: Motorcycle street scene with urban textures and dynamic lighting.',
         prompt: 'Use the uploaded image as the facial identity reference. Transform the person into a stylish motorcycle-riding character in a fictional tropical open-world city. Preserve their facial features and recognizable identity. Position the character beside a powerful modern sports motorcycle on a colorful urban street. Include palm trees, roadside shops, warm afternoon sunlight, realistic road textures and distant city buildings. Give the character fashionable streetwear and a confident cinematic pose. Render the scene using detailed realistic 3D video game graphics, dynamic lighting, cinematic depth and rich environmental details. The image should feel like a screenshot from a premium open-world action game. No brand logos or text.',
       },
       {
@@ -264,6 +261,8 @@ Before trying the prompts, follow these straightforward steps:
 ## 5. GTA 6 Motorcycle Street Scene {#prompt-5}
 
 **The style:** An action-oriented street portrait featuring a modern sports motorcycle and an urban tropical environment.
+
+![GTA 6 inspired motorcycle street scene featuring a stylish character beside a black and red sports motorcycle in a tropical neon-lit city.](/blog/gta-6/gta6-motorcycle-street-scene.webp "Example 5: Motorcycle street scene created using an AI image prompt.")
 
 [PROMPT:5]
 
