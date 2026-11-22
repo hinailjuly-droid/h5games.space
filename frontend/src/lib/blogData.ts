@@ -99,11 +99,8 @@ export const INITIAL_BLOG_POSTS: BlogPost[] = [
       {
         title: 'Vice City Neon Night Portrait',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '4:5',
+        aspectRatio: '2:3',
         explanation: 'A vibrant nighttime photograph with pink and blue neon lighting, tropical streets, and a dramatic coastal city atmosphere.',
-        imageUrl: '/blog/gta-6/gta6-vice-city-neon-night-portrait.jpg',
-        imageAlt: 'Vice City Neon Night Portrait with pink and blue neon signs and reflective streets',
-        imageCaption: 'Prompt 2 Example: Vice City Neon Night Portrait with moody atmospheric reflections.',
         prompt: 'Use the uploaded photograph as the identity reference and transform the person into a cinematic nighttime character in a fictional tropical coastal city inspired by the neon atmosphere of Vice City. Preserve the original face and recognizable features. Dress the person in stylish modern streetwear. Surround them with glowing pink and electric-blue neon signs, palm trees, wet reflective streets and colorful storefronts. Add realistic reflections, dramatic cinematic shadows, subtle atmospheric haze and detailed 3D video game rendering. The image should feel like a high-budget open-world action game scene, with vibrant colors and realistic textures. Vertical portrait composition, no logos or text.',
       },
       {
@@ -243,6 +240,8 @@ Before trying the prompts, follow these straightforward steps:
 ## 2. Vice City Neon Night Portrait {#prompt-2}
 
 **The style:** A vibrant nighttime photograph with pink and blue neon lighting, tropical streets and a dramatic city atmosphere.
+
+![GTA 6 inspired neon night portrait featuring a character on a rain-soaked Vice City street with pink and blue neon lights.](/blog/gta-6/gta6-vice-city-neon-night-portrait.webp "Example 2: Neon-lit Vice City-inspired character portrait created using an AI image prompt.")
 
 [PROMPT:2]
 
