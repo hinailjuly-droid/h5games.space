@@ -328,5 +328,248 @@ Try different styles with your own photographs, experiment with lighting and bac
 > **Legal Disclaimer:** This article is an independent fan-inspired AI prompt guide. It is not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive. Grand Theft Auto and GTA are registered trademarks of their respective owners.
     `,
   },
+  {
+    _id: 'article-christmas',
+    title: '10 Best Christmas AI Photo Editing Prompts for Gemini and ChatGPT',
+    slug: 'best-christmas-ai-photo-editing-prompts',
+    excerpt: 'Transform your everyday photos into magical holiday portraits. Here are 10 original Christmas AI photo editing prompts for Google Gemini and ChatGPT.',
+    coverImage: '/blog/christmas/christmas-candy-cane-glamour-portrait.webp',
+    category: 'AI Photo Editing',
+    categorySlug: 'ai-photo-editing',
+    tags: ['Christmas', 'Holiday Portraits', 'AI Photo Editing', 'Google Gemini', 'ChatGPT', 'Photorealism'],
+    author: {
+      name: 'Elena Rostova',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
+      role: 'Prompt Engineer & Photographer',
+    },
+    readTime: '8 min read',
+    publishedAt: '2026-11-24',
+    updatedAt: '2026-11-24',
+    featured: true,
+    popular: true,
+    relatedPromptCategory: 'portrait',
+    toc: [
+      { id: 'how-to-create', title: 'How to Create Christmas AI Photos' },
+      { id: 'prompt-1', title: '1. Christmas Candy Cane Glamour Portrait' },
+      { id: 'prompt-2', title: '2. Cozy Christmas Tree Portrait' },
+      { id: 'prompt-3', title: '3. Snowy Winter Wonderland Outdoor Scene' },
+      { id: 'prompt-4', title: '4. Classic Vintage Santa Workshop Portrait' },
+      { id: 'prompt-5', title: '5. Festive Christmas Market Night Scene' },
+      { id: 'prompt-6', title: '6. Elegant Holiday Party Champagne Toast' },
+      { id: 'prompt-7', title: '7. Warm Fireside Reading Christmas Scene' },
+      { id: 'prompt-8', title: '8. Christmas Morning Gift Unwrapping Portrait' },
+      { id: 'prompt-9', title: '9. Holiday Lights Bokeh City Walk' },
+      { id: 'prompt-10', title: '10. Traditional Christmas Dinner Feast Portrait' },
+      { id: 'tips', title: 'Tips for Getting the Best Christmas AI Photos' },
+      { id: 'faqs', title: 'Frequently Asked Questions' },
+      { id: 'final-thoughts', title: 'Final Thoughts & Holiday Greetings' },
+    ],
+    prompts: [
+      {
+        title: 'Christmas Candy Cane Glamour Portrait',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '2:3',
+        explanation: 'Transform your portrait into a glamorous holiday studio portrait with Santa-inspired red velvet fashion, oversized candy canes, and glowing fairy lights.',
+        prompt: "Transform the uploaded photograph into an ultra-detailed, glamorous Christmas studio portrait. Preserve the person's original facial identity, facial structure, natural skin texture, beard, hairstyle, and recognizable features accurately. Dress the person in an elegant holiday ensemble featuring a luxurious red velvet fleece-lined Santa robe over a cream knit Christmas reindeer sweater and tailored red trousers, styled with modern dark sunglasses and a silver watch. Place them in a festive indoor holiday studio decorated with a glowing Christmas tree, oversized red and white striped candy canes, warm hanging fairy lights, wrapped gift boxes with red ribbons, and a vintage glowing snow lantern. Use warm, cinematic holiday studio lighting, soft background bokeh, rich red and gold tones, and crisp 8k photorealistic rendering. Vertical 2:3 composition, no text, logos or watermarks.",
+      },
+      {
+        title: 'Cozy Christmas Tree Portrait',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '2:3',
+        explanation: 'A warm, cozy Christmas evening scene beside a glowing decorated tree and a rustic fireplace.',
+        prompt: "Use the uploaded photograph as the facial identity reference. Transform the person into a cozy Christmas evening portrait inside a warm, festively decorated living room. Accurately preserve the person's original facial structure, hairstyle, beard, and natural expressions. Dress the person in a festive cream knit sweater with red reindeer and snowflake patterns, paired with a cozy red wool scarf, dark trousers, and a watch. Position the person standing comfortably beside a grand Christmas tree adorned with glowing warm fairy lights, red baubles, pinecones, and golden stars. In the background, include a rustic stone fireplace with a crackling warm fire, hanging holiday stockings, and a Christmas wreath with a red velvet bow on the wall. Use soft warm ambient lighting, beautiful cinematic depth of field, and photorealistic rendering. Vertical 2:3 composition, no text or watermarks.",
+      },
+      {
+        title: 'Snowy Winter Wonderland Outdoor Scene',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '2:3',
+        explanation: 'An enchanting winter outdoor portrait with gently falling snow, warm holiday coat, and frosted pine trees.',
+        prompt: "Transform the uploaded photograph into a cinematic winter wonderland portrait outdoors. Preserve the person's facial identity, natural bone structure, and facial expression. Dress them in a stylish heavy winter wool overcoat, textured knit scarf, and winter gloves. Set the scene in a snowy pine forest or festively decorated snow-covered courtyard with gently falling snowflakes, warm holiday string lights in the branches, and soft golden-hour winter sunlight. Vertical 2:3 composition, photorealistic quality, no watermarks.",
+      },
+      {
+        title: 'Classic Vintage Santa Workshop Portrait',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '2:3',
+        explanation: 'A nostalgic holiday scene inside a rustic wooden workshop filled with handcrafted wooden toys and glowing lanterns.',
+        prompt: "Convert the uploaded photograph into a nostalgic vintage holiday portrait set inside Santa's cozy wooden workshop. Keep the person's facial features and recognizable identity intact. Dress them in vintage holiday attire with a cozy knitted sweater and rustic apron. Surround them with wooden shelves of handcrafted toys, brass lanterns, rolls of ribbon, and warm firelight. Warm amber color grading, vertical 2:3 framing, photorealistic 8k detail.",
+      },
+      {
+        title: 'Festive Christmas Market Night Scene',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '2:3',
+        explanation: 'A vibrant European-style Christmas market at night with illuminated wooden stalls and holiday crowds.',
+        prompt: "Transform the uploaded photograph into a lively Christmas market night scene. Preserve the person's original face and natural features. Place them strolling through a festive European Christmas market surrounded by illuminated wooden chalets selling gingerbread and ornaments, glowing overhead string lights, and snow-dusted cobblestones. Depth of field with beautiful holiday bokeh, vertical 2:3 composition, photorealistic.",
+      },
+      {
+        title: 'Elegant Holiday Party Champagne Toast',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '2:3',
+        explanation: 'A sophisticated festive celebration scene in an upscale lounge with champagne and gold holiday accents.',
+        prompt: "Use the uploaded photograph to generate a sophisticated holiday party portrait. Preserve facial likeness and bone structure. Dress the person in an elegant evening blazer or holiday cocktail attire, holding a crystal glass of champagne. Set in a luxury festive penthouse with gold Christmas ornaments, champagne towers, and floor-to-ceiling city views at night. Vertical 2:3 composition, crisp lighting, photorealistic.",
+      },
+      {
+        title: 'Warm Fireside Reading Christmas Scene',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '2:3',
+        explanation: 'A peaceful holiday relaxation portrait sitting in a leather armchair beside a glowing hearth with hot cocoa.',
+        prompt: "Transform the uploaded photograph into a serene fireside holiday scene. Preserve the person's facial identity accurately. Position them seated in a comfortable leather armchair with a festive plaid blanket, holding a steaming mug of hot cocoa with marshmallows. In the background, a roaring stone fireplace, decorated mantelpiece with pine garlands, and soft candle glow. Warm golden lighting, vertical 2:3 framing.",
+      },
+      {
+        title: 'Christmas Morning Gift Unwrapping Portrait',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '2:3',
+        explanation: 'A joyful Christmas morning scene surrounded by beautifully wrapped presents and morning sunlight.',
+        prompt: "Transform the uploaded photograph into a candid, joyful Christmas morning scene. Preserve natural facial identity and expression. Dress the person in festive holiday loungewear or pajamas. Place them beside a brightly lit Christmas tree surrounded by colorful opened and wrapped gift boxes, glossy wrapping paper, and morning sunlight streaming through the window. Warm, authentic photographic feel, vertical 2:3 framing.",
+      },
+      {
+        title: 'Holiday Lights Bokeh City Walk',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '2:3',
+        explanation: 'An atmospheric evening street walk surrounded by glowing holiday light installations and festive store windows.',
+        prompt: "Convert the uploaded photograph into a cinematic holiday evening street portrait. Preserve facial features and hair naturally. Dress the person in a stylish modern winter trench coat and knit scarf. Place them on an illuminated downtown boulevard decorated with grand Christmas light arches, glowing store windows, and glistening damp pavement with colorful festive reflections. Vertical 2:3 composition, shallow depth of field, photorealistic.",
+      },
+      {
+        title: 'Traditional Christmas Dinner Feast Portrait',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '2:3',
+        explanation: 'A warm festive dining scene seated at an elaborately decorated holiday table with candles and pine centerpieces.',
+        prompt: "Use the uploaded photograph to create a rich, warm Christmas dinner portrait. Preserve original facial identity. Position the person at an elegant holiday dining table laid with fine china, glowing tapered candles, pinecone and holly centerpieces, and traditional Christmas dishes. Warm ambient holiday dining illumination, vertical 2:3 framing, photorealistic 8k rendering.",
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I use Google Gemini or ChatGPT to create these Christmas photos?',
+        answer: 'Yes. Both Google Gemini and ChatGPT (with DALL-E 3) support image uploads and image-to-image editing. Attach your clear selfie or portrait, copy one of the prompts in this guide, and generate your holiday portrait.',
+      },
+      {
+        question: 'How do I ensure the AI preserves my real face?',
+        answer: "Always instruct the AI to 'preserve original facial identity, natural bone structure, beard, and recognizable features accurately'. Uploading a high-resolution, well-lit photo with your face directly facing the camera yields the best results.",
+      },
+      {
+        question: 'Are these Christmas AI prompts free to copy?',
+        answer: 'Yes, all prompts in this guide are 100% free to copy and customize. Click the COPY PROMPT button beneath any prompt box to instantly copy the text to your clipboard.',
+      },
+    ],
+    content: `
+Celebrate the holiday season by transforming your photos into festive masterpieces! With modern AI image generators like **Google Gemini** and **ChatGPT**, you can turn an everyday selfie or portrait into an enchanting holiday portrait—complete with decorated Christmas trees, crackling fireplaces, snow-dusted lanterns, and cozy winter fashion.
 
+In this guide, we present **10 original Christmas AI photo editing prompts** designed specifically for image-to-image workflows. Each prompt preserves your natural facial identity while placing you in cinematic holiday environments.
+
+---
+
+## How to Create Christmas AI Photos {#how-to-create}
+
+1. **Select a clear reference photo**: Choose a well-lit photo where your face is clearly visible and unobstructed.
+2. **Open your preferred AI tool**: Navigate to Google Gemini or ChatGPT Plus with image generation capabilities.
+3. **Upload your picture**: Attach your reference portrait in the chat prompt.
+4. **Copy a prompt below**: Use our 1-click **COPY PROMPT** button beneath your desired style.
+5. **Generate & Refine**: Adjust lighting, clothing colors, or holiday props to personalize your festive portrait.
+
+---
+
+## 1. Christmas Candy Cane Glamour Portrait {#prompt-1}
+
+**The style:** A high-fashion holiday studio look blending luxury red velvet fashion, candy cane accents, and warm twinkling fairy lights.
+
+![Festive Christmas portrait featuring a man in a red Santa-inspired outfit sitting in a decorated Christmas studio with candy canes and glowing lights.](/blog/christmas/christmas-candy-cane-glamour-portrait.webp "Festive candy cane Christmas studio portrait with elegant red styling.")
+
+[PROMPT:1]
+
+---
+
+## 2. Cozy Christmas Tree Portrait {#prompt-2}
+
+**The style:** A cozy, heartwarming fireside portrait featuring a traditional decorated tree, glowing fireplace, and classic winter knitwear.
+
+![Cozy Christmas portrait of a man wearing a cream festive sweater and red scarf beside a decorated Christmas tree and warm fireplace.](/blog/christmas/cozy-christmas-tree-portrait.webp "Cozy Christmas evening portrait beside a beautifully decorated tree.")
+
+[PROMPT:2]
+
+---
+
+## 3. Snowy Winter Wonderland Outdoor Scene {#prompt-3}
+
+**The style:** An enchanting winter outdoor portrait with gently falling snow, warm holiday coat, and frosted pine trees.
+
+[PROMPT:3]
+
+---
+
+## 4. Classic Vintage Santa Workshop Portrait {#prompt-4}
+
+**The style:** A nostalgic holiday scene inside a rustic wooden workshop filled with handcrafted wooden toys and glowing lanterns.
+
+[PROMPT:4]
+
+---
+
+## 5. Festive Christmas Market Night Scene {#prompt-5}
+
+**The style:** A vibrant European-style Christmas market at night with illuminated wooden stalls and holiday crowds.
+
+[PROMPT:5]
+
+---
+
+## 6. Elegant Holiday Party Champagne Toast {#prompt-6}
+
+**The style:** A sophisticated festive celebration scene in an upscale lounge with champagne and gold holiday accents.
+
+[PROMPT:6]
+
+---
+
+## 7. Warm Fireside Reading Christmas Scene {#prompt-7}
+
+**The style:** A peaceful holiday relaxation portrait sitting in a leather armchair beside a glowing hearth with hot cocoa.
+
+[PROMPT:7]
+
+---
+
+## 8. Christmas Morning Gift Unwrapping Portrait {#prompt-8}
+
+**The style:** A joyful Christmas morning scene surrounded by beautifully wrapped presents and morning sunlight.
+
+[PROMPT:8]
+
+---
+
+## 9. Holiday Lights Bokeh City Walk {#prompt-9}
+
+**The style:** An atmospheric evening street walk surrounded by glowing holiday light installations and festive store windows.
+
+[PROMPT:9]
+
+---
+
+## 10. Traditional Christmas Dinner Feast Portrait {#prompt-10}
+
+**The style:** A warm festive dining scene seated at an elaborately decorated holiday table with candles and pine centerpieces.
+
+[PROMPT:10]
+
+---
+
+## Tips for Getting the Best Christmas AI Photos {#tips}
+
+1. **Use clear, well-lit reference photos**: Sharp facial features allow the AI to match your bone structure and natural expression without distortion.
+2. **Explicitly request facial preservation**: Always include phrases like *"preserve original facial identity, facial structure, and natural features"*.
+3. **Specify holiday lighting styles**: Mention warm candle glow, bokeh fairy lights, or twilight ambiance to achieve rich festive atmosphere.
+4. **Choose appropriate aspect ratios**: 2:3 and 4:5 vertical framing are ideal for portraiture, mobile screens, and Instagram stories.
+5. **Tweak wardrobe details**: Specify festive textures like chunky knit sweaters, fleece lining, velvet, and wool scarves.
+
+---
+
+## Frequently Asked Questions {#faqs}
+
+---
+
+## Final Thoughts & Holiday Greetings {#final-thoughts}
+
+Creating Christmas-themed AI portraits is a fun, creative way to celebrate the holiday season, design personalized holiday cards, or update your social media profile pictures with holiday cheer. Experiment with these 10 prompts to find the festive style that best fits your personality.
+
+Happy holidays and merry Christmas!
+    `,
+  },
 ];

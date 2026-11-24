@@ -21,6 +21,7 @@ export default function ArticleImage({
   const isPortrait23 =
     aspectRatio === '2/3' ||
     src.includes('gta-6') ||
+    src.includes('christmas') ||
     src.includes('portrait');
 
   return (
