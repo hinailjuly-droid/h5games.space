@@ -352,7 +352,7 @@ Try different styles with your own photographs, experiment with lighting and bac
       { id: 'how-to-create', title: 'How to Create Christmas AI Photos' },
       { id: 'prompt-1', title: '1. Christmas Candy Cane Glamour Portrait' },
       { id: 'prompt-2', title: '2. Cozy Christmas Tree Portrait' },
-      { id: 'prompt-3', title: '3. Snowy Winter Wonderland Outdoor Scene' },
+      { id: 'prompt-3', title: '3. Snowy Winter Wonderland Portrait' },
       { id: 'prompt-4', title: '4. Classic Vintage Santa Workshop Portrait' },
       { id: 'prompt-5', title: '5. Festive Christmas Market Night Scene' },
       { id: 'prompt-6', title: '6. Elegant Holiday Party Champagne Toast' },
@@ -380,11 +380,11 @@ Try different styles with your own photographs, experiment with lighting and bac
         prompt: "Use the uploaded photograph as the facial identity reference. Transform the person into a cozy Christmas evening portrait inside a warm, festively decorated living room. Accurately preserve the person's original facial structure, hairstyle, beard, and natural expressions. Dress the person in a festive cream knit sweater with red reindeer and snowflake patterns, paired with a cozy red wool scarf, dark trousers, and a watch. Position the person standing comfortably beside a grand Christmas tree adorned with glowing warm fairy lights, red baubles, pinecones, and golden stars. In the background, include a rustic stone fireplace with a crackling warm fire, hanging holiday stockings, and a Christmas wreath with a red velvet bow on the wall. Use soft warm ambient lighting, beautiful cinematic depth of field, and photorealistic rendering. Vertical 2:3 composition, no text or watermarks.",
       },
       {
-        title: 'Snowy Winter Wonderland Outdoor Scene',
+        title: 'Snowy Winter Wonderland Portrait',
         model: 'Google Gemini & ChatGPT',
         aspectRatio: '2:3',
         explanation: 'An enchanting winter outdoor portrait with gently falling snow, warm holiday coat, and frosted pine trees.',
-        prompt: "Transform the uploaded photograph into a cinematic winter wonderland portrait outdoors. Preserve the person's facial identity, natural bone structure, and facial expression. Dress them in a stylish heavy winter wool overcoat, textured knit scarf, and winter gloves. Set the scene in a snowy pine forest or festively decorated snow-covered courtyard with gently falling snowflakes, warm holiday string lights in the branches, and soft golden-hour winter sunlight. Vertical 2:3 composition, photorealistic quality, no watermarks.",
+        prompt: "Transform the uploaded photograph into an ultra-detailed, cinematic winter wonderland outdoor portrait. Preserve the person's original facial identity, natural bone structure, beard, hairstyle, and facial expression accurately. Dress the person in a rugged dark hooded winter parka with fur trim, a textured grey turtleneck sweater, cozy red knit scarf, dark snow pants, winter gloves, and hiking boots with a backpack. Position them sitting outdoors on a snow-covered rock in a breathtaking alpine mountain landscape with gently falling snowflakes, frosted pine trees, and a warmly lit rustic log cabin decorated with a Christmas wreath in the background. Use soft natural daylight with warm glowing cabin illumination, crisp 8k photorealistic rendering, and vertical 2:3 composition. No text or watermarks.",
       },
       {
         title: 'Classic Vintage Santa Workshop Portrait',
@@ -487,9 +487,11 @@ In this guide, we present **10 original Christmas AI photo editing prompts** des
 
 ---
 
-## 3. Snowy Winter Wonderland Outdoor Scene {#prompt-3}
+## 3. Snowy Winter Wonderland Portrait {#prompt-3}
 
 **The style:** An enchanting winter outdoor portrait with gently falling snow, warm holiday coat, and frosted pine trees.
+
+![Man wearing a dark winter coat and red scarf sitting in a snowy mountain landscape beside a warmly illuminated cabin.](/blog/christmas/snowy-winter-wonderland-portrait.webp "Winter portrait surrounded by snow-covered mountains and pine trees.")
 
 [PROMPT:3]
 
