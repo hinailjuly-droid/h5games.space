@@ -23,7 +23,7 @@ export default function BlogCard({ post, featured }: BlogCardProps) {
       <Link href={`/blog/${post.slug}`} className={`relative overflow-hidden block ${featured ? 'md:w-1/2 min-h-[300px]' : 'aspect-video'}`}>
         <Image
           src={post.coverImage}
-          alt={post.title}
+          alt={post.coverImageAlt || post.title}
           fill
           unoptimized={true}
           className="object-cover transition-transform duration-700 group-hover:scale-105"

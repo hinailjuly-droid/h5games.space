@@ -91,6 +91,7 @@ export interface BlogPost {
   content: string;
   excerpt: string;
   coverImage: string;
+  coverImageAlt?: string;
   category: string;
   categorySlug: string;
   tags: string[];

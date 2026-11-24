@@ -144,7 +144,7 @@ export default async function BlogCategoryPage({ params }: Props) {
               <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100">
                 <Image
                   src={post.coverImage}
-                  alt={post.title}
+                  alt={post.coverImageAlt || post.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />

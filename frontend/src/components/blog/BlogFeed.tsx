@@ -35,7 +35,7 @@ export default function BlogFeed({ initialPosts }: BlogFeedProps) {
             <div className="relative aspect-[16/9] lg:aspect-auto lg:col-span-7 overflow-hidden bg-slate-100 min-h-[300px]">
               <Image
                 src={featured.coverImage}
-                alt={featured.title}
+                alt={featured.coverImageAlt || featured.title}
                 fill
                 priority
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -95,7 +95,7 @@ export default function BlogFeed({ initialPosts }: BlogFeedProps) {
               <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100">
                 <Image
                   src={post.coverImage}
-                  alt={post.title}
+                  alt={post.coverImageAlt || post.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />

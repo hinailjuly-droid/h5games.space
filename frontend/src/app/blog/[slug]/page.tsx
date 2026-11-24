@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: post.coverImage,
           width: 1200,
           height: 675,
-          alt: post.title,
+          alt: post.coverImageAlt || post.title,
         },
       ],
       type: 'article',
@@ -303,7 +303,7 @@ export default async function UniversalArticleTemplatePage({ params }: Props) {
       <div className="relative aspect-[16/9] w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-100 border border-slate-200/90 shadow-sm">
         <Image
           src={post.coverImage}
-          alt={post.title}
+          alt={post.coverImageAlt || post.title}
           fill
           priority
           sizes="(max-width: 1200px) 100vw, 1200px"
