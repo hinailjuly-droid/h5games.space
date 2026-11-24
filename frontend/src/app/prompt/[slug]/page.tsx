@@ -188,8 +188,7 @@ export default function PromptDetailPage() {
               <p className="text-xs sm:text-sm text-slate-200 font-mono leading-relaxed select-all">
                 {prompt.prompt}
               </p>
-              <div className="pt-2 border-t border-slate-700/40 flex items-center justify-between">
-                <span className="text-[11px] text-slate-400 font-medium">Ready to copy & paste</span>
+              <div className="pt-2 border-t border-slate-700/40 flex items-center justify-end">
                 <button
                   onClick={handleCopyPrompt}
                   className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold transition-all shadow-lg ${

@@ -170,12 +170,8 @@ export default function PromptBox({
         </div>
       </div>
 
-      {/* 5. Prominent Full-Width COPY PROMPT Button DIRECTLY BELOW THE PROMPT TEXT */}
-      <div className="p-3 sm:p-4 bg-white flex flex-col sm:flex-row items-center justify-between gap-3">
-        <span className="text-[11px] text-slate-400 font-medium hidden sm:inline">
-          Ready to paste into Gemini, ChatGPT, Midjourney, or FLUX
-        </span>
-
+      {/* 5. Prominent COPY PROMPT Button DIRECTLY BELOW THE PROMPT TEXT */}
+      <div className="p-3 sm:p-4 bg-white flex items-center justify-end">
         <button
           onClick={handleCopy}
           type="button"
