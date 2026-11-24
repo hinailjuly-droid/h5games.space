@@ -359,7 +359,7 @@ Try different styles with your own photographs, experiment with lighting and bac
       { id: 'prompt-7', title: '7. Heartwarming Holiday Dog Portrait' },
       { id: 'prompt-8', title: '8. Christmas Lights Bokeh Portrait' },
       { id: 'prompt-9', title: '9. Festive Red Dress Christmas Photoshoot' },
-      { id: 'prompt-10', title: '10. Traditional Christmas Dinner Feast Portrait' },
+      { id: 'prompt-10', title: '10. Christmas Snow Globe Portrait' },
       { id: 'tips', title: 'Tips for Getting the Best Christmas AI Photos' },
       { id: 'faqs', title: 'Frequently Asked Questions' },
       { id: 'final-thoughts', title: 'Final Thoughts & Holiday Greetings' },
@@ -429,9 +429,9 @@ Try different styles with your own photographs, experiment with lighting and bac
         prompt: "Convert the uploaded photograph into a cinematic holiday evening street portrait. Preserve facial features and hair naturally. Dress the person in a stylish modern winter trench coat and knit scarf. Place them on an illuminated downtown boulevard decorated with grand Christmas light arches, glowing store windows, and glistening damp pavement with colorful festive reflections. Vertical 2:3 composition, shallow depth of field, photorealistic.",
       },
       {
-        title: 'Traditional Christmas Dinner Feast Portrait',
+        title: 'Christmas Snow Globe Portrait',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '2:3',
+        aspectRatio: '3:4',
         explanation: 'A warm festive dining scene seated at an elaborately decorated holiday table with candles and pine centerpieces.',
         prompt: "Use the uploaded photograph to create a rich, warm Christmas dinner portrait. Preserve original facial identity. Position the person at an elegant holiday dining table laid with fine china, glowing tapered candles, pinecone and holly centerpieces, and traditional Christmas dishes. Warm ambient holiday dining illumination, vertical 2:3 framing, photorealistic 8k rendering.",
       },
@@ -557,9 +557,11 @@ In this guide, we present **10 original Christmas AI photo editing prompts** des
 
 ---
 
-## 10. Traditional Christmas Dinner Feast Portrait {#prompt-10}
+## 10. Christmas Snow Globe Portrait {#prompt-10}
 
-**The style:** A warm festive dining scene seated at an elaborately decorated holiday table with candles and pine centerpieces.
+**The style:** A festive evening scene at a bustling holiday market with glowing carnival lights and gently falling snow.
+
+![Man wearing a dark winter coat and red scarf holding hot chocolate at a snowy Christmas market.](/blog/christmas/christmas-prompt-10.webp "Man wearing a dark winter coat and red scarf holding hot chocolate at a snowy Christmas market.")
 
 [PROMPT:10]
 
