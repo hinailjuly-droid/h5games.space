@@ -353,8 +353,8 @@ Try different styles with your own photographs, experiment with lighting and bac
       { id: 'prompt-1', title: '1. Christmas Candy Cane Glamour Portrait' },
       { id: 'prompt-2', title: '2. Cozy Christmas Tree Portrait' },
       { id: 'prompt-3', title: '3. Snowy Winter Wonderland Portrait' },
-      { id: 'prompt-4', title: '4. Classic Vintage Santa Workshop Portrait' },
-      { id: 'prompt-5', title: '5. Festive Christmas Market Night Scene' },
+      { id: 'prompt-4', title: '4. Santa Hat Studio Portrait' },
+      { id: 'prompt-5', title: '5. Festive Outdoor Winter Portrait' },
       { id: 'prompt-6', title: '6. Elegant Holiday Party Champagne Toast' },
       { id: 'prompt-7', title: '7. Warm Fireside Reading Christmas Scene' },
       { id: 'prompt-8', title: '8. Christmas Morning Gift Unwrapping Portrait' },
@@ -387,18 +387,18 @@ Try different styles with your own photographs, experiment with lighting and bac
         prompt: "Transform the uploaded photograph into an ultra-detailed, cinematic winter wonderland outdoor portrait. Preserve the person's original facial identity, natural bone structure, beard, hairstyle, and facial expression accurately. Dress the person in a rugged dark hooded winter parka with fur trim, a textured grey turtleneck sweater, cozy red knit scarf, dark snow pants, winter gloves, and hiking boots with a backpack. Position them sitting outdoors on a snow-covered rock in a breathtaking alpine mountain landscape with gently falling snowflakes, frosted pine trees, and a warmly lit rustic log cabin decorated with a Christmas wreath in the background. Use soft natural daylight with warm glowing cabin illumination, crisp 8k photorealistic rendering, and vertical 2:3 composition. No text or watermarks.",
       },
       {
-        title: 'Classic Vintage Santa Workshop Portrait',
+        title: 'Santa Hat Studio Portrait',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '2:3',
-        explanation: 'A nostalgic holiday scene inside a rustic wooden workshop filled with handcrafted wooden toys and glowing lanterns.',
-        prompt: "Convert the uploaded photograph into a nostalgic vintage holiday portrait set inside Santa's cozy wooden workshop. Keep the person's facial features and recognizable identity intact. Dress them in vintage holiday attire with a cozy knitted sweater and rustic apron. Surround them with wooden shelves of handcrafted toys, brass lanterns, rolls of ribbon, and warm firelight. Warm amber color grading, vertical 2:3 framing, photorealistic 8k detail.",
+        aspectRatio: '3:4',
+        explanation: 'A festive and playful studio portrait wearing a plush Santa hat, red reindeer knit sweater, and a silver watch beside a decorated Christmas tree.',
+        prompt: "Transform the uploaded photograph into an ultra-detailed, charming Christmas studio portrait. Preserve the person's original facial identity, facial structure, natural beard, curly dark hair, and expressive eyes accurately. Dress the person in a festive deep red knit sweater featuring white reindeer and snowflake Nordic patterns, paired with a plush red and white velvet Santa hat with a fluffy pompom and dark trousers, accessorized with a stylish silver wrist watch. Position the person resting their chin thoughtfully on their hand, seated in front of a grand decorated Christmas tree sparkling with warm fairy lights and golden ornaments, with wrapped gift boxes in the foreground. Use soft warm studio portrait lighting, shallow depth of field, rich Christmas colors, and 8k photorealistic rendering. Vertical composition, no text or watermarks.",
       },
       {
-        title: 'Festive Christmas Market Night Scene',
+        title: 'Festive Outdoor Winter Portrait',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '2:3',
-        explanation: 'A vibrant European-style Christmas market at night with illuminated wooden stalls and holiday crowds.',
-        prompt: "Transform the uploaded photograph into a lively Christmas market night scene. Preserve the person's original face and natural features. Place them strolling through a festive European Christmas market surrounded by illuminated wooden chalets selling gingerbread and ornaments, glowing overhead string lights, and snow-dusted cobblestones. Depth of field with beautiful holiday bokeh, vertical 2:3 composition, photorealistic.",
+        aspectRatio: '3:4',
+        explanation: 'A joyful winter portrait of a man embracing falling snow outdoors in front of a glowing Christmas log cabin.',
+        prompt: "Convert the uploaded photograph into an authentic, joyful winter holiday outdoor portrait. Accurately preserve the person's facial likeness, bone structure, beard, and joyful expression. Position the person standing outdoors with their arms open wide to the sky as gentle snowflakes fall around them. Dress them in a stylish dark winter coat worn over a warm cream ribbed knit sweater, paired with a long textured red wool scarf and dark winter gloves. In the background, set a picturesque snow-covered wooden log cabin illuminated with warm glowing holiday string lights and decorated with a Christmas wreath on the window, nestled among snow-draped pine trees. Cinematic soft snowfall lighting, natural cold-weather skin tones, shallow depth of field, and photorealistic 8k quality. Vertical composition, no text or logos.",
       },
       {
         title: 'Elegant Holiday Party Champagne Toast',
@@ -497,17 +497,21 @@ In this guide, we present **10 original Christmas AI photo editing prompts** des
 
 ---
 
-## 4. Classic Vintage Santa Workshop Portrait {#prompt-4}
+## 4. Santa Hat Studio Portrait {#prompt-4}
 
-**The style:** A nostalgic holiday scene inside a rustic wooden workshop filled with handcrafted wooden toys and glowing lanterns.
+**The style:** A charming, festive holiday studio portrait with a classic red Santa hat, patterned reindeer sweater, and sparkling Christmas tree bokeh.
+
+![Festive holiday studio portrait featuring a man wearing a plush red Santa hat and Nordic reindeer knit sweater beside a decorated Christmas tree.](/blog/christmas/santa-hat-studio-portrait.webp "Festive Santa hat studio portrait with classic holiday sweater styling.")
 
 [PROMPT:4]
 
 ---
 
-## 5. Festive Christmas Market Night Scene {#prompt-5}
+## 5. Festive Outdoor Winter Portrait {#prompt-5}
 
-**The style:** A vibrant European-style Christmas market at night with illuminated wooden stalls and holiday crowds.
+**The style:** A joyful, open-arms winter scene capturing the magic of falling snow in front of a warm illuminated alpine holiday cabin.
+
+![Joyful outdoor winter portrait of a man with arms outstretched embracing falling snow in front of a glowing wooden cabin.](/blog/christmas/festive-outdoor-winter-portrait.webp "Joyful outdoor winter portrait embracing falling snow beside a festive alpine cabin.")
 
 [PROMPT:5]
 
