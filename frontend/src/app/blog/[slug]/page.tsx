@@ -352,8 +352,9 @@ export default async function UniversalArticleTemplatePage({ params }: Props) {
           {/* Universal Article Ending: FAQs Accordion (if present) */}
           {post.faqs && post.faqs.length > 0 && (
             <section
+              id="faqs"
               aria-label="Frequently Asked Questions"
-              className="space-y-4 pt-8 mt-10 border-t border-slate-200"
+              className="space-y-4 pt-8 mt-10 border-t border-slate-200 scroll-mt-24"
             >
               <div className="flex items-center gap-2 text-slate-900 font-bold text-lg sm:text-xl">
                 <HelpCircle className="w-5 h-5 text-blue-600" />

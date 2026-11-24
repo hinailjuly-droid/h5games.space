@@ -86,8 +86,8 @@ export const INITIAL_BLOG_POSTS: BlogPost[] = [
       { id: 'prompt-9', title: '9. GTA 6 Convertible Car Sunset Scene' },
       { id: 'prompt-10', title: '10. GTA 6 Official-Style Game Loading Screen' },
       { id: 'tips', title: 'Tips for Getting Better GTA 6-Inspired AI Photos' },
-      { id: 'faqs', title: 'Frequently Asked Questions' },
       { id: 'final-thoughts', title: 'Final Thoughts & Disclaimer' },
+      { id: 'faqs', title: 'Frequently Asked Questions' },
     ],
     prompts: [
       {
@@ -316,10 +316,6 @@ Here are five proven techniques to achieve the most authentic game-character res
 
 ---
 
-## Frequently Asked Questions {#faqs}
-
----
-
 ## Final Thoughts & Disclaimer {#final-thoughts}
 
 Creating GTA 6-inspired AI photographs is an exciting way to experiment with the latest image generation and photo-editing models. Whether you prefer neon-lit city streets, luxury sports cars, tropical beaches or illustrated character posters, these 10 prompts give you versatile creative blueprints to explore.
@@ -363,8 +359,8 @@ Try different styles with your own photographs, experiment with lighting and bac
       { id: 'prompt-9', title: '9. Festive Red Dress Christmas Photoshoot' },
       { id: 'prompt-10', title: '10. Christmas Snow Globe Portrait' },
       { id: 'tips', title: 'Tips for Getting the Best Christmas AI Photos' },
-      { id: 'faqs', title: 'Frequently Asked Questions' },
       { id: 'final-thoughts', title: 'Final Thoughts & Holiday Greetings' },
+      { id: 'faqs', title: 'Frequently Asked Questions' },
     ],
     prompts: [
       {
@@ -576,10 +572,6 @@ In this guide, we present **10 original Christmas AI photo editing prompts** des
 3. **Specify holiday lighting styles**: Mention warm candle glow, bokeh fairy lights, or twilight ambiance to achieve rich festive atmosphere.
 4. **Choose appropriate aspect ratios**: 2:3 and 4:5 vertical framing are ideal for portraiture, mobile screens, and Instagram stories.
 5. **Tweak wardrobe details**: Specify festive textures like chunky knit sweaters, fleece lining, velvet, and wool scarves.
-
----
-
-## Frequently Asked Questions {#faqs}
 
 ---
 

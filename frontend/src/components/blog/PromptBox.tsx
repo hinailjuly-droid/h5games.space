@@ -99,7 +99,7 @@ export default function PromptBox({
     <div
       className={`rounded-2xl bg-white border border-slate-200/90 shadow-sm overflow-hidden my-8 transition-all hover:border-blue-300 hover:shadow-md ${className}`}
     >
-      {/* 1. Header Bar: Prompt Number Badge, Title, Model & Aspect Ratio */}
+      {/* 1. Header Bar: Prompt Number Badge & Title */}
       <div className="bg-slate-50/90 px-4 sm:px-5 py-3.5 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2.5">
         <div className="flex flex-wrap items-center gap-2.5">
           {formattedNumber && (
@@ -110,20 +110,6 @@ export default function PromptBox({
           <h4 className="font-bold text-sm sm:text-base text-slate-900 tracking-tight">
             {title}
           </h4>
-        </div>
-
-        <div className="flex items-center gap-2">
-          {aspectRatio && (
-            <span className="text-[11px] font-mono font-semibold px-2 py-0.5 rounded-md bg-white border border-slate-200 text-slate-600">
-              {aspectRatio}
-            </span>
-          )}
-          {model && (
-            <span className="inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
-              <Layers className="w-3 h-3 text-blue-600" />
-              <span>{model}</span>
-            </span>
-          )}
         </div>
       </div>
 
