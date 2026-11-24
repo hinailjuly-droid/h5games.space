@@ -357,8 +357,8 @@ Try different styles with your own photographs, experiment with lighting and bac
       { id: 'prompt-5', title: '5. Festive Outdoor Winter Portrait' },
       { id: 'prompt-6', title: '6. Regal Emerald Velvet Christmas Portrait' },
       { id: 'prompt-7', title: '7. Heartwarming Holiday Dog Portrait' },
-      { id: 'prompt-8', title: '8. Christmas Morning Gift Unwrapping Portrait' },
-      { id: 'prompt-9', title: '9. Holiday Lights Bokeh City Walk' },
+      { id: 'prompt-8', title: '8. Christmas Lights Bokeh Portrait' },
+      { id: 'prompt-9', title: '9. Festive Red Dress Christmas Photoshoot' },
       { id: 'prompt-10', title: '10. Traditional Christmas Dinner Feast Portrait' },
       { id: 'tips', title: 'Tips for Getting the Best Christmas AI Photos' },
       { id: 'faqs', title: 'Frequently Asked Questions' },
@@ -415,16 +415,16 @@ Try different styles with your own photographs, experiment with lighting and bac
         prompt: "Convert the uploaded photograph into a heartwarming, candid Christmas morning portrait. Accurately preserve the person's facial likeness, beard, genuine smile, and natural facial features. Position the person kneeling happily on a soft white faux fur rug, lovingly embracing and nuzzling a beautiful fluffy golden retriever dog that leans affectionately into their chest. Dress the person in a classic red and white plush Santa hat, paired with a cozy cream-colored Nordic knit sweater with brown geometric patterns, grey denim jeans, and festive patterned socks. In the background, set a brightly lit Christmas tree decorated with warm fairy lights and soft pastel ornaments, with wrapped gift packages on the floor and a warm cozy living room setting. Soft diffused morning holiday lighting, shallow depth of field, authentic emotional atmosphere, photorealistic 8k rendering, 1:1 square composition, no text or watermarks.",
       },
       {
-        title: 'Christmas Morning Gift Unwrapping Portrait',
+        title: 'Christmas Lights Bokeh Portrait',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '2:3',
+        aspectRatio: '3:4',
         explanation: 'A joyful Christmas morning scene surrounded by beautifully wrapped presents and morning sunlight.',
         prompt: "Transform the uploaded photograph into a candid, joyful Christmas morning scene. Preserve natural facial identity and expression. Dress the person in festive holiday loungewear or pajamas. Place them beside a brightly lit Christmas tree surrounded by colorful opened and wrapped gift boxes, glossy wrapping paper, and morning sunlight streaming through the window. Warm, authentic photographic feel, vertical 2:3 framing.",
       },
       {
-        title: 'Holiday Lights Bokeh City Walk',
+        title: 'Festive Red Dress Christmas Photoshoot',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '2:3',
+        aspectRatio: '3:4',
         explanation: 'An atmospheric evening street walk surrounded by glowing holiday light installations and festive store windows.',
         prompt: "Convert the uploaded photograph into a cinematic holiday evening street portrait. Preserve facial features and hair naturally. Dress the person in a stylish modern winter trench coat and knit scarf. Place them on an illuminated downtown boulevard decorated with grand Christmas light arches, glowing store windows, and glistening damp pavement with colorful festive reflections. Vertical 2:3 composition, shallow depth of field, photorealistic.",
       },
@@ -537,17 +537,21 @@ In this guide, we present **10 original Christmas AI photo editing prompts** des
 
 ---
 
-## 8. Christmas Morning Gift Unwrapping Portrait {#prompt-8}
+## 8. Christmas Lights Bokeh Portrait {#prompt-8}
 
 **The style:** A joyful Christmas morning scene surrounded by beautifully wrapped presents and morning sunlight.
+
+![Man reading a Christmas storybook in a warmly decorated vintage study.](/blog/christmas/christmas-prompt-08.webp "Man reading a Christmas storybook in a warmly decorated vintage study.")
 
 [PROMPT:8]
 
 ---
 
-## 9. Holiday Lights Bokeh City Walk {#prompt-9}
+## 9. Festive Red Dress Christmas Photoshoot {#prompt-9}
 
 **The style:** An atmospheric evening street walk surrounded by glowing holiday light installations and festive store windows.
+
+![Man celebrating in a snowy Christmas village wearing a red winter jacket.](/blog/christmas/christmas-prompt-09.webp "Man celebrating in a snowy Christmas village wearing a red winter jacket.")
 
 [PROMPT:9]
 
