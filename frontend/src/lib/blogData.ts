@@ -355,8 +355,8 @@ Try different styles with your own photographs, experiment with lighting and bac
       { id: 'prompt-3', title: '3. Snowy Winter Wonderland Portrait' },
       { id: 'prompt-4', title: '4. Santa Hat Studio Portrait' },
       { id: 'prompt-5', title: '5. Festive Outdoor Winter Portrait' },
-      { id: 'prompt-6', title: '6. Elegant Holiday Party Champagne Toast' },
-      { id: 'prompt-7', title: '7. Warm Fireside Reading Christmas Scene' },
+      { id: 'prompt-6', title: '6. Regal Emerald Velvet Christmas Portrait' },
+      { id: 'prompt-7', title: '7. Heartwarming Holiday Dog Portrait' },
       { id: 'prompt-8', title: '8. Christmas Morning Gift Unwrapping Portrait' },
       { id: 'prompt-9', title: '9. Holiday Lights Bokeh City Walk' },
       { id: 'prompt-10', title: '10. Traditional Christmas Dinner Feast Portrait' },
@@ -401,18 +401,18 @@ Try different styles with your own photographs, experiment with lighting and bac
         prompt: "Convert the uploaded photograph into an authentic, joyful winter holiday outdoor portrait. Accurately preserve the person's facial likeness, bone structure, beard, and joyful expression. Position the person standing outdoors with their arms open wide to the sky as gentle snowflakes fall around them. Dress them in a stylish dark winter coat worn over a warm cream ribbed knit sweater, paired with a long textured red wool scarf and dark winter gloves. In the background, set a picturesque snow-covered wooden log cabin illuminated with warm glowing holiday string lights and decorated with a Christmas wreath on the window, nestled among snow-draped pine trees. Cinematic soft snowfall lighting, natural cold-weather skin tones, shallow depth of field, and photorealistic 8k quality. Vertical composition, no text or logos.",
       },
       {
-        title: 'Elegant Holiday Party Champagne Toast',
+        title: 'Regal Emerald Velvet Christmas Portrait',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '2:3',
-        explanation: 'A sophisticated festive celebration scene in an upscale lounge with champagne and gold holiday accents.',
-        prompt: "Use the uploaded photograph to generate a sophisticated holiday party portrait. Preserve facial likeness and bone structure. Dress the person in an elegant evening blazer or holiday cocktail attire, holding a crystal glass of champagne. Set in a luxury festive penthouse with gold Christmas ornaments, champagne towers, and floor-to-ceiling city views at night. Vertical 2:3 composition, crisp lighting, photorealistic.",
+        aspectRatio: '1:1',
+        explanation: 'An aristocratic, high-society holiday portrait blending ornate gold-embroidered emerald velvet attire with a cozy manor fireplace and golden Christmas tree.',
+        prompt: "Transform the uploaded photograph into an ultra-detailed, aristocratic Christmas portrait. Preserve the person's original facial identity, facial structure, handsome features, and dark hairstyle accurately. Dress the person in an opulent deep emerald green velvet frock coat adorned with intricate baroque gold embroidery along the wide lapels and cuffs, layered over a patterned gold brocade waistcoat, black formal shirt, black tie, tailored black trousers, and polished black leather dress shoes. Position the person sitting with legs crossed in a vintage tufted brown leather armchair in a grand Victorian manor. Beside them, feature an ornate carved dark stone fireplace with a crackling fire and burning candle sconces on the mantel, surrounded by neatly wrapped holiday gifts in kraft paper and gold ribbons. In the background, place a towering Christmas tree illuminated with warm golden fairy lights and shiny gold baubles, next to antique oil paintings on wood-paneled walls. Rich warm ambient lighting, elegant festive atmosphere, photorealistic 8k quality, 1:1 square composition, no text or watermarks.",
       },
       {
-        title: 'Warm Fireside Reading Christmas Scene',
+        title: 'Heartwarming Holiday Dog Portrait',
         model: 'Google Gemini & ChatGPT',
-        aspectRatio: '2:3',
-        explanation: 'A peaceful holiday relaxation portrait sitting in a leather armchair beside a glowing hearth with hot cocoa.',
-        prompt: "Transform the uploaded photograph into a serene fireside holiday scene. Preserve the person's facial identity accurately. Position them seated in a comfortable leather armchair with a festive plaid blanket, holding a steaming mug of hot cocoa with marshmallows. In the background, a roaring stone fireplace, decorated mantelpiece with pine garlands, and soft candle glow. Warm golden lighting, vertical 2:3 framing.",
+        aspectRatio: '1:1',
+        explanation: 'A tender holiday portrait capturing the joy and warmth of embracing a golden retriever on Christmas morning beside a glowing tree.',
+        prompt: "Convert the uploaded photograph into a heartwarming, candid Christmas morning portrait. Accurately preserve the person's facial likeness, beard, genuine smile, and natural facial features. Position the person kneeling happily on a soft white faux fur rug, lovingly embracing and nuzzling a beautiful fluffy golden retriever dog that leans affectionately into their chest. Dress the person in a classic red and white plush Santa hat, paired with a cozy cream-colored Nordic knit sweater with brown geometric patterns, grey denim jeans, and festive patterned socks. In the background, set a brightly lit Christmas tree decorated with warm fairy lights and soft pastel ornaments, with wrapped gift packages on the floor and a warm cozy living room setting. Soft diffused morning holiday lighting, shallow depth of field, authentic emotional atmosphere, photorealistic 8k rendering, 1:1 square composition, no text or watermarks.",
       },
       {
         title: 'Christmas Morning Gift Unwrapping Portrait',
@@ -517,17 +517,21 @@ In this guide, we present **10 original Christmas AI photo editing prompts** des
 
 ---
 
-## 6. Elegant Holiday Party Champagne Toast {#prompt-6}
+## 6. Regal Emerald Velvet Christmas Portrait {#prompt-6}
 
-**The style:** A sophisticated festive celebration scene in an upscale lounge with champagne and gold holiday accents.
+**The style:** An aristocratic, high-society holiday aesthetic blending ornate gold-embroidered emerald velvet with classic Victorian library architecture.
+
+![Aristocratic holiday portrait of a man in an embroidered emerald velvet coat seated in a luxury Christmas manor beside a fireplace.](/blog/christmas/regal-emerald-christmas-portrait.webp "Aristocratic holiday portrait in an emerald velvet jacket beside a glowing Christmas hearth.")
 
 [PROMPT:6]
 
 ---
 
-## 7. Warm Fireside Reading Christmas Scene {#prompt-7}
+## 7. Heartwarming Holiday Dog Portrait {#prompt-7}
 
-**The style:** A peaceful holiday relaxation portrait sitting in a leather armchair beside a glowing hearth with hot cocoa.
+**The style:** A tender, candid festive portrait capturing the joy and warmth of celebrating Christmas morning with a golden retriever.
+
+![Heartwarming Christmas portrait of a man wearing a Santa hat kneeling on a fur rug and hugging a golden retriever beside a glowing tree.](/blog/christmas/cozy-christmas-dog-portrait.webp "Heartwarming holiday moment sharing Christmas joy with a golden retriever.")
 
 [PROMPT:7]
 
