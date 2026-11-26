@@ -779,6 +779,8 @@ A cinematic rainy-night photoshoot featuring beautiful reflections, city lights 
 
 Create a dreamy romantic photograph of a couple enjoying a beautiful sunset beside the ocean.
 
+![Romantic couple walking barefoot along a beach at sunset, wearing a cream linen outfit and a flowing floral dress.](/blog/couple/couple-prompt-05.webp "Romantic sunset stroll along a golden beach.")
+
 [PROMPT:5]
 
 ---
