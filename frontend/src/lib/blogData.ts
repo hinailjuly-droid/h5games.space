@@ -582,4 +582,264 @@ Creating Christmas-themed AI portraits is a fun, creative way to celebrate the h
 Happy holidays and merry Christmas!
     `,
   },
+  {
+    _id: 'article-romantic-couple',
+    title: '10 Best Romantic Couple AI Photo Editing Prompts for Gemini and ChatGPT (2026)',
+    slug: 'best-romantic-couple-ai-photo-editing-prompts',
+    excerpt: "Want to turn an ordinary couple photograph into a beautiful romantic photoshoot? Explore 10 romantic couple AI photo editing prompts for Google Gemini and ChatGPT.",
+    coverImage: '/blog/couple/couple-prompt-01.webp',
+    coverImageAlt: 'Romantic Indian couple wearing a traditional red silk saree and embroidered ivory kurta in a decorated Indian courtyard.',
+    category: 'AI Photo Editing',
+    categorySlug: 'ai-photo-editing',
+    tags: ['Romantic Couple', 'Couple Prompts', 'AI Photo Editing', 'Google Gemini', 'ChatGPT', 'Pre-Wedding'],
+    author: {
+      name: 'Elena Rostova',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
+      role: 'Prompt Engineer & Photographer',
+    },
+    readTime: '8 min read',
+    publishedAt: '2026-11-26',
+    updatedAt: '2026-11-26',
+    featured: true,
+    popular: true,
+    relatedPromptCategory: 'couple',
+    toc: [
+      { id: 'how-to-create', title: 'How to Create Romantic Couple Photos Using Gemini' },
+      { id: 'prompt-1', title: '1. Traditional Indian Couple in Saree and Kurta' },
+      { id: 'prompt-2', title: '2. Royal Couple in Luxury Western Outfits' },
+      { id: 'prompt-3', title: '3. Romantic Indian Pre-Wedding Photoshoot' },
+      { id: 'prompt-4', title: '4. Rainy Night Romantic Couple Portrait' },
+      { id: 'prompt-5', title: '5. Sunset Beach Romantic Photoshoot' },
+      { id: 'prompt-6', title: '6. Royal Indian Palace Couple Portrait' },
+      { id: 'prompt-7', title: '7. Cozy Winter Romantic Couple Portrait' },
+      { id: 'prompt-8', title: '8. Luxury Garden Romantic Photoshoot' },
+      { id: 'prompt-9', title: '9. Vintage Romantic Couple Photography' },
+      { id: 'prompt-10', title: '10. Fairytale Romantic Garden Photoshoot' },
+      { id: 'tips', title: 'Tips for Better Romantic Couple AI Photos' },
+      { id: 'final-thoughts', title: 'Final Thoughts' },
+      { id: 'faqs', title: 'Frequently Asked Questions' },
+    ],
+    prompts: [
+      {
+        title: 'Traditional Indian Couple in Saree and Kurta',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '4:5',
+        explanation: 'Create a beautiful desi romantic portrait featuring a woman wearing an elegant traditional saree and a man dressed in a matching kurta.',
+        prompt: "Transform the uploaded couple photograph into a stunning traditional Indian romantic photoshoot. Preserve both individuals' original facial identities, facial structures, skin tones and recognizable features. Dress the woman in a luxurious deep-red silk saree with intricate golden embroidery, traditional jewellery, elegant earrings and a beautifully styled hairstyle. Dress the man in an elegant cream-coloured embroidered kurta with a matching churidar. Position the couple standing close together in a beautifully decorated traditional Indian courtyard with warm golden lanterns, marigold flowers, carved pillars and subtle festive decorations. Capture a natural romantic moment with the woman gently holding the man's hand while they exchange affectionate smiles. Use professional Indian wedding photography, warm cinematic lighting, realistic fabric textures and premium editorial photography. Vertical 4:5 composition.",
+      },
+      {
+        title: 'Royal Couple in Luxury Western Outfits',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '4:5',
+        explanation: 'Create a sophisticated romantic portrait featuring a man in a perfectly tailored formal suit and a woman wearing a luxurious evening gown.',
+        prompt: "Transform the uploaded couple photograph into an elegant luxury romantic photoshoot. Preserve both individuals' original facial identities and recognizable features. Dress the man in a perfectly tailored black tuxedo with a crisp white shirt and black bow tie. Dress the woman in an elegant champagne-gold evening gown with delicate detailing and flowing fabric. Position the couple inside a luxurious European ballroom featuring grand chandeliers, marble flooring, golden architectural details and elegant floral arrangements. Show the man gently holding his partner's hand while she looks towards him with a natural smile. Use sophisticated fashion photography, cinematic golden lighting, realistic skin textures and high-end editorial photography. Create an atmosphere of timeless luxury and romance.",
+      },
+      {
+        title: 'Romantic Indian Pre-Wedding Photoshoot',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '4:5',
+        explanation: 'Create a cinematic pre-wedding photograph inspired by professional Indian wedding photography, with beautiful traditional clothing and a dreamy outdoor location.',
+        prompt: "Transform the uploaded couple photograph into a cinematic Indian pre-wedding photoshoot. Preserve both individuals' original facial identities and natural appearances. Dress the woman in a flowing pastel-pink lehenga with delicate floral embroidery and elegant jewellery. Dress the man in an ivory sherwani with subtle embroidery. Position the couple in a beautiful palace garden surrounded by blooming flowers, elegant fountains and decorative architecture. Capture the woman gently resting her head against her partner's shoulder while he holds her hand. Use soft golden-hour sunlight, cinematic depth of field, professional wedding photography and realistic clothing details. Create a romantic luxury pre-wedding photography aesthetic.",
+      },
+      {
+        title: 'Rainy Night Romantic Couple Portrait',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '4:5',
+        explanation: 'A cinematic rainy-night photoshoot featuring beautiful reflections, city lights and an intimate romantic moment.',
+        prompt: "Transform the uploaded couple photograph into a cinematic romantic nighttime portrait. Preserve both individuals' original facial identities and recognizable features. Dress the man in a sophisticated dark formal outfit and the woman in an elegant black evening dress. Position the couple standing beneath a transparent umbrella on a beautiful city street during gentle rainfall. Capture the man gently holding the woman's waist while they look into each other's eyes. Add reflections of warm streetlights, blurred neon signs, wet pavement and soft raindrops. Use dramatic cinematic lighting, realistic water reflections, professional nighttime photography and beautiful shallow depth of field. Create an intimate romantic movie-scene atmosphere.",
+      },
+      {
+        title: 'Sunset Beach Romantic Photoshoot',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '4:5',
+        explanation: 'Create a dreamy romantic photograph of a couple enjoying a beautiful sunset beside the ocean.',
+        prompt: "Transform the uploaded couple photograph into a breathtaking sunset beach photoshoot. Preserve both individuals' original facial identities, facial structures and recognizable features. Dress the woman in a flowing elegant pastel-white summer dress and the man in a relaxed beige linen shirt with matching trousers. Position the couple walking barefoot along the shoreline while holding hands. Capture a natural moment with the woman turning towards her partner as the wind gently moves her dress and hair. Include beautiful ocean waves, golden sunlight reflecting on the water, distant clouds and a warm sunset sky. Use professional romantic lifestyle photography, natural lighting, cinematic composition and realistic environmental details.",
+      },
+      {
+        title: 'Royal Indian Palace Couple Portrait',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '4:5',
+        explanation: 'Create a royal Indian couple portrait inspired by traditional palace photography, featuring luxurious ethnic clothing and magnificent architecture.',
+        prompt: "Transform the uploaded couple photograph into a royal Indian palace photoshoot. Preserve both individuals' original facial identities and recognizable features. Dress the woman in an elaborate royal maroon lehenga with detailed gold embroidery, traditional kundan jewellery and an elegant dupatta. Dress the man in a luxurious ivory sherwani with gold detailing and a traditional stole. Position the couple inside a magnificent Rajasthani palace courtyard featuring carved marble pillars, traditional arches, ornate doors and elegant chandeliers. Capture the man standing confidently beside his partner as she gently holds his arm. Use rich royal colours, dramatic architectural lighting, realistic fabric details and premium Indian wedding editorial photography.",
+      },
+      {
+        title: 'Cozy Winter Romantic Couple Portrait',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '4:5',
+        explanation: 'Create a warm and intimate winter photograph featuring a couple enjoying a peaceful moment together in a beautiful winter setting.',
+        prompt: "Transform the uploaded couple photograph into a cozy winter romantic portrait. Preserve both individuals' original facial identities and recognizable features. Dress the woman in an elegant cream winter coat, knitted scarf and gloves. Dress the man in a stylish dark wool coat and a matching winter scarf. Position the couple sitting close together on a wooden bench overlooking a snow-covered mountain village. Capture a natural affectionate moment as they hold warm coffee mugs and smile at each other. Include gently falling snow, pine trees, warm cabin lights and beautiful mountain scenery. Use soft winter lighting, realistic snow textures and professional lifestyle photography.",
+      },
+      {
+        title: 'Luxury Garden Romantic Photoshoot',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '4:5',
+        explanation: 'A beautiful outdoor romantic portrait featuring elegant outfits, blooming flowers and a sophisticated garden setting.',
+        prompt: "Transform the uploaded couple photograph into a luxury garden romantic photoshoot. Preserve both individuals' original facial identities and recognizable features. Dress the woman in an elegant flowing pastel-lavender gown and the man in a perfectly fitted navy-blue formal suit. Position the couple in a beautifully landscaped European garden featuring blooming roses, decorative pathways, elegant fountains and lush greenery. Capture a natural moment as the man gently kisses the woman's hand while she smiles. Use soft afternoon sunlight, beautiful floral details, professional fashion photography and cinematic depth of field. Create an elegant romantic editorial atmosphere.",
+      },
+      {
+        title: 'Vintage Romantic Couple Photography',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '4:5',
+        explanation: 'Give your couple photograph a timeless vintage appearance inspired by classic romantic film photography.',
+        prompt: "Transform the uploaded couple photograph into a timeless vintage romantic portrait. Preserve both individuals' original facial identities and recognizable features. Dress the woman in an elegant vintage cream-coloured dress with delicate lace details and the man in a classic brown formal suit with a white shirt. Position the couple inside a charming old European café with wooden furniture, vintage windows, warm table lamps and subtle floral decorations. Capture a candid moment as they sit opposite each other, smiling and enjoying a quiet conversation. Apply subtle analog film grain, warm muted colours, natural soft lighting and authentic vintage editorial photography.",
+      },
+      {
+        title: 'Fairytale Romantic Garden Photoshoot',
+        model: 'Google Gemini & ChatGPT',
+        aspectRatio: '4:5',
+        explanation: 'Create a magical romantic portrait featuring dreamy lighting, beautiful outfits and a fairytale-inspired garden.',
+        prompt: "Transform the uploaded couple photograph into a magical fairytale romantic photoshoot. Preserve both individuals' original facial identities and recognizable features. Dress the woman in an elegant flowing blush-pink gown with delicate floral detailing and the man in a sophisticated cream formal suit. Position the couple in an enchanted garden surrounded by blooming flowers, glowing fairy lights, beautiful trees and a romantic floral arch. Capture the couple dancing together while the woman's gown flows naturally with the movement. Add soft glowing particles, dreamy golden-hour lighting, cinematic depth of field and realistic photography textures. Create an enchanting luxury romantic portrait.",
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I create romantic couple photos using Gemini?',
+        answer: 'Yes. Upload your couple photograph to Google Gemini and use a detailed image-editing prompt to create a romantic portrait.',
+      },
+      {
+        question: 'Can I use these prompts with ChatGPT?',
+        answer: "Yes. These prompts can be used with ChatGPT's image generation and editing capabilities.",
+      },
+      {
+        question: "Can AI preserve both people's faces?",
+        answer: 'AI can attempt to preserve the original facial identities when provided with clear reference photographs, although results may vary.',
+      },
+      {
+        question: 'Can I create traditional Indian couple photos using AI?',
+        answer: 'Yes. You can describe sarees, kurtas, lehengas, sherwanis, traditional jewellery and Indian wedding locations to create different desi couple photography styles.',
+      },
+      {
+        question: 'Are these romantic couple prompts free?',
+        answer: 'Yes. The prompts are free to copy. However, image-generation limits and subscription requirements depend on the platform.',
+      },
+    ],
+    content: `
+Want to turn an ordinary couple photograph into a beautiful romantic photoshoot? AI image generators can help you create stunning couple portraits without booking an expensive photographer or visiting a professional studio.
+
+Whether you want a traditional Indian couple photoshoot featuring a beautiful saree and kurta, an elegant Western-style portrait with a formal suit and evening gown, or a dreamy pre-wedding photograph, the right AI prompt can transform your pictures into something special.
+
+In this guide, we've collected **10 romantic couple AI photo editing prompts** that you can try with **Google Gemini** and **ChatGPT**. Each prompt features a different photography style, outfit, pose and environment.
+
+---
+
+## How to Create Romantic Couple Photos Using Gemini {#how-to-create}
+
+1. Choose a clear photograph of yourself and your partner.
+2. Open Google Gemini or ChatGPT.
+3. Upload your couple photograph.
+4. Copy your favourite prompt from this article.
+5. Paste it into the AI image generator.
+6. Generate your photograph and request adjustments if needed.
+
+For the best results, use a clear reference photograph and include instructions to preserve both people's original facial identities.
+
+---
+
+## 1. Traditional Indian Couple in Saree and Kurta {#prompt-1}
+
+Create a beautiful desi romantic portrait featuring a woman wearing an elegant traditional saree and a man dressed in a matching kurta. This style is perfect for couples who love Indian traditional fashion.
+
+![Romantic Indian couple wearing a traditional red silk saree and embroidered ivory kurta in a decorated Indian courtyard.](/blog/couple/couple-prompt-01.webp "Traditional Indian couple portrait in elegant festive attire.")
+
+[PROMPT:1]
+
+---
+
+## 2. Royal Couple in Luxury Western Outfits {#prompt-2}
+
+Create a sophisticated romantic portrait featuring a man in a perfectly tailored formal suit and a woman wearing a luxurious evening gown.
+
+![Romantic couple wearing a black tuxedo and champagne-gold evening gown in a luxurious ballroom.](/blog/couple/couple-prompt-02.webp "Elegant couple portrait in luxury evening attire.")
+
+[PROMPT:2]
+
+---
+
+## 3. Romantic Indian Pre-Wedding Photoshoot {#prompt-3}
+
+Create a cinematic pre-wedding photograph inspired by professional Indian wedding photography, with beautiful traditional clothing and a dreamy outdoor location.
+
+[PROMPT:3]
+
+---
+
+## 4. Rainy Night Romantic Couple Portrait {#prompt-4}
+
+A cinematic rainy-night photoshoot featuring beautiful reflections, city lights and an intimate romantic moment.
+
+[PROMPT:4]
+
+---
+
+## 5. Sunset Beach Romantic Photoshoot {#prompt-5}
+
+Create a dreamy romantic photograph of a couple enjoying a beautiful sunset beside the ocean.
+
+[PROMPT:5]
+
+---
+
+## 6. Royal Indian Palace Couple Portrait {#prompt-6}
+
+Create a royal Indian couple portrait inspired by traditional palace photography, featuring luxurious ethnic clothing and magnificent architecture.
+
+[PROMPT:6]
+
+---
+
+## 7. Cozy Winter Romantic Couple Portrait {#prompt-7}
+
+Create a warm and intimate winter photograph featuring a couple enjoying a peaceful moment together in a beautiful winter setting.
+
+[PROMPT:7]
+
+---
+
+## 8. Luxury Garden Romantic Photoshoot {#prompt-8}
+
+A beautiful outdoor romantic portrait featuring elegant outfits, blooming flowers and a sophisticated garden setting.
+
+[PROMPT:8]
+
+---
+
+## 9. Vintage Romantic Couple Photography {#prompt-9}
+
+Give your couple photograph a timeless vintage appearance inspired by classic romantic film photography.
+
+[PROMPT:9]
+
+---
+
+## 10. Fairytale Romantic Garden Photoshoot {#prompt-10}
+
+Create a magical romantic portrait featuring dreamy lighting, beautiful outfits and a fairytale-inspired garden.
+
+[PROMPT:10]
+
+---
+
+## Tips for Better Romantic Couple AI Photos {#tips}
+
+### Preserve both facial identities
+Always tell the AI to maintain both people's original facial features, face shapes and recognizable appearances.
+
+### Use clear reference photographs
+Choose photographs where both faces are visible and well-lit.
+
+### Experiment with different outfits
+Try traditional Indian clothing, formal suits, elegant dresses and casual romantic outfits.
+
+### Avoid unnatural poses
+Ask the AI to create natural interactions such as holding hands, looking into each other's eyes or sharing a genuine smile.
+
+---
+
+## Final Thoughts {#final-thoughts}
+
+Romantic couple photography doesn't always require a professional photoshoot. With the right AI prompts, you can experiment with traditional Indian outfits, luxurious formal fashion, dreamy outdoor settings and cinematic romantic scenes.
+
+Try different styles, preserve your favourite memories and create beautiful couple portraits worth sharing.
+    `,
+  },
 ];
