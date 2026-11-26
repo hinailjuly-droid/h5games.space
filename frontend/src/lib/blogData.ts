@@ -799,6 +799,8 @@ Create a royal Indian couple portrait inspired by traditional palace photography
 
 Create a warm and intimate winter photograph featuring a couple enjoying a peaceful moment together in a beautiful winter setting.
 
+![Romantic Indian couple in traditional ivory and burgundy outfits, with the man looking directly at the camera and the woman resting her head against him.](/blog/couple/couple-prompt-07.webp "Intimate couple portrait in elegant traditional winter attire.")
+
 [PROMPT:7]
 
 ---
