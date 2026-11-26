@@ -759,6 +759,8 @@ Create a sophisticated romantic portrait featuring a man in a perfectly tailored
 
 Create a cinematic pre-wedding photograph inspired by professional Indian wedding photography, with beautiful traditional clothing and a dreamy outdoor location.
 
+![Indian pre-wedding couple wearing an ivory sherwani and blush-pink lehenga in a romantic palace garden.](/blog/couple/couple-prompt-03.webp "Romantic Indian pre-wedding portrait in pastel wedding attire.")
+
 [PROMPT:3]
 
 ---
