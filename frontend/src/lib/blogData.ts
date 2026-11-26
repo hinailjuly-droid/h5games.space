@@ -769,6 +769,8 @@ Create a cinematic pre-wedding photograph inspired by professional Indian weddin
 
 A cinematic rainy-night photoshoot featuring beautiful reflections, city lights and an intimate romantic moment.
 
+![Romantic couple in elegant black outfits sharing an intimate moment under a transparent umbrella on a rainy city street at night.](/blog/couple/couple-prompt-04.webp "Romantic rainy-night couple portrait beneath a glowing umbrella.")
+
 [PROMPT:4]
 
 ---
