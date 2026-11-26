@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     title: "h5games — Curated AI Prompts for Google Gemini & ChatGPT",
     description: "Explore, inspect, and copy 100+ curated AI art prompts for Google Gemini and ChatGPT.",
   },
+  verification: {
+    google: "klhefXtPtglnAChIv7xhLIMBSsdlXOQxO3dlcrckAcI",
+  },
 };
 
 export default function RootLayout({
