@@ -789,6 +789,8 @@ Create a dreamy romantic photograph of a couple enjoying a beautiful sunset besi
 
 Create a royal Indian couple portrait inspired by traditional palace photography, featuring luxurious ethnic clothing and magnificent architecture.
 
+![Royal Indian couple in an embroidered ivory sherwani and maroon lehenga posing on the steps of an ornate Indian palace.](/blog/couple/couple-prompt-06.webp "Royal Indian couple portrait in a traditional palace courtyard.")
+
 [PROMPT:6]
 
 ---
